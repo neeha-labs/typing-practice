@@ -7,7 +7,7 @@ const HindiTyping: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="Hindi Typing Test - KrutiDev & Mangal Remington GAIL" 
+        title="Hindi Typing Test – KrutiDev & Mangal Remington GAIL" 
         description="Practice Hindi typing for UP Police, High Court, and state government exams. Online practice tools for KrutiDev 010 and Mangal Remington GAIL layouts." 
       />
 
@@ -17,20 +17,20 @@ const HindiTyping: React.FC = () => {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+        <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col">
           <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 font-bold">क</div>
           <h2 className="text-2xl font-bold mb-4 text-slate-900">KrutiDev 010</h2>
           <p className="text-slate-500 mb-6 leading-relaxed">Most popular legacy font for Hindi typing exams in Uttar Pradesh and MP government jobs.</p>
-          <button disabled className="w-full bg-slate-100 text-slate-400 py-3 rounded-xl font-semibold cursor-not-allowed">
+          <button disabled className="w-full bg-slate-100 text-slate-400 py-3 rounded-xl font-semibold cursor-not-allowed mt-auto">
             Coming Soon
           </button>
         </div>
 
-        <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+        <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col">
           <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 font-bold">अ</div>
           <h2 className="text-2xl font-bold mb-4 text-slate-900">Mangal (Remington GAIL)</h2>
           <p className="text-slate-500 mb-6 leading-relaxed">The modern standard for CPCT and High Court exams across India. Unicode based.</p>
-          <button disabled className="w-full bg-slate-100 text-slate-400 py-3 rounded-xl font-semibold cursor-not-allowed">
+          <button disabled className="w-full bg-slate-100 text-slate-400 py-3 rounded-xl font-semibold cursor-not-allowed mt-auto">
             Coming Soon
           </button>
         </div>

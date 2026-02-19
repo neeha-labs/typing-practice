@@ -109,7 +109,7 @@ const TypingArea: React.FC<TypingAreaProps> = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         <StatCard label="WPM" value={currentStats.wpm} color="text-blue-600" />
         <StatCard label="Accuracy" value={`${currentStats.accuracy}%`} color="text-emerald-600" />
         <StatCard label="Time Left" value={`${timeLeft}s`} color="text-amber-600" />
@@ -119,7 +119,7 @@ const TypingArea: React.FC<TypingAreaProps> = ({
       <div className="relative group">
         <div 
           ref={containerRef}
-          className="bg-white border-2 border-slate-200 rounded-xl p-8 min-h-[300px] leading-relaxed text-2xl mono tracking-tight select-none cursor-text shadow-sm group-hover:border-blue-200 transition-colors"
+          className="bg-white border-2 border-slate-200 rounded-xl p-4 md:p-8 min-h-[250px] md:min-h-[300px] leading-relaxed text-lg md:text-2xl mono tracking-tight select-none cursor-text shadow-sm group-hover:border-blue-200 transition-colors overflow-y-auto max-h-[50vh]"
           onClick={() => inputRef.current?.focus()}
         >
           {targetText.split('').map((char, index) => {
@@ -212,11 +212,11 @@ const TypingArea: React.FC<TypingAreaProps> = ({
   );
 };
 
-const StatCard = ({ label, value, color }: { label: string, value: string | number, color: string }) => (
+const StatCard = React.memo(({ label, value, color }: { label: string, value: string | number, color: string }) => (
   <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
     <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{label}</span>
     <div className={`text-2xl font-bold ${color} mt-1`}>{value}</div>
   </div>
-);
+));
 
 export default TypingArea;

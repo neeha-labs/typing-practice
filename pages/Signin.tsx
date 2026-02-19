@@ -24,7 +24,7 @@ const Signin: React.FC = () => {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-50">
       <SEO 
         title={isLogin ? "Sign In to Your Account" : "Create a Free Account"} 
-        description="Join TypingPractice.in to track your WPM growth, save exam history, and earn certificates." 
+        description="Join Typing-Practice.online to track your WPM growth, save exam history, and earn certificates." 
         noIndex={true}
       />
       

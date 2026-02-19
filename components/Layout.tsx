@@ -32,12 +32,15 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Typing Test', path: '/typing-test' },
+    { name: 'Lessons', path: '/lessons' },
     { name: 'Exam Mode', path: '/exam-mode' },
-    { name: 'Practice', path: '/practice' },
-    { name: 'Hindi Typing', path: '/hindi' },
+    { name: 'Hindi', path: '/hindi' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -48,7 +51,7 @@ const Navbar: React.FC = () => {
               <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
                 <span className="text-white font-bold text-xl italic">T</span>
               </div>
-              <span className="text-xl font-bold text-slate-900 tracking-tight">TypingPractice<span className="text-blue-600">.in</span></span>
+              <span className="text-xl font-bold text-slate-900 tracking-tight">Typing-Practice<span className="text-blue-600">.online</span></span>
             </Link>
             <div className="hidden md:ml-8 md:flex md:space-x-4">
               {navLinks.map((link) => (
@@ -176,19 +179,30 @@ const Footer: React.FC = () => {
               <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
                 <span className="text-white font-bold text-sm">T</span>
               </div>
-              <span className="text-lg font-bold text-slate-900 tracking-tight">TypingPractice<span className="text-blue-600">.in</span></span>
+              <span className="text-lg font-bold text-slate-900 tracking-tight">Typing-Practice<span className="text-blue-600">.online</span></span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
               Empowering learners to master the art of touch typing with precision and speed for exams and productivity.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Tests</h4>
+            <h4 className="font-semibold text-slate-900 mb-4">Typing Tests</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/typing-test?duration=60" className="hover:text-blue-600">1 Minute Test</Link></li>
-              <li><Link to="/typing-test?duration=300" className="hover:text-blue-600">5 Minute Test</Link></li>
-              <li><Link to="/exam-mode?type=ssc-chsl" className="hover:text-blue-600">SSC CHSL Mock</Link></li>
-              <li><Link to="/hindi" className="hover:text-blue-600">Hindi Typing</Link></li>
+              <li><Link to="/typing-test/1-minute" className="hover:text-blue-600">1 Minute Typing Test</Link></li>
+              <li><Link to="/typing-test/5-minute" className="hover:text-blue-600">5 Minute Typing Test</Link></li>
+              <li><Link to="/typing-test/10-minute" className="hover:text-blue-600">10 Minute Typing Test</Link></li>
+              <li><Link to="/exam-mode" className="hover:text-blue-600">Exam Mock Tests</Link></li>
+              <li><Link to="/hindi" className="hover:text-blue-600">Hindi Typing Test</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-slate-900 mb-4">Resources</h4>
+            <ul className="space-y-2 text-sm text-slate-500">
+              <li><Link to="/lessons" className="hover:text-blue-600">Typing Lessons</Link></li>
+              <li><Link to="/tools/wpm-calculator" className="hover:text-blue-600">WPM Calculator</Link></li>
+              <li><Link to="/tools/typing-accuracy-calculator" className="hover:text-blue-600">Accuracy Calculator</Link></li>
+              <li><Link to="/blog" className="hover:text-blue-600">Typing Blog</Link></li>
+              <li><Link to="/blog/government-exam-typing-tips" className="hover:text-blue-600">Exam Tips</Link></li>
             </ul>
           </div>
           <div>

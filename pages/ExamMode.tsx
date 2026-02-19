@@ -59,7 +59,7 @@ const ExamMode: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="Government Exam Simulation - SSC & Banking Typing Mocks" 
+        title="Government Exam Simulation – SSC & Banking Typing Mocks" 
         description="Simulate real government typing exams like SSC CHSL, CGL, and Banking. Practice with strict accuracy norms and official WPM calculation methods." 
       />
 
