@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --animate-bounce-short: bounce-short 1s infinite;
+  
+  @keyframes bounce-short {
+    0%, 100% { transform: translateY(-2%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+    50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-slate-50 text-slate-900 antialiased;
+  }
+
+  /* Typography System */
+  .prose {
+    @apply text-slate-600 leading-relaxed;
+  }
+
+  .prose p {
+    @apply mb-6;
+  }
+
+  .prose h1 {
+    @apply text-4xl font-extrabold text-slate-900 mb-8 mt-12;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mb-4 mt-10 border-b border-slate-200 pb-2;
+  }
+
+  .prose h3 {
+    @apply text-xl font-bold text-slate-900 mb-3 mt-8;
+  }
+
+  .prose ul {
+    @apply list-disc list-inside mb-6 space-y-2;
+  }
+
+  .prose ol {
+    @apply list-decimal list-inside mb-6 space-y-2;
+  }
+
+  .prose li {
+    @apply pl-2;
+  }
+
+  .prose strong {
+    @apply font-bold text-slate-900;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-blue-500 pl-6 py-2 italic text-slate-700 bg-blue-50/50 rounded-r-xl mb-6;
+  }
+
+  .prose code {
+    @apply bg-slate-100 text-blue-600 px-1.5 py-0.5 rounded font-mono text-sm;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}

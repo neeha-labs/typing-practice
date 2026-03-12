@@ -30,8 +30,10 @@ const Signin: React.FC = () => {
       
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50">
         <div className="text-center">
-          <div className="mx-auto h-12 w-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-            <span className="text-white font-bold text-2xl">T</span>
+          <div className="mx-auto flex items-center justify-center w-10 h-10 bg-slate-900 rounded-xl shadow-lg mb-4">
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h12a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
           </div>
           <h2 className="text-3xl font-extrabold text-gray-900">
             {isLogin ? "Welcome back" : "Start Tracking Growth"}

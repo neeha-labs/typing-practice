@@ -1,0 +1,116 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: {userId}
+    // Fields:
+    //   - uid: string (required)
+    //   - email: string (required)
+    //   - displayName: string (optional)
+    //   - photoURL: string (optional)
+    //   - createdAt: timestamp (required)
+    //   - streak: number (required)
+    //   - lastPracticeDate: string (optional)
+    //   - totalTests: number (required)
+    //
+    // Collection: typing_results
+    // Document ID: {resultId}
+    // Fields:
+    //   - userId: string (required)
+    //   - username: string (required)
+    //   - wpm: number (required)
+    //   - accuracy: number (required)
+    //   - testType: string (required)
+    //   - duration: number (required)
+    //   - mode: string (required)
+    //   - mistypedKeys: map (optional)
+    //   - createdAt: timestamp (required)
+    //
+    // ===============================================================
+
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+
+    function uidUnchanged() {
+      return !('userId' in request.resource.data) || request.resource.data.userId == request.auth.uid;
+    }
+
+    function userIdUnchanged() {
+      return !('userId' in request.resource.data) || request.resource.data.userId == request.auth.uid;
+    }
+
+    function uidNotModified() {
+      return !('userId' in request.resource.data) || request.resource.data.userId == resource.data.userId;
+    }
+
+    function userIdNotModified() {
+      return !('userId' in request.resource.data) || request.resource.data.userId == resource.data.userId;
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    // Domain Validators
+    function isValidUser(data) {
+      return hasOnlyAllowedFields(['userId', 'email', 'username', 'photoURL', 'createdAt', 'streak', 'lastPracticeDate', 'totalTests']) &&
+             data.userId is string && data.userId.size() > 0 && data.userId.size() < 128 &&
+             data.email is string && isValidEmail(data.email) &&
+             (!('username' in data) || (data.username is string && data.username.size() <= 100)) &&
+             (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 2048)) &&
+             data.createdAt is timestamp &&
+             data.streak is number && data.streak >= 0 &&
+             (!('lastPracticeDate' in data) || (data.lastPracticeDate is string && data.lastPracticeDate.size() <= 20)) &&
+             data.totalTests is number && data.totalTests >= 0;
+    }
+
+    function isValidTestResult(data) {
+      return hasOnlyAllowedFields(['userId', 'username', 'wpm', 'accuracy', 'testType', 'duration', 'mode', 'mistypedKeys', 'createdAt']) &&
+             data.userId is string && data.userId.size() > 0 && data.userId.size() < 128 &&
+             data.username is string && data.username.size() > 0 && data.username.size() <= 100 &&
+             data.wpm is number && data.wpm >= 0 && data.wpm <= 300 &&
+             data.accuracy is number && data.accuracy >= 0 && data.accuracy <= 100 &&
+             data.testType is string && data.testType.size() <= 50 &&
+             data.duration is number && data.duration > 0 &&
+             data.mode is string && data.mode.size() <= 50 &&
+             (!('mistypedKeys' in data) || data.mistypedKeys is map) &&
+             data.createdAt is timestamp;
+    }
+
+    match /users/{userId} {
+      allow read: if true;
+      allow create: if isOwner(userId) && isValidUser(request.resource.data) && uidUnchanged();
+      allow update: if isOwner(userId) && isValidUser(request.resource.data) && uidNotModified() && request.resource.data.createdAt == resource.data.createdAt;
+    }
+
+    match /typing_results/{resultId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && isValidTestResult(request.resource.data) && userIdUnchanged();
+      allow update: if false; // Test results are immutable
+      allow delete: if false;
+    }
+  }
+}

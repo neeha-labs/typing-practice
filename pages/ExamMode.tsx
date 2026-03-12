@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import { EXAM_MODES, DURATION_TEXTS } from '../constants';
@@ -63,6 +63,13 @@ const ExamMode: React.FC = () => {
         description="Simulate real government typing exams like SSC CHSL, CGL, and Banking. Practice with strict accuracy norms and official WPM calculation methods." 
       />
 
+      <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </Link>
+
       <div className="mb-12">
         <h1 className="text-3xl font-bold text-slate-900 mb-2">Exam Simulation Center</h1>
         <p className="text-slate-500">Choose your target exam to start a simulated typing test with official rules.</p>
@@ -122,6 +129,7 @@ const ExamMode: React.FC = () => {
             onFinish={(stats) => console.log('Exam Finished', stats)}
             showHighlight={selectedExam?.highlightEnabled}
             allowBackspace={selectedExam?.backspaceAllowed}
+            mode={selectedExam?.id || 'exam'}
           />
 
           <div className="flex justify-center pt-8">

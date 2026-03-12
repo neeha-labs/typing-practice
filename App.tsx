@@ -1,6 +1,6 @@
 
 import React, { Suspense, lazy } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,6 +14,8 @@ const HindiTyping = lazy(() => import('./pages/HindiTyping'));
 const Signin = lazy(() => import('./pages/Signin'));
 const Tools = lazy(() => import('./pages/Tools'));
 const Blog = lazy(() => import('./pages/Blog'));
+const Leaderboard = lazy(() => import('./pages/Leaderboard'));
+const Profile = lazy(() => import('./pages/Profile'));
 const About = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.Contact })));
 const Privacy = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.Privacy })));
@@ -37,12 +39,24 @@ const App: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/typing-test" element={<TypingTest />} />
               <Route path="/typing-test/:duration" element={<TypingTest />} />
+              
+              {/* SEO Pages */}
+              <Route path="/typing-speed-test" element={<TypingTest />} />
+              <Route path="/1-minute-typing-test" element={<TypingTest />} />
+              <Route path="/5-minute-typing-test" element={<TypingTest />} />
+              <Route path="/10-minute-typing-test" element={<TypingTest />} />
+              <Route path="/ssc-typing-test-practice" element={<ExamMode />} />
+              <Route path="/how-to-improve-typing-speed" element={<Blog predefinedPostId="how-to-improve-typing-speed" />} />
+              <Route path="/typing-practice-for-government-exams" element={<Blog predefinedPostId="government-exam-typing-tips" />} />
+
               <Route path="/lessons" element={<Lessons />} />
               <Route path="/lessons/:level" element={<Lessons />} />
               <Route path="/exam-mode" element={<ExamMode />} />
               <Route path="/practice" element={<Lessons />} />
               <Route path="/hindi" element={<HindiTyping />} />
               <Route path="/signin" element={<Signin />} />
+              <Route path="/leaderboard" element={<Leaderboard />} />
+              <Route path="/profile" element={<Profile />} />
               
               {/* Tools & Blog Routes */}
               <Route path="/tools" element={<Tools />} />

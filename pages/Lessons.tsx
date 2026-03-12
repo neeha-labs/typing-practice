@@ -60,6 +60,14 @@ const Lessons: React.FC = () => {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
         <SEO title={seo.title} description={seo.description} />
+        
+        <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Home
+        </Link>
+
         <div className="text-center mb-16">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Typing Lessons Hub</h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">Structured learning paths designed to take you from zero to pro. Choose your starting point.</p>
@@ -124,6 +132,13 @@ const Lessons: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO title={seo.title} description={seo.description} />
+
+      <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </Link>
 
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>

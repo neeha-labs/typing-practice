@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams, useParams, Link, useNavigate } from 'react-router-dom';
+import { useSearchParams, useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import { DURATION_TEXTS } from '../constants';
@@ -10,6 +10,7 @@ const TypingTest: React.FC = () => {
   const { duration: durationParam } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [duration, setDuration] = useState<number | null>(null);
   const [testStarted, setTestStarted] = useState(false);
   const [targetText, setTargetText] = useState('');
@@ -17,7 +18,17 @@ const TypingTest: React.FC = () => {
 
   // Map duration slug to seconds
   useEffect(() => {
-    if (durationParam) {
+    const path = location.pathname;
+    if (path === '/1-minute-typing-test') {
+      setDuration(60);
+      setTestStarted(false);
+    } else if (path === '/5-minute-typing-test') {
+      setDuration(300);
+      setTestStarted(false);
+    } else if (path === '/10-minute-typing-test') {
+      setDuration(600);
+      setTestStarted(false);
+    } else if (durationParam) {
       if (durationParam === '1-minute') setDuration(60);
       else if (durationParam === '5-minute') setDuration(300);
       else if (durationParam === '10-minute') setDuration(600);
@@ -36,7 +47,7 @@ const TypingTest: React.FC = () => {
         setDuration(null);
       }
     }
-  }, [durationParam, searchParams]);
+  }, [durationParam, searchParams, location.pathname]);
 
   // Dynamic SEO based on duration
   const getSEOData = () => {
@@ -97,6 +108,14 @@ const TypingTest: React.FC = () => {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
         <SEO title={seo.title} description={seo.description} />
+
+        <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Home
+        </Link>
+
         <div className="text-center mb-16">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Typing Test Hub</h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">Measure your typing speed and accuracy with our professional-grade testing engine. Choose a duration to begin.</p>
@@ -157,6 +176,13 @@ const TypingTest: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO title={seo.title} description={seo.description} />
+
+      <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </Link>
 
       <div className="text-center mb-12">
         <Link to="/typing-test" className="text-blue-600 hover:underline text-sm font-bold mb-2 block">← All Tests</Link>
