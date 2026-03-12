@@ -31,6 +31,7 @@ const Navbar: React.FC = () => {
     { name: 'Typing Test', path: '/typing-test' },
     { name: 'Lessons', path: '/lessons' },
     { name: 'Exam Mode', path: '/exam-mode' },
+    { name: 'Hindi Typing', path: '/hindi' },
     { name: 'Leaderboard', path: '/leaderboard' },
   ];
 
@@ -51,8 +52,11 @@ const Navbar: React.FC = () => {
     
     if (path === '/exam-mode') {
       return currentPath === '/exam-mode' || 
-             currentPath === '/ssc-typing-test-practice' || 
-             currentPath === '/hindi';
+             currentPath === '/ssc-typing-test-practice';
+    }
+    
+    if (path === '/hindi') {
+      return currentPath === '/hindi';
     }
     
     return currentPath.startsWith(path);
@@ -83,30 +87,39 @@ const Navbar: React.FC = () => {
           </div>
           
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex flex-1 justify-center items-center space-x-1 lg:space-x-4 px-4 overflow-hidden">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-                  isActive(link.path)
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div className="hidden md:flex flex-1 justify-center items-center px-4 overflow-x-auto no-scrollbar">
+            <div className="flex items-center space-x-1 lg:space-x-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                    isActive(link.path)
+                      ? 'bg-blue-50 text-blue-700'
+                      : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50'
+                  }`}
+                >
+                  {link.name}
+                  {link.path === '/hindi' && (
+                    <span className="flex h-2 w-2 rounded-full bg-orange-500"></span>
+                  )}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+          <div className="hidden md:flex items-center gap-2 lg:gap-4 flex-shrink-0">
             {!user ? (
               <Link 
                 to="/signin" 
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all shadow-sm"
+                className="bg-blue-600 text-white p-2 lg:px-6 lg:py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all shadow-sm flex items-center gap-2"
+                title="Sign In"
               >
-                Sign In
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                </svg>
+                <span className="hidden lg:inline">Sign In</span>
               </Link>
             ) : (
               <div className="flex items-center gap-4">
@@ -243,10 +256,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">Typing Tests</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/typing-test/1-minute" className="hover:text-blue-600">1 Minute Typing Test</Link></li>
-              <li><Link to="/typing-test/5-minute" className="hover:text-blue-600">5 Minute Typing Test</Link></li>
-              <li><Link to="/typing-test/10-minute" className="hover:text-blue-600">10 Minute Typing Test</Link></li>
-              <li><Link to="/exam-mode" className="hover:text-blue-600">Exam Mock Tests</Link></li>
+              <li><Link to="/1-minute-typing-test" className="hover:text-blue-600">1 Minute Typing Test</Link></li>
+              <li><Link to="/5-minute-typing-test" className="hover:text-blue-600">5 Minute Typing Test</Link></li>
+              <li><Link to="/10-minute-typing-test" className="hover:text-blue-600">10 Minute Typing Test</Link></li>
+              <li><Link to="/ssc-typing-test-practice" className="hover:text-blue-600">SSC Typing Practice</Link></li>
               <li><Link to="/hindi" className="hover:text-blue-600">Hindi Typing Test</Link></li>
             </ul>
           </div>

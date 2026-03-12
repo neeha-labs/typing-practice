@@ -11,6 +11,13 @@ const HindiTyping: React.FC = () => {
         description="Practice Hindi typing for UP Police, High Court, and state government exams. Online practice tools for KrutiDev 010 and Mangal Remington GAIL layouts." 
       />
 
+      <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </Link>
+
       <div className="text-center mb-16">
         <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Hindi Typing Mastery</h1>
         <p className="text-lg text-slate-500 max-w-2xl mx-auto">Choose your keyboard layout and practice for state-level government examinations.</p>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SEO from '../components/SEO';
+import { Link } from 'react-router-dom';
 import { collection, query, where, orderBy, limit, getDocs, startAfter, getCountFromServer, DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 
@@ -141,6 +142,13 @@ const Leaderboard: React.FC = () => {
         title="Typing Leaderboard - Top Speeds | TypingPractice.online" 
         description="Check out the fastest typists on TypingPractice.online. Compete for the top spot on our leaderboards." 
       />
+
+      <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </Link>
       
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Typing Leaderboard 🏆</h1>

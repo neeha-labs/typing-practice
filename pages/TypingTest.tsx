@@ -51,23 +51,31 @@ const TypingTest: React.FC = () => {
 
   // Dynamic SEO based on duration
   const getSEOData = () => {
+    const path = location.pathname;
+
+    if (path === '/1-minute-typing-test' || (duration === 60)) return {
+      title: "1 Minute Typing Test – Check Speed & Accuracy",
+      description: "Quickly measure your typing speed with our free 1-minute test. Get instant WPM and accuracy results for your daily typing practice."
+    };
+    if (path === '/5-minute-typing-test' || (duration === 300)) return {
+      title: "5 Minute Typing Test – Official Mock Test Format",
+      description: "Take a 5-minute typing test to prepare for clerk and data entry roles. Realistic interface with standard WPM calculation for government exams."
+    };
+    if (path === '/10-minute-typing-test' || (duration === 600)) return {
+      title: "10 Minute Typing Test – Professional Endurance Check",
+      description: "Challenge yourself with a full 10-minute typing test. Strict mode ensures high accuracy tracking for SSC, Banking, and Clerk examinations."
+    };
+    if (path === '/typing-speed-test') return {
+      title: "Typing Speed Test – Measure Your WPM Online",
+      description: "Test your typing speed and accuracy with our professional WPM testing tool. Perfect for exam preparation and productivity tracking."
+    };
+    
     if (!duration) return {
       title: "Online Typing Speed Test - Measure Your WPM",
       description: "Take a free typing speed test to measure your WPM and accuracy. Choose from 1, 5, or 10-minute durations. Standard formulas used for SSC and Banking exams."
     };
+    
     const min = duration / 60;
-    if (min === 1) return {
-      title: "1 Minute Typing Test – Check Speed & Accuracy",
-      description: "Quickly measure your typing speed with our free 1-minute test. Get instant WPM and accuracy results for your daily typing practice."
-    };
-    if (min === 5) return {
-      title: "5 Minute Typing Test – Official Mock Test Format",
-      description: "Take a 5-minute typing test to prepare for clerk and data entry roles. Realistic interface with standard WPM calculation for government exams."
-    };
-    if (min === 10) return {
-      title: "10 Minute Typing Test – Professional Endurance Check",
-      description: "Challenge yourself with a full 10-minute typing test. Strict mode ensures high accuracy tracking for SSC, Banking, and Clerk examinations."
-    };
     return {
       title: `${min} Minute Typing Test – Typing-Practice.online`,
       description: `Take a ${min}-minute typing test to improve your speed and accuracy.`
@@ -92,8 +100,8 @@ const TypingTest: React.FC = () => {
   };
 
   const handleSelectDuration = (d: number) => {
-    const slug = d === 60 ? '1-minute' : d === 300 ? '5-minute' : d === 600 ? '10-minute' : d.toString();
-    navigate(`/typing-test/${slug}`);
+    const slug = d === 60 ? '1-minute-typing-test' : d === 300 ? '5-minute-typing-test' : d === 600 ? '10-minute-typing-test' : d.toString();
+    navigate(`/${slug}`);
   };
 
   const startTest = () => {
@@ -177,15 +185,13 @@ const TypingTest: React.FC = () => {
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO title={seo.title} description={seo.description} />
 
-      <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-        Back to Home
-      </Link>
-
       <div className="text-center mb-12">
-        <Link to="/typing-test" className="text-blue-600 hover:underline text-sm font-bold mb-2 block">← All Tests</Link>
+        <Link to="/typing-test" className="text-blue-600 hover:underline text-sm font-bold mb-4 flex items-center justify-center gap-1">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to All Tests
+        </Link>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
           {duration/60} Minute Typing Test
         </h1>

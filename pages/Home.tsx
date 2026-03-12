@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           <p className="text-slate-500">Structured learning paths for every skill level. Accessible instantly.</p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
               title: "1 Minute Typing Test",
@@ -70,6 +70,18 @@ const Home: React.FC = () => {
               desc: "Simulate the exact interface of SSC CHSL, CGL, and RRB exams.",
               icon: "🏛️",
               link: "/ssc-typing-test-practice"
+            },
+            {
+              title: "Hindi Typing",
+              desc: "Practice KrutiDev and Mangal Remington GAIL for state exams.",
+              icon: "🇮🇳",
+              link: "/hindi"
+            },
+            {
+              title: "Leaderboard",
+              desc: "Compete with other typists and see where you rank globally.",
+              icon: "🏆",
+              link: "/leaderboard"
             }
           ].map((feature, idx) => (
             <Link 
