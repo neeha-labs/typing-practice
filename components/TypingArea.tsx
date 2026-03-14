@@ -34,7 +34,10 @@ const TypingArea: React.FC<TypingAreaProps> = ({
   const [mistypedKeys, setMistypedKeys] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    setIsLoggedIn(!!localStorage.getItem('tp_user') || !!auth.currentUser);
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
   }, []);
 
   const calculateStats = useCallback((): TypingStats => {

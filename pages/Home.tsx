@@ -28,11 +28,11 @@ const Home: React.FC = () => {
             Build muscle memory, increase WPM, and track your progress in real-time.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/typing-test" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
-              Take a Free Test
+            <Link to="/typing-practice" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+              Start Typing Practice
             </Link>
-            <Link to="/practice" className="bg-white text-slate-900 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-blue-600 hover:text-blue-600 transition-all">
-              Beginner Lessons
+            <Link to="/typing-test" className="bg-white text-slate-900 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-blue-600 hover:text-blue-600 transition-all">
+              Take Typing Test
             </Link>
           </div>
         </div>
@@ -48,16 +48,16 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              title: "1 Minute Typing Test",
+              title: "60 Second Typing Test",
               desc: "Quick speed check to measure your current WPM and accuracy.",
               icon: "⚡",
-              link: "/1-minute-typing-test"
+              link: "/typing-test/60-second-typing-test"
             },
             {
-              title: "5 Minute Typing Test",
+              title: "120 Second Typing Test",
               desc: "Standard duration for most professional exams. Build endurance.",
               icon: "⏱️",
-              link: "/5-minute-typing-test"
+              link: "/typing-test/120-second-typing-test"
             },
             {
               title: "Typing Lessons",
@@ -117,7 +117,7 @@ const Home: React.FC = () => {
                 <span className="text-blue-600">💡</span> Typing Tips
               </h3>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                The key to fast typing is muscle memory. Always return your fingers to the home row (ASDF JKL;). Look at the screen, not your keyboard. Practice daily with our <Link to="/1-minute-typing-test" className="text-blue-600 font-semibold hover:underline">1 Minute Typing Test</Link> to build consistency.
+                The key to fast typing is muscle memory. Always return your fingers to the home row (ASDF JKL;). Look at the screen, not your keyboard. Practice daily with our <Link to="/typing-test/60-second-typing-test" className="text-blue-600 font-semibold hover:underline">60 Second Typing Test</Link> to build consistency.
               </p>
               <Link to="/how-to-improve-typing-speed" className="text-blue-600 font-bold hover:underline">Read full guide →</Link>
             </div>
@@ -137,7 +137,7 @@ const Home: React.FC = () => {
                 <span className="text-emerald-500">🚀</span> How to Increase Typing Speed
               </h3>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                To break the 60 WPM barrier, you need to type words as single units rather than individual letters. Practice reading ahead of what you are currently typing. Take the <Link to="/5-minute-typing-test" className="text-blue-600 font-semibold hover:underline">5 Minute Typing Test</Link> to build endurance.
+                To break the 60 WPM barrier, you need to type words as single units rather than individual letters. Practice reading ahead of what you are currently typing. Take the <Link to="/typing-test/120-second-typing-test" className="text-blue-600 font-semibold hover:underline">120 Second Typing Test</Link> to build endurance.
               </p>
               <Link to="/how-to-improve-typing-speed" className="text-blue-600 font-bold hover:underline">Advanced techniques →</Link>
             </div>

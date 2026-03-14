@@ -232,11 +232,11 @@ const Lessons: React.FC = () => {
       <div className="mt-16 text-center">
         <h3 className="text-xl font-bold text-slate-900 mb-6">Ready to test your speed?</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/typing-test/1-minute" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition-all">
-            1 Minute Test
+          <Link to="/typing-test/60-second-typing-test" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition-all">
+            60 Second Test
           </Link>
-          <Link to="/typing-test/5-minute" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition-all">
-            5 Minute Test
+          <Link to="/typing-test/120-second-typing-test" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition-all">
+            120 Second Test
           </Link>
         </div>
       </div>

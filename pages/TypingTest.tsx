@@ -1,43 +1,35 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useParams, Link, useNavigate, useLocation } from 'react-router-dom';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db, auth } from '../firebase';
 import SEO from '../components/SEO';
-import TypingArea from '../components/TypingArea';
-import { DURATION_TEXTS } from '../constants';
-import { TypingStats } from '../types';
+import TypingBox from '../components/TypingBox';
+import TypingTimer from '../components/TypingTimer';
+import TypingStats from '../components/TypingStats';
+import { loadParagraphs } from '../utils/ParagraphLoader';
 
 const TypingTest: React.FC = () => {
   const { duration: durationParam } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
   const [duration, setDuration] = useState<number | null>(null);
   const [testStarted, setTestStarted] = useState(false);
   const [targetText, setTargetText] = useState('');
-  const lastTextIndex = useRef<number>(-1);
+  const [stats, setStats] = useState<{ wpm: number; accuracy: number; totalChars: number; errors: number } | null>(null);
+  const [isTimerActive, setIsTimerActive] = useState(false);
 
   // Map duration slug to seconds
   useEffect(() => {
     const path = location.pathname;
-    if (path === '/1-minute-typing-test') {
-      setDuration(60);
-      setTestStarted(false);
-    } else if (path === '/5-minute-typing-test') {
-      setDuration(300);
-      setTestStarted(false);
-    } else if (path === '/10-minute-typing-test') {
-      setDuration(600);
-      setTestStarted(false);
-    } else if (durationParam) {
-      if (durationParam === '1-minute') setDuration(60);
-      else if (durationParam === '5-minute') setDuration(300);
-      else if (durationParam === '10-minute') setDuration(600);
-      else {
-        const d = parseInt(durationParam);
-        if (!isNaN(d)) setDuration(d);
-        else setDuration(60);
-      }
-      setTestStarted(false);
+    if (path.includes('30-second')) setDuration(30);
+    else if (path.includes('60-second')) setDuration(60);
+    else if (path.includes('120-second')) setDuration(120);
+    else if (durationParam) {
+      const d = parseInt(durationParam);
+      if (!isNaN(d)) setDuration(d);
+      else setDuration(60);
     } else {
       const dParam = searchParams.get('duration');
       if (dParam) {
@@ -47,68 +39,74 @@ const TypingTest: React.FC = () => {
         setDuration(null);
       }
     }
+    setTestStarted(false);
+    setStats(null);
+    setIsTimerActive(false);
   }, [durationParam, searchParams, location.pathname]);
 
-  // Dynamic SEO based on duration
   const getSEOData = () => {
-    const path = location.pathname;
-
-    if (path === '/1-minute-typing-test' || (duration === 60)) return {
-      title: "1 Minute Typing Test – Check Speed & Accuracy",
-      description: "Quickly measure your typing speed with our free 1-minute test. Get instant WPM and accuracy results for your daily typing practice."
-    };
-    if (path === '/5-minute-typing-test' || (duration === 300)) return {
-      title: "5 Minute Typing Test – Official Mock Test Format",
-      description: "Take a 5-minute typing test to prepare for clerk and data entry roles. Realistic interface with standard WPM calculation for government exams."
-    };
-    if (path === '/10-minute-typing-test' || (duration === 600)) return {
-      title: "10 Minute Typing Test – Professional Endurance Check",
-      description: "Challenge yourself with a full 10-minute typing test. Strict mode ensures high accuracy tracking for SSC, Banking, and Clerk examinations."
-    };
-    if (path === '/typing-speed-test') return {
-      title: "Typing Speed Test – Measure Your WPM Online",
-      description: "Test your typing speed and accuracy with our professional WPM testing tool. Perfect for exam preparation and productivity tracking."
-    };
-    
     if (!duration) return {
-      title: "Online Typing Speed Test - Measure Your WPM",
-      description: "Take a free typing speed test to measure your WPM and accuracy. Choose from 1, 5, or 10-minute durations. Standard formulas used for SSC and Banking exams."
+      title: "Free Typing Speed Test | Measure Your WPM Online",
+      description: "Take a free typing speed test to measure your WPM and accuracy. Choose from 30, 60, or 120-second durations."
     };
     
-    const min = duration / 60;
     return {
-      title: `${min} Minute Typing Test – Typing-Practice.online`,
-      description: `Take a ${min}-minute typing test to improve your speed and accuracy.`
+      title: `${duration} Second Typing Test – Free Typing Speed Test`,
+      description: `Take a ${duration}-second typing test to improve your speed and accuracy.`
     };
   };
 
   const seo = getSEOData();
 
-  // Function to get appropriate text based on duration, avoiding repetition
-  const getRandomTextForDuration = (d: number) => {
-    let pool: string[] = [];
-    if (d <= 60) pool = DURATION_TEXTS.one_minute;
-    else if (d <= 300) pool = DURATION_TEXTS.five_minute;
-    else pool = DURATION_TEXTS.ten_minute;
-    
-    let nextIndex = Math.floor(Math.random() * pool.length);
-    if (pool.length > 1 && nextIndex === lastTextIndex.current) {
-      nextIndex = (nextIndex + 1) % pool.length;
-    }
-    lastTextIndex.current = nextIndex;
-    return pool[nextIndex];
-  };
-
   const handleSelectDuration = (d: number) => {
-    const slug = d === 60 ? '1-minute-typing-test' : d === 300 ? '5-minute-typing-test' : d === 600 ? '10-minute-typing-test' : d.toString();
-    navigate(`/${slug}`);
+    const slug = d === 30 ? '30-second-typing-test' : d === 60 ? '60-second-typing-test' : d === 120 ? '120-second-typing-test' : `${d}-second-typing-test`;
+    navigate(`/typing-test/${slug}`);
   };
 
   const startTest = () => {
     if (duration) {
-      const text = getRandomTextForDuration(duration);
-      setTargetText(text);
+      setTargetText(loadParagraphs('test', duration));
       setTestStarted(true);
+      setStats(null);
+      setIsTimerActive(false);
+    }
+  };
+
+  const handleTypingStart = () => {
+    setIsTimerActive(true);
+  };
+
+  const handleTypingEnd = async (finalStats: { wpm: number; accuracy: number; totalChars: number; errors: number }) => {
+    setIsTimerActive(false);
+    setStats(finalStats);
+
+    if (auth.currentUser) {
+      try {
+        const testTypeMap: Record<number, string> = {
+          30: '30s',
+          60: '60s',
+          120: '120s'
+        };
+        const testType = testTypeMap[duration] || `${duration}s`;
+
+        const resultData = {
+          userId: auth.currentUser.uid,
+          wpm: finalStats.wpm,
+          accuracy: finalStats.accuracy,
+          duration: duration,
+          testType: testType,
+          timestamp: serverTimestamp(),
+          displayName: auth.currentUser.displayName || 'Anonymous',
+          photoURL: auth.currentUser.photoURL || ''
+        };
+
+        await addDoc(collection(db, 'typing_results'), resultData);
+        
+        // Also save to leaderboard collection for easy querying
+        await addDoc(collection(db, 'leaderboard'), resultData);
+      } catch (error) {
+        console.error("Error saving result:", error);
+      }
     }
   };
 
@@ -125,15 +123,15 @@ const TypingTest: React.FC = () => {
         </Link>
 
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Typing Test Hub</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Free Typing Speed Test</h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">Measure your typing speed and accuracy with our professional-grade testing engine. Choose a duration to begin.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
           {[
-            { d: 60, label: '1 Minute', icon: '⚡', desc: 'Perfect for a quick daily check.' },
-            { d: 300, label: '5 Minute', icon: '⏱️', desc: 'The standard for most job exams.' },
-            { d: 600, label: '10 Minute', icon: '🏆', desc: 'Test your endurance and focus.' }
+            { d: 30, label: '30 Seconds', icon: '⚡', desc: 'A quick burst to test your raw speed.' },
+            { d: 60, label: '60 Seconds', icon: '⏱️', desc: 'The standard 1-minute typing test.' },
+            { d: 120, label: '120 Seconds', icon: '🏆', desc: 'Test your endurance over 2 minutes.' }
           ].map((item) => (
             <button
               key={item.d}
@@ -141,7 +139,7 @@ const TypingTest: React.FC = () => {
               className="bg-white border-2 border-slate-100 p-8 rounded-3xl hover:border-blue-500 hover:shadow-xl transition-all group text-center"
             >
               <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">{item.label} Test</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">{item.label}</h2>
               <p className="text-slate-500 mb-6">{item.desc}</p>
               <div className="bg-blue-50 text-blue-700 py-3 rounded-xl font-bold group-hover:bg-blue-600 group-hover:text-white transition-all">
                 Select Duration
@@ -150,21 +148,33 @@ const TypingTest: React.FC = () => {
           ))}
         </div>
 
+        {/* Internal SEO Linking */}
+        <section className="bg-slate-900 text-center py-12 px-4 rounded-3xl shadow-xl mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Need more practice first?</h2>
+          <p className="text-slate-400 mb-8 max-w-xl mx-auto">Build your muscle memory and improve your accuracy without the pressure of a timer.</p>
+          <Link 
+            to="/typing-practice" 
+            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50"
+          >
+            Start typing practice
+          </Link>
+        </section>
+
         <div className="mt-24 grid md:grid-cols-2 gap-12 bg-white rounded-3xl p-8 md:p-12 border border-slate-100">
           <div>
-            <h2 className="text-2xl font-bold mb-6">Why Take a Typing Test?</h2>
+            <h2 className="text-2xl font-bold mb-6">How Typing Speed Is Calculated</h2>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <span className="text-blue-600 font-bold">✓</span>
-                <p className="text-slate-600"><strong>Benchmark Your Skills:</strong> Know exactly where you stand with net WPM and accuracy tracking.</p>
+                <p className="text-slate-600"><strong>Gross WPM:</strong> Calculated as <code>(Total Characters typed / 5) / Time Spent in Minutes</code>. One word is standardized as 5 characters including spaces.</p>
               </li>
               <li className="flex gap-3">
                 <span className="text-blue-600 font-bold">✓</span>
-                <p className="text-slate-600"><strong>Exam Readiness:</strong> Practice with the same time constraints and rules as official government tests.</p>
+                <p className="text-slate-600"><strong>Net WPM:</strong> Calculated as <code>Gross WPM - (Errors / Time Spent)</code>. This is the true measure of your typing speed.</p>
               </li>
               <li className="flex gap-3">
                 <span className="text-blue-600 font-bold">✓</span>
-                <p className="text-slate-600"><strong>Track Improvement:</strong> Regular testing helps you visualize your progress over weeks and months.</p>
+                <p className="text-slate-600"><strong>Accuracy:</strong> The percentage of correct characters typed out of the total characters typed.</p>
               </li>
             </ul>
           </div>
@@ -185,96 +195,91 @@ const TypingTest: React.FC = () => {
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO title={seo.title} description={seo.description} />
 
-      <div className="text-center mb-12">
-        <Link to="/typing-test" className="text-blue-600 hover:underline text-sm font-bold mb-4 flex items-center justify-center gap-1">
+      <div className="mb-6 flex justify-between items-center">
+        <Link to="/" className="text-blue-600 hover:underline text-sm font-bold inline-flex items-center gap-1">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Home
+        </Link>
+        <Link to="/typing-test" className="text-slate-500 hover:underline text-sm font-bold inline-flex items-center gap-1">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Back to All Tests
         </Link>
+      </div>
+
+      <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-          {duration/60} Minute Typing Test
+          {duration} Second Typing Test
         </h1>
-        <p className="text-slate-500 max-w-xl mx-auto">Choose your duration and start typing. Our engine tracks net WPM and accuracy using standard SSC/Banking formulas.</p>
       </div>
 
       {!testStarted ? (
         <div className="space-y-10">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {[60, 300, 600].map((d) => (
-              <button
-                key={d}
-                onClick={() => handleSelectDuration(d)}
-                className={`bg-white border-2 p-8 rounded-2xl transition-all text-center group ${
-                  duration === d 
-                    ? 'border-blue-600 ring-4 ring-blue-50 shadow-md' 
-                    : 'border-slate-200 hover:border-blue-300 hover:shadow-lg'
-                }`}
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
-                  {d === 60 ? '⚡' : d === 300 ? '⏱️' : '🏆'}
-                </div>
-                <div className="text-2xl font-bold text-slate-900 mb-1">{d/60} Minute</div>
-                <div className="text-sm text-slate-500">{duration === d ? 'Selected' : 'Test Speed'}</div>
-              </button>
-            ))}
-          </div>
-          
           <div className="flex justify-center">
             <button 
               onClick={startTest}
               className="bg-blue-600 text-white px-12 py-4 rounded-xl font-bold text-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 animate-bounce-short"
             >
-              Start {duration/60} Minute Test
+              Start Test
             </button>
-          </div>
-
-          <div className="mt-16 grid md:grid-cols-2 gap-8">
-            <Link to="/lessons" className="bg-blue-50 p-6 rounded-2xl border border-blue-100 hover:bg-blue-100 transition-colors">
-              <h3 className="font-bold text-blue-900 mb-2">Need to learn first?</h3>
-              <p className="text-blue-700 text-sm">Check out our structured typing lessons for all levels.</p>
-            </Link>
-            <Link to="/exam-mode" className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 hover:bg-emerald-100 transition-colors">
-              <h3 className="font-bold text-emerald-900 mb-2">Government Exam Aspirant?</h3>
-              <p className="text-emerald-700 text-sm">Try our realistic exam mock tests for SSC, Banking, and more.</p>
-            </Link>
           </div>
         </div>
       ) : (
-        <div className="space-y-8">
-          <TypingArea 
-            key={`${duration}-${testStarted}`}
-            targetText={targetText} 
-            duration={duration}
-            onFinish={() => {}}
-          />
-          
-          <div className="flex justify-center">
-            <button 
-              onClick={() => {
-                setTestStarted(false);
-              }}
-              className="text-slate-500 hover:text-slate-900 flex items-center gap-2 font-medium"
-            >
-              ← Change Duration
-            </button>
-          </div>
+        <div className="space-y-8 bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+          {!stats && (
+            <div className="flex justify-between items-center mb-8">
+              <TypingTimer 
+                duration={duration} 
+                isActive={isTimerActive} 
+                onComplete={() => {
+                  // The TypingBox will handle the completion if we pass duration
+                }} 
+              />
+              <button 
+                onClick={startTest}
+                className="flex items-center gap-2 text-slate-500 hover:text-blue-600 font-medium transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Restart
+              </button>
+            </div>
+          )}
+
+          {!stats ? (
+            <TypingBox 
+              targetText={targetText} 
+              onTypingStart={handleTypingStart} 
+              onTypingEnd={handleTypingEnd} 
+              isTestMode={true}
+              duration={duration}
+            />
+          ) : (
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Test Completed!</h2>
+              <TypingStats {...stats} />
+              <div className="flex justify-center gap-4">
+                <button 
+                  onClick={startTest}
+                  className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-md"
+                >
+                  Try Again
+                </button>
+                <Link 
+                  to="/leaderboard"
+                  className="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-sm"
+                >
+                  View Leaderboard
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       )}
-
-      <section className="mt-24 bg-white rounded-3xl p-8 md:p-12 border border-slate-100">
-        <h2 className="text-2xl font-bold mb-6">How WPM is calculated?</h2>
-        <div className="grid md:grid-cols-2 gap-12 text-slate-600 leading-relaxed">
-          <div>
-            <h3 className="text-slate-900 font-semibold mb-3">Gross WPM</h3>
-            <p>Calculated as <code>(Total Characters typed / 5) / Time Spent in Minutes</code>. One word is standardized as 5 characters including spaces.</p>
-          </div>
-          <div>
-            <h3 className="text-slate-900 font-semibold mb-3">Net WPM (Most Important)</h3>
-            <p>Calculated as <code>Gross WPM - (Errors / Time Spent)</code>. This is the speed used for selection in almost all government exams like SSC CHSL and CGL.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 // Lazy load components for performance
 const Home = lazy(() => import('./pages/Home'));
 const TypingTest = lazy(() => import('./pages/TypingTest'));
+const TypingPractice = lazy(() => import('./pages/TypingPractice'));
 const ExamMode = lazy(() => import('./pages/ExamMode'));
 const Lessons = lazy(() => import('./pages/Lessons'));
 const HindiTyping = lazy(() => import('./pages/HindiTyping'));
@@ -39,12 +40,10 @@ const App: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/typing-test" element={<TypingTest />} />
               <Route path="/typing-test/:duration" element={<TypingTest />} />
+              <Route path="/typing-practice" element={<TypingPractice />} />
               
               {/* SEO Pages */}
               <Route path="/typing-speed-test" element={<TypingTest />} />
-              <Route path="/1-minute-typing-test" element={<TypingTest />} />
-              <Route path="/5-minute-typing-test" element={<TypingTest />} />
-              <Route path="/10-minute-typing-test" element={<TypingTest />} />
               <Route path="/ssc-typing-test-practice" element={<ExamMode />} />
               <Route path="/how-to-improve-typing-speed" element={<Blog predefinedPostId="how-to-improve-typing-speed" />} />
               <Route path="/typing-practice-for-government-exams" element={<Blog predefinedPostId="government-exam-typing-tips" />} />

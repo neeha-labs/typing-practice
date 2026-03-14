@@ -28,9 +28,9 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Typing Practice', path: '/typing-practice' },
     { name: 'Typing Test', path: '/typing-test' },
-    { name: 'Lessons', path: '/lessons' },
-    { name: 'Exam Mode', path: '/exam-mode' },
+    { name: 'Exam Mode', path: '/ssc-typing-test-practice' },
     { name: 'Hindi Typing', path: '/hindi' },
     { name: 'Leaderboard', path: '/leaderboard' },
   ];
@@ -171,7 +171,7 @@ const Navbar: React.FC = () => {
               to={link.path}
               onClick={() => setIsOpen(false)}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
-                isActive(link.path) ? 'bg-blue-50 text-blue-700' : 'text-slate-600'
+                isActive(link.path) ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'
               }`}
             >
               {link.name}
@@ -256,9 +256,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">Typing Tests</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/1-minute-typing-test" className="hover:text-blue-600">1 Minute Typing Test</Link></li>
-              <li><Link to="/5-minute-typing-test" className="hover:text-blue-600">5 Minute Typing Test</Link></li>
-              <li><Link to="/10-minute-typing-test" className="hover:text-blue-600">10 Minute Typing Test</Link></li>
+              <li><Link to="/typing-test/30-second-typing-test" className="hover:text-blue-600">30 Second Typing Test</Link></li>
+              <li><Link to="/typing-test/60-second-typing-test" className="hover:text-blue-600">60 Second Typing Test</Link></li>
+              <li><Link to="/typing-test/120-second-typing-test" className="hover:text-blue-600">120 Second Typing Test</Link></li>
               <li><Link to="/ssc-typing-test-practice" className="hover:text-blue-600">SSC Typing Practice</Link></li>
               <li><Link to="/hindi" className="hover:text-blue-600">Hindi Typing Test</Link></li>
             </ul>

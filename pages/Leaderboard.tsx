@@ -5,7 +5,7 @@ import { collection, query, where, orderBy, limit, getDocs, startAfter, getCount
 import { db, auth } from '../firebase';
 
 const Leaderboard: React.FC = () => {
-  const [category, setCategory] = useState<'1min' | '5min' | '10min' | 'allTime'>('1min');
+  const [category, setCategory] = useState<'30s' | '60s' | '120s' | 'allTime'>('60s');
   const [entries, setEntries] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -181,22 +181,22 @@ const Leaderboard: React.FC = () => {
 
       <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8">
         <button 
-          onClick={() => setCategory('1min')}
-          className={`px-6 py-2 rounded-full font-bold transition-all ${category === '1min' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+          onClick={() => setCategory('30s')}
+          className={`px-6 py-2 rounded-full font-bold transition-all ${category === '30s' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
         >
-          1 Minute
+          30 Seconds
         </button>
         <button 
-          onClick={() => setCategory('5min')}
-          className={`px-6 py-2 rounded-full font-bold transition-all ${category === '5min' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+          onClick={() => setCategory('60s')}
+          className={`px-6 py-2 rounded-full font-bold transition-all ${category === '60s' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
         >
-          5 Minute
+          60 Seconds
         </button>
         <button 
-          onClick={() => setCategory('10min')}
-          className={`px-6 py-2 rounded-full font-bold transition-all ${category === '10min' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+          onClick={() => setCategory('120s')}
+          className={`px-6 py-2 rounded-full font-bold transition-all ${category === '120s' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
         >
-          10 Minute
+          120 Seconds
         </button>
         <button 
           onClick={() => setCategory('allTime')}
