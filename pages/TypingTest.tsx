@@ -7,7 +7,59 @@ import SEO from '../components/SEO';
 import TypingBox from '../components/TypingBox';
 import TypingTimer from '../components/TypingTimer';
 import TypingStats from '../components/TypingStats';
+import TypingTestSEO from '../components/TypingTestSEO';
 import { loadParagraphs } from '../utils/ParagraphLoader';
+
+enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId: string | undefined;
+    email: string | null | undefined;
+    emailVerified: boolean | undefined;
+    isAnonymous: boolean | undefined;
+    tenantId: string | null | undefined;
+    providerInfo: {
+      providerId: string;
+      displayName: string | null;
+      email: string | null;
+      photoUrl: string | null;
+    }[];
+  }
+}
+
+const handleFirestoreError = (error: unknown, operationType: OperationType, path: string | null) => {
+  const errInfo: FirestoreErrorInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    authInfo: {
+      userId: auth.currentUser?.uid,
+      email: auth.currentUser?.email,
+      emailVerified: auth.currentUser?.emailVerified,
+      isAnonymous: auth.currentUser?.isAnonymous,
+      tenantId: auth.currentUser?.tenantId,
+      providerInfo: auth.currentUser?.providerData.map(provider => ({
+        providerId: provider.providerId,
+        displayName: provider.displayName,
+        email: provider.email,
+        photoUrl: provider.photoURL
+      })) || []
+    },
+    operationType,
+    path
+  };
+  console.error('Firestore Error: ', JSON.stringify(errInfo));
+  throw new Error(JSON.stringify(errInfo));
+};
 
 const TypingTest: React.FC = () => {
   const { duration: durationParam } = useParams();
@@ -19,6 +71,7 @@ const TypingTest: React.FC = () => {
   const [targetText, setTargetText] = useState('');
   const [stats, setStats] = useState<{ wpm: number; accuracy: number; totalChars: number; errors: number } | null>(null);
   const [isTimerActive, setIsTimerActive] = useState(false);
+  const [liveStats, setLiveStats] = useState<{ wpm: number; accuracy: number; errors: number }>({ wpm: 0, accuracy: 100, errors: 0 });
 
   // Map duration slug to seconds
   useEffect(() => {
@@ -69,6 +122,7 @@ const TypingTest: React.FC = () => {
       setTestStarted(true);
       setStats(null);
       setIsTimerActive(false);
+      setLiveStats({ wpm: 0, accuracy: 100, errors: 0 });
     }
   };
 
@@ -97,13 +151,28 @@ const TypingTest: React.FC = () => {
           testType: testType,
           timestamp: serverTimestamp(),
           displayName: auth.currentUser.displayName || 'Anonymous',
+          username: auth.currentUser.displayName || 'Anonymous',
           photoURL: auth.currentUser.photoURL || ''
         };
 
-        await addDoc(collection(db, 'typing_results'), resultData);
+        try {
+          await addDoc(collection(db, 'typing_results'), resultData);
+        } catch (error: any) {
+          if (error.code === 'permission-denied') {
+            handleFirestoreError(error, OperationType.CREATE, 'typing_results');
+          }
+          throw error;
+        }
         
         // Also save to leaderboard collection for easy querying
-        await addDoc(collection(db, 'leaderboard'), resultData);
+        try {
+          await addDoc(collection(db, 'leaderboard'), resultData);
+        } catch (error: any) {
+          if (error.code === 'permission-denied') {
+            handleFirestoreError(error, OperationType.CREATE, 'leaderboard');
+          }
+          throw error;
+        }
       } catch (error) {
         console.error("Error saving result:", error);
       }
@@ -187,6 +256,8 @@ const TypingTest: React.FC = () => {
             </p>
           </div>
         </div>
+        
+        <TypingTestSEO />
       </div>
     );
   }
@@ -228,7 +299,7 @@ const TypingTest: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="space-y-8 bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+        <div className="space-y-8 bg-white rounded-3xl p-8 lg:p-12 border border-slate-100 shadow-sm">
           {!stats && (
             <div className="flex justify-between items-center mb-8">
               <TypingTimer 
@@ -251,13 +322,30 @@ const TypingTest: React.FC = () => {
           )}
 
           {!stats ? (
-            <TypingBox 
-              targetText={targetText} 
-              onTypingStart={handleTypingStart} 
-              onTypingEnd={handleTypingEnd} 
-              isTestMode={true}
-              duration={duration}
-            />
+            <div className="space-y-6">
+              <div className="grid grid-cols-3 gap-4 mb-4">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center">
+                  <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">WPM</div>
+                  <div className="text-2xl font-black text-blue-600">{liveStats.wpm}</div>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center">
+                  <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">Accuracy</div>
+                  <div className="text-2xl font-black text-emerald-500">{liveStats.accuracy}%</div>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center">
+                  <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">Errors</div>
+                  <div className="text-2xl font-black text-rose-500">{liveStats.errors}</div>
+                </div>
+              </div>
+              <TypingBox 
+                targetText={targetText} 
+                onTypingStart={handleTypingStart} 
+                onTypingEnd={handleTypingEnd} 
+                onStatsUpdate={setLiveStats}
+                isTestMode={true}
+                duration={duration}
+              />
+            </div>
           ) : (
             <div className="text-center">
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Test Completed!</h2>
@@ -270,7 +358,7 @@ const TypingTest: React.FC = () => {
                   Try Again
                 </button>
                 <Link 
-                  to="/leaderboard"
+                  to={`/leaderboard?category=${duration}s`}
                   className="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-sm"
                 >
                   View Leaderboard
@@ -280,6 +368,8 @@ const TypingTest: React.FC = () => {
           )}
         </div>
       )}
+
+      <TypingTestSEO />
     </div>
   );
 };

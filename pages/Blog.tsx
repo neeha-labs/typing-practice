@@ -81,6 +81,7 @@ const ImproveSpeedPost = () => (
     <SEO 
       title="How to Improve Typing Speed - 10 Expert Tips" 
       description="Learn the best techniques to increase your typing speed. From finger placement to rhythm, master touch typing with our expert guide."
+      canonicalPath="/blog/how-to-improve-typing-speed"
       ogType="article"
     />
     <div className="flex justify-between items-center mb-8">
@@ -139,7 +140,15 @@ const ImproveSpeedPost = () => (
       <p>Typing fatigue leads to mistakes and slower speeds. Take a 5-minute break every hour to stretch your fingers, wrists, and shoulders to prevent strain and maintain peak performance.</p>
 
       <h3>10. Track Your Progress</h3>
-      <p>You can't improve what you don't measure. Take regular typing tests to monitor your Words Per Minute (WPM) and accuracy. Celebrate small milestones to stay motivated!</p>
+      <p>You can't improve what you don't measure. Take regular <Link to="/typing-test" className="text-blue-600 underline">typing tests</Link> to monitor your Words Per Minute (WPM) and accuracy. Celebrate small milestones to stay motivated!</p>
+      
+      <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200">
+        <h4 className="text-xl font-bold mb-4">Ready to test your speed?</h4>
+        <div className="flex flex-wrap gap-4">
+          <Link to="/typing-test" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">Take a Speed Test</Link>
+          <Link to="/typing-practice" className="bg-white text-blue-600 border border-blue-200 px-6 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all">Start Practice</Link>
+        </div>
+      </div>
     </div>
   </article>
 );
@@ -147,8 +156,9 @@ const ImproveSpeedPost = () => (
 const CommonMistakesPost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
     <SEO 
-      title="Common Typing Mistakes & How to Fix Them" 
+      title="7 Common Typing Mistakes & How to Fix Them" 
       description="Identify and correct the most common typing errors. Improve your accuracy and speed by fixing these bad habits."
+      canonicalPath="/blog/common-typing-mistakes"
       ogType="article"
     />
     <div className="flex justify-between items-center mb-8">
@@ -198,6 +208,14 @@ const CommonMistakesPost = () => (
 
       <h3>7. Tensing Up</h3>
       <p>Typing with stiff hands and tense shoulders reduces your speed and increases the chance of errors. Relax your hands and let your fingers glide smoothly over the keys.</p>
+
+      <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200">
+        <h4 className="text-xl font-bold mb-4">Improve your accuracy today</h4>
+        <div className="flex flex-wrap gap-4">
+          <Link to="/lessons" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">View Typing Lessons</Link>
+          <Link to="/tools/typing-accuracy-calculator" className="bg-white text-blue-600 border border-blue-200 px-6 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all">Accuracy Calculator</Link>
+        </div>
+      </div>
     </div>
   </article>
 );
@@ -207,6 +225,7 @@ const WPMCalculationPost = () => (
     <SEO 
       title="How WPM is Calculated - Gross vs Net Speed" 
       description="Understand the science behind WPM calculation. Learn the difference between gross speed and net speed used in professional exams."
+      canonicalPath="/blog/how-wpm-is-calculated"
       ogType="article"
     />
     <div className="flex justify-between items-center mb-8">
@@ -248,6 +267,14 @@ const WPMCalculationPost = () => (
       <p>This is the most important metric. It's your Gross WPM minus the penalty for errors. The formula is:</p>
       <blockquote><code>Gross WPM - (Uncorrected Errors / Time in Minutes)</code></blockquote>
       <p>Most professional and government exams focus on Net WPM as it represents your actual productive output.</p>
+
+      <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200">
+        <h4 className="text-xl font-bold mb-4">Calculate your speed manually</h4>
+        <div className="flex flex-wrap gap-4">
+          <Link to="/tools/words-per-minute-calculator" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">WPM Calculator</Link>
+          <Link to="/typing-speed-test" className="bg-white text-blue-600 border border-blue-200 px-6 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all">Take Speed Test</Link>
+        </div>
+      </div>
     </div>
   </article>
 );
@@ -257,6 +284,7 @@ const ExamTipsPost = () => (
     <SEO 
       title="Government Exam Typing Tips - SSC, CGL, Banking" 
       description="Get the edge in your government typing test. Expert strategies for SSC CHSL, CGL, and Banking examinations."
+      canonicalPath="/blog/government-exam-typing-tips"
       ogType="article"
     />
     <div className="flex justify-between items-center mb-8">
@@ -294,6 +322,14 @@ const ExamTipsPost = () => (
 
       <h3>3. Managing Exam Stress</h3>
       <p>The sound of dozens of other people typing in a room can be distracting. Practice with "keyboard noise" in the background to desensitize yourself to the environment. Stay calm, breathe, and focus only on your screen.</p>
+
+      <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200">
+        <h4 className="text-xl font-bold mb-4">Practice for your exam</h4>
+        <div className="flex flex-wrap gap-4">
+          <Link to="/ssc-typing-test-practice" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">SSC Practice</Link>
+          <Link to="/rrb-typing-test-practice" className="bg-white text-blue-600 border border-blue-200 px-6 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all">RRB Practice</Link>
+        </div>
+      </div>
     </div>
   </article>
 );

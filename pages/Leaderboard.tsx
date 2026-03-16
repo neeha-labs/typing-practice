@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import SEO from '../components/SEO';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { collection, query, where, orderBy, limit, getDocs, startAfter, getCountFromServer, DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 
 const Leaderboard: React.FC = () => {
-  const [category, setCategory] = useState<'30s' | '60s' | '120s' | 'allTime'>('60s');
+  const [searchParams] = useSearchParams();
+  const initialCategory = (searchParams.get('category') as any) || '60s';
+  const [category, setCategory] = useState<'30s' | '60s' | '120s' | 'allTime'>(initialCategory);
   const [entries, setEntries] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -213,7 +215,7 @@ const Leaderboard: React.FC = () => {
               <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 text-sm uppercase tracking-wider">
                 <th className="p-4 font-semibold text-center w-20">Rank</th>
                 <th className="p-4 font-semibold">Username</th>
-                <th className="p-4 font-semibold text-right">Typing Speed</th>
+                <th className="p-4 font-semibold text-right">Speed (WPM)</th>
                 <th className="p-4 font-semibold text-right">Accuracy</th>
                 <th className="p-4 font-semibold text-center">Test Type</th>
               </tr>
@@ -248,10 +250,10 @@ const Leaderboard: React.FC = () => {
                       {entry.username || entry.displayName || 'Anonymous'}
                     </td>
                     <td className="p-4 font-bold text-blue-600 text-right text-lg">
-                      {entry.wpm} <span className="text-xs text-slate-400 font-normal">WPM</span>
+                      {entry.wpm ?? 0} <span className="text-xs text-slate-400 font-normal">WPM</span>
                     </td>
                     <td className="p-4 text-emerald-600 font-medium text-right">
-                      {entry.accuracy}%
+                      {entry.accuracy ?? 0}%
                     </td>
                     <td className="p-4 text-center">
                       <span className="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold uppercase tracking-wider">

@@ -4,14 +4,16 @@ interface TypingBoxProps {
   targetText: string;
   onTypingStart: () => void;
   onTypingEnd: (stats: { wpm: number; accuracy: number; totalChars: number; errors: number }) => void;
+  onStatsUpdate?: (stats: { wpm: number; accuracy: number; errors: number }) => void;
   isTestMode: boolean;
   duration?: number;
 }
 
-const TypingBox: React.FC<TypingBoxProps> = ({ targetText, onTypingStart, onTypingEnd, isTestMode, duration }) => {
+const TypingBox: React.FC<TypingBoxProps> = ({ targetText, onTypingStart, onTypingEnd, onStatsUpdate, isTestMode, duration }) => {
   const [input, setInput] = useState('');
   const [startTime, setStartTime] = useState<number | null>(null);
   const [errors, setErrors] = useState(0);
+  const [totalMistakes, setTotalMistakes] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -25,26 +27,54 @@ const TypingBox: React.FC<TypingBoxProps> = ({ targetText, onTypingStart, onTypi
     if (isTestMode && duration && startTime && !isFinished) {
       const timer = setInterval(() => {
         const timeElapsed = (Date.now() - startTime) / 1000;
+        
+        // Update real-time stats
+        if (onStatsUpdate) {
+          const timeInMinutes = timeElapsed / 60;
+          const totalChars = input.length;
+          const grossWpm = (totalChars / 5) / (timeInMinutes || 0.01);
+          const netWpm = Math.max(0, grossWpm - (errors / (timeInMinutes || 0.01)));
+          const accuracy = totalChars > 0 ? Math.max(0, ((totalChars - totalMistakes) / totalChars) * 100) : 100;
+          
+          onStatsUpdate({
+            wpm: Math.round(netWpm),
+            accuracy: Math.round(accuracy),
+            errors: totalMistakes
+          });
+        }
+
         if (timeElapsed >= duration) {
           finishTyping();
         }
-      }, 1000);
+      }, 500);
       return () => clearInterval(timer);
     }
-  }, [isTestMode, duration, startTime, isFinished]);
+  }, [isTestMode, duration, startTime, isFinished, input, errors, totalMistakes, onStatsUpdate]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (isFinished) return;
 
     const val = e.target.value;
+    const prevVal = input;
+
     if (!startTime && val.length > 0) {
       setStartTime(Date.now());
       onTypingStart();
     }
 
+    // Track total mistakes (only when adding characters)
+    let newTotalMistakes = totalMistakes;
+    if (val.length > prevVal.length) {
+      const lastCharIndex = val.length - 1;
+      if (val[lastCharIndex] !== targetText[lastCharIndex]) {
+        newTotalMistakes = totalMistakes + 1;
+        setTotalMistakes(newTotalMistakes);
+      }
+    }
+
     setInput(val);
 
-    // Calculate errors
+    // Calculate uncorrected errors
     let currentErrors = 0;
     for (let i = 0; i < val.length; i++) {
       if (val[i] !== targetText[i]) {
@@ -53,25 +83,44 @@ const TypingBox: React.FC<TypingBoxProps> = ({ targetText, onTypingStart, onTypi
     }
     setErrors(currentErrors);
 
+    // Update real-time stats on every keystroke too
+    if (onStatsUpdate && startTime) {
+      const timeElapsed = (Date.now() - startTime) / 1000 / 60; // in minutes
+      const totalChars = val.length;
+      const grossWpm = (totalChars / 5) / (timeElapsed || 0.01);
+      const netWpm = Math.max(0, grossWpm - (currentErrors / (timeElapsed || 0.01)));
+      const accuracy = totalChars > 0 ? Math.max(0, ((totalChars - newTotalMistakes) / totalChars) * 100) : 100;
+      
+      onStatsUpdate({
+        wpm: Math.round(netWpm),
+        accuracy: Math.round(accuracy),
+        errors: newTotalMistakes
+      });
+    }
+
     // Finish condition for practice mode
     if (!isTestMode && val.length === targetText.length) {
-      finishTyping(val, currentErrors);
+      finishTyping(val, currentErrors, newTotalMistakes);
     }
   };
 
-  const finishTyping = (finalInput = input, finalErrors = errors) => {
+  const finishTyping = (finalInput = input, finalErrors = errors, finalTotalMistakes = totalMistakes) => {
     setIsFinished(true);
     const timeElapsed = (Date.now() - (startTime || Date.now())) / 1000 / 60; // in minutes
     const totalChars = finalInput.length;
     const grossWpm = (totalChars / 5) / (timeElapsed || 1);
+    
+    // Net WPM usually penalizes uncorrected errors
     const netWpm = Math.max(0, grossWpm - (finalErrors / (timeElapsed || 1)));
-    const accuracy = totalChars > 0 ? ((totalChars - finalErrors) / totalChars) * 100 : 100;
+    
+    // Accuracy based on total mistakes made during the process
+    const accuracy = totalChars > 0 ? Math.max(0, ((totalChars - finalTotalMistakes) / totalChars) * 100) : 100;
 
     onTypingEnd({
       wpm: Math.round(netWpm),
       accuracy: Math.round(accuracy),
       totalChars,
-      errors: finalErrors
+      errors: finalTotalMistakes
     });
   };
 
@@ -84,7 +133,7 @@ const TypingBox: React.FC<TypingBoxProps> = ({ targetText, onTypingStart, onTypi
         color = 'text-slate-900 bg-blue-100 border-b-2 border-blue-500';
       }
       return (
-        <span key={index} className={`${color} font-mono text-2xl md:text-xl`}>
+        <span key={index} className={`${color} font-mono text-xl lg:text-2xl`}>
           {char}
         </span>
       );

@@ -23,15 +23,18 @@
       "properties": {
         "userId": { "type": "string" },
         "username": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
         "wpm": { "type": "number" },
         "accuracy": { "type": "number" },
         "testType": { "type": "string" },
         "duration": { "type": "number" },
         "mode": { "type": "string" },
         "mistypedKeys": { "type": "object" },
-        "createdAt": { "type": "timestamp" }
+        "createdAt": { "type": "timestamp" },
+        "timestamp": { "type": "timestamp" }
       },
-      "required": ["userId", "username", "wpm", "accuracy", "testType", "duration", "mode", "createdAt"]
+      "required": ["userId", "wpm", "accuracy", "testType", "duration"]
     }
   },
   "firestore": {
@@ -41,7 +44,11 @@
     },
     "typing_results/{resultId}": {
       "schema": { "$ref": "#/entities/TypingTestResult" },
-      "description": "Individual typing test results and leaderboard entries"
+      "description": "Individual typing test results"
+    },
+    "leaderboard/{resultId}": {
+      "schema": { "$ref": "#/entities/TypingTestResult" },
+      "description": "Leaderboard entries"
     }
   }
 }

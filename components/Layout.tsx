@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -11,8 +12,31 @@ const Navbar: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    console.log("Auth listener initialized");
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      console.log("Auth state changed:", currentUser ? `User logged in: ${currentUser.uid}` : "User logged out");
       setUser(currentUser);
+      
+      if (currentUser) {
+        // Sync user data to Firestore
+        try {
+          const userDisplayName = currentUser.displayName || currentUser.email?.split('@')[0] || `User_${currentUser.uid.substring(0, 5)}`;
+          console.log("Attempting to sync user data for:", userDisplayName);
+          
+          const userRef = doc(db, "users", currentUser.uid);
+          await setDoc(userRef, {
+            userId: currentUser.uid,
+            username: userDisplayName,
+            email: currentUser.email || "",
+            photoURL: currentUser.photoURL || "",
+            lastLogin: serverTimestamp(),
+          }, { merge: true });
+          
+          console.log("User data synced successfully to Firestore");
+        } catch (error) {
+          console.error("Error syncing user data:", error);
+        }
+      }
     });
     return () => unsubscribe();
   }, []);
@@ -87,7 +111,7 @@ const Navbar: React.FC = () => {
           </div>
           
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex flex-1 justify-center items-center px-4 overflow-x-auto no-scrollbar">
+          <div className="hidden lg:flex flex-1 justify-center items-center px-4 overflow-x-auto no-scrollbar">
             <div className="flex items-center space-x-1 lg:space-x-2">
               {navLinks.map((link) => (
                 <Link
@@ -109,7 +133,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-2 lg:gap-4 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-2 lg:gap-4 flex-shrink-0">
             {!user ? (
               <Link 
                 to="/signin" 
@@ -146,7 +170,7 @@ const Navbar: React.FC = () => {
             )}
           </div>
           
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-600 hover:text-blue-600 p-2"
@@ -164,7 +188,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -232,7 +256,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-slate-200 mt-auto py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-7 h-7 bg-slate-900 rounded-md flex items-center justify-center shadow-sm">

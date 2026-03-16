@@ -1,7 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { 
+  signInWithPopup, 
+  GoogleAuthProvider, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword,
+  updateProfile
+} from 'firebase/auth';
 import { auth } from '../firebase';
 import SEO from '../components/SEO';
 
@@ -9,6 +15,9 @@ const Signin: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,6 +25,45 @@ const Signin: React.FC = () => {
     const mode = searchParams.get('mode');
     if (mode === 'signup') setIsLogin(false);
   }, [searchParams]);
+
+  const handleEmailAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      if (isLogin) {
+        await signInWithEmailAndPassword(auth, email, password);
+      } else {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        if (username) {
+          await updateProfile(userCredential.user, {
+            displayName: username
+          });
+        }
+      }
+      navigate('/');
+    } catch (err: any) {
+      console.error("Email auth error:", err);
+      let message = "An error occurred. Please try again.";
+      if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
+        message = isLogin 
+          ? "Invalid email or password. If you don't have an account, please sign up first." 
+          : "Invalid credentials. Please check your details and try again.";
+      } else if (err.code === 'auth/email-already-in-use') {
+        message = "This email is already in use.";
+      } else if (err.code === 'auth/weak-password') {
+        message = "Password should be at least 6 characters.";
+      } else if (err.code === 'auth/invalid-email') {
+        message = "Please enter a valid email address.";
+      } else if (err.code === 'auth/operation-not-allowed') {
+        message = "Email/Password sign-in is not enabled. Please contact support or use Google sign-in.";
+      }
+      setError(message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleGoogleSignIn = async () => {
     setError(null);
@@ -63,7 +111,68 @@ const Signin: React.FC = () => {
           </div>
         )}
 
-        <div className="mt-8 space-y-6">
+        <form className="mt-8 space-y-4" onSubmit={handleEmailAuth}>
+          {!isLogin && (
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1">Username</label>
+              <input
+                type="text"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                placeholder="Your display name"
+              />
+            </div>
+          )}
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setError(null);
+              }}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Password</label>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError(null);
+              }}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              placeholder="••••••••"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all disabled:opacity-50 shadow-lg shadow-slate-200"
+          >
+            {isLoading ? "Processing..." : (isLogin ? "Sign In" : "Create Account")}
+          </button>
+        </form>
+
+        <div className="relative my-8">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-slate-200"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="px-2 bg-white text-slate-500">Or continue with</span>
+          </div>
+        </div>
+
+        <div className="space-y-6">
           <button 
             onClick={handleGoogleSignIn}
             disabled={isLoading}
@@ -88,7 +197,10 @@ const Signin: React.FC = () => {
 
         <div className="text-center mt-6">
           <button
-            onClick={() => setIsLogin(!isLogin)}
+            onClick={() => {
+              setIsLogin(!isLogin);
+              setError(null);
+            }}
             className="text-sm font-medium text-slate-500 hover:text-slate-700"
           >
             {isLogin ? "Don't have an account? Sign up" : "Already have an account? Sign in"}

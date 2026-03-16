@@ -19,7 +19,7 @@ const Home: React.FC = () => {
               The #1 Free Typing Practice Platform
             </span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
             Level Up Your <br className="hidden md:block" />
             <span className="text-blue-600 underline decoration-blue-200">Typing Skills</span>
           </h1>

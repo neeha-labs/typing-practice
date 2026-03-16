@@ -17,6 +17,9 @@ const Tools = lazy(() => import('./pages/Tools'));
 const Blog = lazy(() => import('./pages/Blog'));
 const Leaderboard = lazy(() => import('./pages/Leaderboard'));
 const Profile = lazy(() => import('./pages/Profile'));
+const TypingTestsHub = lazy(() => import('./pages/TypingTestsHub'));
+const ExamPractice = lazy(() => import('./pages/ExamPractice'));
+const WPMCalculator = lazy(() => import('./pages/WPMCalculator'));
 const About = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.Contact })));
 const Privacy = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.Privacy })));
@@ -40,11 +43,15 @@ const App: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/typing-test" element={<TypingTest />} />
               <Route path="/typing-test/:duration" element={<TypingTest />} />
+              <Route path="/typing-tests" element={<TypingTestsHub />} />
               <Route path="/typing-practice" element={<TypingPractice />} />
               
               {/* SEO Pages */}
               <Route path="/typing-speed-test" element={<TypingTest />} />
               <Route path="/ssc-typing-test-practice" element={<ExamMode />} />
+              <Route path="/rrb-typing-test-practice" element={<ExamPractice />} />
+              <Route path="/ibps-typing-test-practice" element={<ExamPractice />} />
+              <Route path="/sbi-typing-test-practice" element={<ExamPractice />} />
               <Route path="/how-to-improve-typing-speed" element={<Blog predefinedPostId="how-to-improve-typing-speed" />} />
               <Route path="/typing-practice-for-government-exams" element={<Blog predefinedPostId="government-exam-typing-tips" />} />
 
@@ -59,6 +66,7 @@ const App: React.FC = () => {
               
               {/* Tools & Blog Routes */}
               <Route path="/tools" element={<Tools />} />
+              <Route path="/tools/words-per-minute-calculator" element={<WPMCalculator />} />
               <Route path="/tools/:toolId" element={<Tools />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:postId" element={<Blog />} />

@@ -71,45 +71,57 @@ service cloud.firestore {
     }
 
     function isValidEmail(email) {
-      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+      return email is string && (email.size() == 0 || email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"));
     }
 
     // Domain Validators
     function isValidUser(data) {
-      return hasOnlyAllowedFields(['userId', 'email', 'username', 'photoURL', 'createdAt', 'streak', 'lastPracticeDate', 'totalTests']) &&
+      return hasOnlyAllowedFields(['userId', 'email', 'username', 'photoURL', 'createdAt', 'lastLogin', 'streak', 'lastPracticeDate', 'totalTests']) &&
              data.userId is string && data.userId.size() > 0 && data.userId.size() < 128 &&
-             data.email is string && isValidEmail(data.email) &&
+             (!('email' in data) || (data.email is string && isValidEmail(data.email))) &&
              (!('username' in data) || (data.username is string && data.username.size() <= 100)) &&
              (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 2048)) &&
-             data.createdAt is timestamp &&
-             data.streak is number && data.streak >= 0 &&
+             (!('createdAt' in data) || data.createdAt is timestamp) &&
+             (!('lastLogin' in data) || data.lastLogin is timestamp) &&
+             (!('streak' in data) || (data.streak is number && data.streak >= 0)) &&
              (!('lastPracticeDate' in data) || (data.lastPracticeDate is string && data.lastPracticeDate.size() <= 20)) &&
-             data.totalTests is number && data.totalTests >= 0;
+             (!('totalTests' in data) || (data.totalTests is number && data.totalTests >= 0));
     }
 
     function isValidTestResult(data) {
-      return hasOnlyAllowedFields(['userId', 'username', 'wpm', 'accuracy', 'testType', 'duration', 'mode', 'mistypedKeys', 'createdAt']) &&
+      return hasOnlyAllowedFields(['userId', 'username', 'displayName', 'photoURL', 'wpm', 'accuracy', 'testType', 'duration', 'mode', 'mistypedKeys', 'createdAt', 'timestamp']) &&
              data.userId is string && data.userId.size() > 0 && data.userId.size() < 128 &&
-             data.username is string && data.username.size() > 0 && data.username.size() <= 100 &&
+             (!('username' in data) || (data.username is string && data.username.size() <= 100)) &&
+             (!('displayName' in data) || (data.displayName is string && data.displayName.size() <= 100)) &&
+             (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 2048)) &&
              data.wpm is number && data.wpm >= 0 && data.wpm <= 300 &&
              data.accuracy is number && data.accuracy >= 0 && data.accuracy <= 100 &&
              data.testType is string && data.testType.size() <= 50 &&
              data.duration is number && data.duration > 0 &&
-             data.mode is string && data.mode.size() <= 50 &&
+             (!('mode' in data) || (data.mode is string && data.mode.size() <= 50)) &&
              (!('mistypedKeys' in data) || data.mistypedKeys is map) &&
-             data.createdAt is timestamp;
+             (!('createdAt' in data) || data.createdAt is timestamp) &&
+             (!('timestamp' in data) || data.timestamp is timestamp);
     }
 
     match /users/{userId} {
       allow read: if true;
       allow create: if isOwner(userId) && isValidUser(request.resource.data) && uidUnchanged();
-      allow update: if isOwner(userId) && isValidUser(request.resource.data) && uidNotModified() && request.resource.data.createdAt == resource.data.createdAt;
+      allow update: if isOwner(userId) && isValidUser(request.resource.data) && uidNotModified() && 
+                    (!('createdAt' in resource.data) || !('createdAt' in request.resource.data) || request.resource.data.createdAt == resource.data.createdAt);
     }
 
     match /typing_results/{resultId} {
       allow read: if true;
       allow create: if isAuthenticated() && isValidTestResult(request.resource.data) && userIdUnchanged();
       allow update: if false; // Test results are immutable
+      allow delete: if false;
+    }
+
+    match /leaderboard/{resultId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && isValidTestResult(request.resource.data) && userIdUnchanged();
+      allow update: if false;
       allow delete: if false;
     }
   }
