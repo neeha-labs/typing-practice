@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import TypingLinksSection from '../components/TypingLinksSection';
 
 const Tools: React.FC = () => {
   const { toolId } = useParams();
@@ -33,6 +34,8 @@ const Tools: React.FC = () => {
           <p className="text-slate-500 leading-relaxed">Determine your typing accuracy percentage by comparing total characters and errors.</p>
         </Link>
       </div>
+
+      <TypingLinksSection />
     </div>
   );
 };
@@ -106,6 +109,8 @@ const WPMCalculator = () => {
           <p>Net WPM accounts for errors by subtracting them from the gross speed. This is the metric most government exams (like SSC) use for qualification.</p>
         </div>
       </div>
+
+      <TypingLinksSection />
     </div>
   );
 };
@@ -160,6 +165,8 @@ const AccuracyCalculator = () => {
           <p>Focusing on accuracy first builds better muscle memory, which naturally leads to higher speeds over time without the penalty of frequent mistakes.</p>
         </div>
       </div>
+
+      <TypingLinksSection />
     </div>
   );
 };

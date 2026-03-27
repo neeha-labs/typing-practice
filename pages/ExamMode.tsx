@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
+import TypingLinksSection from '../components/TypingLinksSection';
 import { EXAM_MODES, DURATION_TEXTS } from '../constants';
 import { TypingStats, ExamConfig } from '../types';
 
@@ -142,6 +143,8 @@ const ExamMode: React.FC = () => {
           </div>
         </div>
       )}
+
+      <TypingLinksSection />
     </div>
   );
 };

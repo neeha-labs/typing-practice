@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import TypingLinksSection from '../components/TypingLinksSection';
 
 const WPMCalculator: React.FC = () => {
   const [words, setWords] = useState<string>('');
@@ -123,6 +124,8 @@ const WPMCalculator: React.FC = () => {
           Take a Typing Test
         </Link>
       </section>
+
+      <TypingLinksSection />
     </div>
   );
 };

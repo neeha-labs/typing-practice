@@ -67,6 +67,7 @@ const TypingTest: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [duration, setDuration] = useState<number | null>(null);
+  const [testMode, setTestMode] = useState<'beginner' | 'intermediate' | 'advanced' | 'test' | 'easy' | 'hard' | 'beginners' | 'numbers' | 'paragraph'>('test');
   const [testStarted, setTestStarted] = useState(false);
   const [targetText, setTargetText] = useState('');
   const [stats, setStats] = useState<{ wpm: number; accuracy: number; totalChars: number; errors: number } | null>(null);
@@ -76,13 +77,41 @@ const TypingTest: React.FC = () => {
   // Map duration slug to seconds
   useEffect(() => {
     const path = location.pathname;
-    if (path.includes('30-second')) setDuration(30);
-    else if (path.includes('60-second')) setDuration(60);
-    else if (path.includes('120-second')) setDuration(120);
-    else if (durationParam) {
+    if (path.includes('30-second')) {
+      setDuration(30);
+      setTestMode('test');
+    } else if (path.includes('45-second')) {
+      setDuration(45);
+      setTestMode('test');
+    } else if (path.includes('60-second')) {
+      setDuration(60);
+      setTestMode('test');
+    } else if (path.includes('90-second')) {
+      setDuration(90);
+      setTestMode('test');
+    } else if (path.includes('120-second')) {
+      setDuration(120);
+      setTestMode('test');
+    } else if (path.includes('easy-typing-test')) {
+      setDuration(60);
+      setTestMode('easy');
+    } else if (path.includes('hard-typing-test')) {
+      setDuration(60);
+      setTestMode('hard');
+    } else if (path.includes('typing-test-for-beginners')) {
+      setDuration(60);
+      setTestMode('beginners');
+    } else if (path.includes('typing-test-with-numbers')) {
+      setDuration(60);
+      setTestMode('numbers');
+    } else if (path.includes('paragraph-typing-test')) {
+      setDuration(120);
+      setTestMode('paragraph');
+    } else if (durationParam) {
       const d = parseInt(durationParam);
       if (!isNaN(d)) setDuration(d);
       else setDuration(60);
+      setTestMode('test');
     } else {
       const dParam = searchParams.get('duration');
       if (dParam) {
@@ -91,6 +120,7 @@ const TypingTest: React.FC = () => {
       } else {
         setDuration(null);
       }
+      setTestMode('test');
     }
     setTestStarted(false);
     setStats(null);
@@ -98,6 +128,36 @@ const TypingTest: React.FC = () => {
   }, [durationParam, searchParams, location.pathname]);
 
   const getSEOData = () => {
+    const path = location.pathname;
+    if (path.includes('easy-typing-test')) return {
+      title: "Easy Typing Test – Beginner Friendly Words Online",
+      description: "Take an easy typing test with simple words. Perfect for beginners looking to build confidence and accuracy."
+    };
+    if (path.includes('hard-typing-test')) return {
+      title: "Hard Typing Test – Complex Words & Sentences",
+      description: "Challenge yourself with a hard typing test featuring complex vocabulary and technical terms."
+    };
+    if (path.includes('typing-test-for-beginners')) return {
+      title: "Typing Test for Beginners – Learn to Type Fast",
+      description: "A learning-focused typing test designed specifically for beginners to master the home row and common words."
+    };
+    if (path.includes('typing-test-with-numbers')) return {
+      title: "Typing Test with Numbers and Symbols",
+      description: "Improve your data entry skills with our numbers and symbols typing test. Practice the top row and special characters."
+    };
+    if (path.includes('paragraph-typing-test')) return {
+      title: "Paragraph Typing Test – Long Text Practice",
+      description: "Focus on endurance and consistency with our paragraph typing test. Practice with longer, meaningful texts."
+    };
+    if (path.includes('45-second')) return {
+      title: "45 Second Typing Test – Quick Speed Check",
+      description: "Test your typing speed in just 45 seconds. A perfect middle ground for a quick yet accurate assessment."
+    };
+    if (path.includes('90-second')) return {
+      title: "90 Second Typing Test – Accuracy & Speed Benchmark",
+      description: "Take a 90-second typing test to measure your sustained typing performance and accuracy."
+    };
+
     if (!duration) return {
       title: "Free Typing Speed Test | Measure Your WPM Online",
       description: "Take a free typing speed test to measure your WPM and accuracy. Choose from 30, 60, or 120-second durations."
@@ -112,13 +172,13 @@ const TypingTest: React.FC = () => {
   const seo = getSEOData();
 
   const handleSelectDuration = (d: number) => {
-    const slug = d === 30 ? '30-second-typing-test' : d === 60 ? '60-second-typing-test' : d === 120 ? '120-second-typing-test' : `${d}-second-typing-test`;
+    const slug = d === 30 ? '30-second-typing-test' : d === 45 ? '45-second-typing-test' : d === 60 ? '60-second-typing-test' : d === 90 ? '90-second-typing-test' : d === 120 ? '120-second-typing-test' : `${d}-second-typing-test`;
     navigate(`/typing-test/${slug}`);
   };
 
   const startTest = () => {
     if (duration) {
-      setTargetText(loadParagraphs('test', duration));
+      setTargetText(loadParagraphs(testMode, duration));
       setTestStarted(true);
       setStats(null);
       setIsTimerActive(false);
@@ -193,6 +253,7 @@ const TypingTest: React.FC = () => {
 
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Free Typing Speed Test</h1>
+          <p className="text-blue-600 font-bold mb-4">Free typing test – no login required</p>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">Measure your typing speed and accuracy with our professional-grade testing engine. Choose a duration to begin.</p>
         </div>
 
@@ -257,7 +318,7 @@ const TypingTest: React.FC = () => {
           </div>
         </div>
         
-        <TypingTestSEO />
+        <TypingTestSEO duration={duration || 60} mode={testMode} />
       </div>
     );
   }
@@ -285,6 +346,7 @@ const TypingTest: React.FC = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
           {duration} Second Typing Test
         </h1>
+        <p className="text-blue-600 font-bold">Free typing test – no login required</p>
       </div>
 
       {!testStarted ? (
@@ -369,7 +431,7 @@ const TypingTest: React.FC = () => {
         </div>
       )}
 
-      <TypingTestSEO />
+      <TypingTestSEO duration={duration || 60} mode={testMode} />
     </div>
   );
 };

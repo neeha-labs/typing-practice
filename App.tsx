@@ -48,6 +48,16 @@ const App: React.FC = () => {
               
               {/* SEO Pages */}
               <Route path="/typing-speed-test" element={<TypingTest />} />
+              <Route path="/typing-test/30-second-typing-test" element={<TypingTest />} />
+              <Route path="/typing-test/45-second-typing-test" element={<TypingTest />} />
+              <Route path="/typing-test/60-second-typing-test" element={<TypingTest />} />
+              <Route path="/typing-test/90-second-typing-test" element={<TypingTest />} />
+              <Route path="/typing-test/120-second-typing-test" element={<TypingTest />} />
+              <Route path="/easy-typing-test" element={<TypingTest />} />
+              <Route path="/hard-typing-test" element={<TypingTest />} />
+              <Route path="/typing-test-for-beginners" element={<TypingTest />} />
+              <Route path="/typing-test-with-numbers" element={<TypingTest />} />
+              <Route path="/paragraph-typing-test" element={<TypingTest />} />
               <Route path="/ssc-typing-test-practice" element={<ExamMode />} />
               <Route path="/rrb-typing-test-practice" element={<ExamPractice />} />
               <Route path="/ibps-typing-test-practice" element={<ExamPractice />} />

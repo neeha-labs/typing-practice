@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingBox from '../components/TypingBox';
 import TypingStats from '../components/TypingStats';
+import TypingLinksSection from '../components/TypingLinksSection';
 import { loadParagraphs } from '../utils/ParagraphLoader';
 
 type PracticeMode = 'beginner' | 'intermediate' | 'advanced';
@@ -146,6 +147,8 @@ const TypingPractice: React.FC = () => {
           <li><strong>Take Breaks:</strong> Typing fatigue leads to errors. Take short breaks to rest your hands and eyes.</li>
         </ul>
       </section>
+
+      <TypingLinksSection />
     </div>
   );
 };

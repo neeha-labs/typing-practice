@@ -2,6 +2,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
+import TypingLinksSection from '../components/TypingLinksSection';
 
 const HindiTyping: React.FC = () => {
   return (
@@ -51,6 +52,8 @@ const HindiTyping: React.FC = () => {
           engine to support these complex characters natively in your browser.
         </p>
       </div>
+
+      <TypingLinksSection />
     </div>
   );
 };

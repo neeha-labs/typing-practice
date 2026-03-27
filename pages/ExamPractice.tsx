@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
+import TypingLinksSection from '../components/TypingLinksSection';
 
 const ExamPractice: React.FC = () => {
   const location = useLocation();
@@ -117,6 +118,8 @@ const ExamPractice: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <TypingLinksSection />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import TypingLinksSection from '../components/TypingLinksSection';
 
 const TypingTestsHub: React.FC = () => {
   const sections = [
@@ -9,14 +10,26 @@ const TypingTestsHub: React.FC = () => {
       title: "Short Typing Tests",
       items: [
         { name: "30 Second Typing Test", path: "/typing-test/30-second-typing-test", icon: "⚡" },
+        { name: "45 Second Typing Test", path: "/typing-test/45-second-typing-test", icon: "⏱️" },
         { name: "60 Second Typing Test", path: "/typing-test/60-second-typing-test", icon: "⏱️" },
+        { name: "90 Second Typing Test", path: "/typing-test/90-second-typing-test", icon: "⏱️" },
         { name: "120 Second Typing Test", path: "/typing-test/120-second-typing-test", icon: "🏆" }
       ]
     },
     {
-      title: "Special Typing Tests",
+      title: "Specialized Typing Tests",
       items: [
-        { name: "Typing Speed Test", path: "/typing-speed-test", icon: "🚀" },
+        { name: "Easy Typing Test", path: "/easy-typing-test", icon: "🟢" },
+        { name: "Hard Typing Test", path: "/hard-typing-test", icon: "🔴" },
+        { name: "Typing Test for Beginners", path: "/typing-test-for-beginners", icon: "🌱" },
+        { name: "Typing Test with Numbers", path: "/typing-test-with-numbers", icon: "🔢" },
+        { name: "Paragraph Typing Test", path: "/paragraph-typing-test", icon: "📝" },
+        { name: "Typing Speed Test", path: "/typing-speed-test", icon: "🚀" }
+      ]
+    },
+    {
+      title: "Government Exam Practice",
+      items: [
         { name: "SSC Typing Test Practice", path: "/ssc-typing-test-practice", icon: "📝" },
         { name: "RRB Typing Test Practice", path: "/rrb-typing-test-practice", icon: "🚆" },
         { name: "IBPS Typing Test Practice", path: "/ibps-typing-test-practice", icon: "🏦" },
@@ -91,6 +104,8 @@ const TypingTestsHub: React.FC = () => {
           </Link>
         </div>
       </section>
+
+      <TypingLinksSection />
     </div>
   );
 };

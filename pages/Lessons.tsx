@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
+import TypingLinksSection from '../components/TypingLinksSection';
 import { LESSONS } from '../constants';
 
 type Level = 'beginner' | 'intermediate' | 'advanced';
@@ -240,6 +241,8 @@ const Lessons: React.FC = () => {
           </Link>
         </div>
       </div>
+
+      <TypingLinksSection />
     </div>
   );
 };
