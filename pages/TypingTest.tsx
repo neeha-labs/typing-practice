@@ -239,6 +239,15 @@ const TypingTest: React.FC = () => {
     }
   };
 
+  const getDisplayTitle = () => {
+    if (testMode === 'easy') return "Easy Typing Test";
+    if (testMode === 'hard') return "Hard Typing Test";
+    if (testMode === 'beginners') return "Typing Test for Beginners";
+    if (testMode === 'numbers') return "Typing Test with Numbers";
+    if (testMode === 'paragraph') return "Paragraph Typing Test";
+    return `${duration} Second Typing Test`;
+  };
+
   if (!duration) {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
@@ -344,7 +353,7 @@ const TypingTest: React.FC = () => {
 
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-          {duration} Second Typing Test
+          {getDisplayTitle()}
         </h1>
         <p className="text-blue-600 font-bold">Free typing test – no login required</p>
       </div>
