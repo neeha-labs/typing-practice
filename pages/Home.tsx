@@ -60,10 +60,10 @@ const Home: React.FC = () => {
               link: "/typing-test/120-second-typing-test"
             },
             {
-              title: "Typing Lessons",
-              desc: "Learn finger placement with row-specific drills. Master the home row.",
+              title: "Learn Touch Typing Free Online",
+              desc: "Master finger placement with row-specific drills. Master the home row with our free lessons.",
               icon: "🎹",
-              link: "/lessons"
+              link: "/learn-touch-typing-free-online"
             },
             {
               title: "SSC Typing Practice",
@@ -72,10 +72,10 @@ const Home: React.FC = () => {
               link: "/ssc-typing-test-practice"
             },
             {
-              title: "Hindi Typing",
-              desc: "Practice KrutiDev and Mangal Remington GAIL for state exams.",
-              icon: "🇮🇳",
-              link: "/hindi"
+              title: "Words Per Minute Calculator",
+              desc: "Calculate your typing speed manually with our professional WPM tool.",
+              icon: "🧮",
+              link: "/words-per-minute-calculator-typing"
             },
             {
               title: "Leaderboard",

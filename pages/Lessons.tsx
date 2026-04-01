@@ -34,8 +34,8 @@ const Lessons: React.FC = () => {
 
   const getSEOData = () => {
     if (!level) return {
-      title: "Free Touch Typing Lessons - Beginner to Advanced",
-      description: "Master touch typing with our structured lessons. From home row basics to advanced symbol drills, we help you build muscle memory and speed."
+      title: "Learn Touch Typing Free Online - Beginner to Advanced Lessons",
+      description: "Master touch typing with our free online lessons. From home row basics to advanced symbol drills, we help you build muscle memory and speed."
     };
     if (level === 'beginner') return {
       title: "Beginner Typing Lessons – Build Speed & Confidence",

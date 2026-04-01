@@ -51,8 +51,8 @@ const WPMCalculator = () => {
   return (
     <div className="py-12 px-4 max-w-3xl mx-auto">
       <SEO 
-        title="WPM Calculator - Calculate Your Typing Speed Online" 
-        description="Use our free WPM calculator to find your gross and net typing speed. Essential tool for SSC, CGL, and Banking exam preparation."
+        title="Words Per Minute Calculator Typing | How Typing Speed is Calculated" 
+        description="Calculate your typing speed in Words Per Minute (WPM) with our free online calculator. Learn how typing speed is calculated and how to improve your WPM." 
       />
       <Link to="/tools" className="text-blue-600 hover:underline text-sm font-bold mb-4 block">← Back to Tools</Link>
       <h1 className="text-3xl font-bold mb-8">Words Per Minute (WPM) Calculator</h1>

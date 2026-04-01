@@ -28,8 +28,8 @@ const WPMCalculator: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="Words Per Minute (WPM) Calculator | Calculate Typing Speed" 
-        description="Calculate your typing speed in Words Per Minute (WPM) with our free online calculator. Learn how WPM is calculated and how to improve your speed." 
+        title="Words Per Minute Calculator Typing | How Typing Speed is Calculated" 
+        description="Calculate your typing speed in Words Per Minute (WPM) with our free online calculator. Learn how typing speed is calculated and how to improve your WPM." 
       />
 
       <Link to="/tools" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">

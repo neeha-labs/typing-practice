@@ -64,6 +64,9 @@ const App: React.FC = () => {
               <Route path="/sbi-typing-test-practice" element={<ExamPractice />} />
               <Route path="/how-to-improve-typing-speed" element={<Blog predefinedPostId="how-to-improve-typing-speed" />} />
               <Route path="/typing-practice-for-government-exams" element={<Blog predefinedPostId="government-exam-typing-tips" />} />
+              <Route path="/how-typing-speed-is-calculated" element={<Blog predefinedPostId="how-wpm-is-calculated" />} />
+              <Route path="/learn-touch-typing-free-online" element={<Lessons />} />
+              <Route path="/words-per-minute-calculator-typing" element={<WPMCalculator />} />
 
               <Route path="/lessons" element={<Lessons />} />
               <Route path="/lessons/:level" element={<Lessons />} />
