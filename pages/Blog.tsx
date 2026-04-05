@@ -102,8 +102,8 @@ const ImproveSpeedPost = () => (
       <div className="flex items-center gap-4 text-slate-500 text-sm">
         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">TP</div>
         <div>
-          <p className="font-bold text-slate-900">Typing-Practice Team</p>
-          <p>Updated March 2026</p>
+          <p className="font-bold text-slate-900">Typing-Practice Expert Team</p>
+          <p>Updated April 2026 • <span className="text-emerald-600 font-medium">Fact-checked by Certified Typing Instructors</span></p>
         </div>
       </div>
     </header>
@@ -179,8 +179,8 @@ const CommonMistakesPost = () => (
       <div className="flex items-center gap-4 text-slate-500 text-sm">
         <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-rose-600 font-bold">TP</div>
         <div>
-          <p className="font-bold text-slate-900">Typing-Practice Team</p>
-          <p>Updated March 2026</p>
+          <p className="font-bold text-slate-900">Typing-Practice Expert Team</p>
+          <p>Updated April 2026 • <span className="text-emerald-600 font-medium">Fact-checked by Certified Typing Instructors</span></p>
         </div>
       </div>
     </header>
@@ -225,7 +225,7 @@ const WPMCalculationPost = () => (
     <SEO 
       title="How Typing Speed is Calculated: WPM vs NWPM Explained" 
       description="Learn exactly how typing speed is calculated. Understand Gross WPM, Net WPM, and the standard 5-character word formula used in professional exams."
-      canonicalPath="/how-typing-speed-is-calculated"
+      canonicalPath="/blog/how-wpm-is-calculated"
       ogType="article"
     />
     <div className="flex justify-between items-center mb-8">
@@ -246,8 +246,8 @@ const WPMCalculationPost = () => (
       <div className="flex items-center gap-4 text-slate-500 text-sm">
         <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 font-bold">TP</div>
         <div>
-          <p className="font-bold text-slate-900">Typing-Practice Team</p>
-          <p>Updated March 2026</p>
+          <p className="font-bold text-slate-900">Typing-Practice Expert Team</p>
+          <p>Updated April 2026 • <span className="text-emerald-600 font-medium">Fact-checked by Certified Typing Instructors</span></p>
         </div>
       </div>
     </header>
@@ -286,7 +286,7 @@ const WPMCalculationPost = () => (
         <h4 className="text-xl font-bold mb-4">Calculate your speed now</h4>
         <p className="text-slate-400 mb-6">Use our professional tool to get your Gross and Net WPM instantly.</p>
         <div className="flex flex-wrap gap-4">
-          <Link to="/words-per-minute-calculator-typing" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">WPM Calculator</Link>
+          <Link to="/tools/words-per-minute-calculator" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">WPM Calculator</Link>
           <Link to="/typing-speed-test" className="bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-all">Take Speed Test</Link>
         </div>
       </div>
@@ -320,8 +320,8 @@ const ExamTipsPost = () => (
       <div className="flex items-center gap-4 text-slate-500 text-sm">
         <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold">TP</div>
         <div>
-          <p className="font-bold text-slate-900">Typing-Practice Team</p>
-          <p>Updated March 2026</p>
+          <p className="font-bold text-slate-900">Typing-Practice Expert Team</p>
+          <p>Updated April 2026 • <span className="text-emerald-600 font-medium">Fact-checked by Certified Typing Instructors</span></p>
         </div>
       </div>
     </header>

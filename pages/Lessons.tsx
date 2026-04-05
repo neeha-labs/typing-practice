@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO, { SITE_URL } from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import TypingLinksSection from '../components/TypingLinksSection';
 import { LESSONS } from '../constants';
@@ -57,10 +57,51 @@ const Lessons: React.FC = () => {
     navigate(`/lessons/${l}`);
   };
 
+  const lessonsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        "name": "Learn Touch Typing Free Online",
+        "description": "A comprehensive, free online course to learn touch typing from beginner to advanced levels.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Typing-Practice.online",
+          "sameAs": SITE_URL
+        },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "online"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How can I learn touch typing for free online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can learn touch typing for free online using our structured lessons. Start with the beginner path to master the home row, then progress to intermediate and advanced drills to build speed and accuracy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take to learn touch typing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With 15-30 minutes of daily practice, most people can learn the basic touch typing finger placements in 1-2 weeks. Reaching a professional speed of 60+ WPM usually takes a few months of consistent practice."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   if (!level) {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
-        <SEO title={seo.title} description={seo.description} />
+        <SEO title={seo.title} description={seo.description} schema={lessonsSchema} />
         
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,8 +111,8 @@ const Lessons: React.FC = () => {
         </Link>
 
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Typing Lessons Hub</h1>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">Structured learning paths designed to take you from zero to pro. Choose your starting point.</p>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Learn Touch Typing Free Online</h1>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">Structured learning paths designed to take you from zero to pro. Choose your starting point and start building muscle memory today.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -113,18 +154,29 @@ const Lessons: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-24 bg-slate-50 rounded-3xl p-8 md:p-12">
-          <h2 className="text-2xl font-bold mb-8 text-center">Why Learn Touch Typing?</h2>
-          <div className="grid md:grid-cols-2 gap-12">
+        <div className="mt-24 bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200">
+          <h2 className="text-3xl font-bold mb-8 text-center text-slate-900">Why Learn Touch Typing?</h2>
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
             <div>
-              <h3 className="font-bold text-slate-900 mb-3">Double Your Productivity</h3>
-              <p className="text-slate-600">The average person types at 40 WPM. Touch typists easily reach 80+ WPM, saving you hours of work every week.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Double Your Productivity</h3>
+              <p className="text-slate-600 leading-relaxed">The average person types at 40 WPM using the "hunt and peck" method. Touch typists easily reach 80+ WPM, saving you hours of work every week. Whether you are coding, writing emails, or taking an online exam, speed is your biggest advantage.</p>
             </div>
             <div>
-              <h3 className="font-bold text-slate-900 mb-3">Focus on Content, Not Keys</h3>
-              <p className="text-slate-600">When you don't have to look at your fingers, your brain is free to focus on what you're actually writing.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Focus on Content, Not Keys</h3>
+              <p className="text-slate-600 leading-relaxed">When you don't have to look at your fingers, your brain is free to focus on what you're actually writing. This reduces cognitive load and allows for better flow state, improving the quality of your work.</p>
             </div>
           </div>
+          
+          <h2 className="text-2xl font-bold mb-6 text-slate-900">How to Learn Touch Typing Free Online</h2>
+          <p className="text-slate-600 leading-relaxed mb-6">
+            Our platform provides a completely free, structured curriculum to help you master the keyboard. Here is how to get the most out of our lessons:
+          </p>
+          <ul className="space-y-4 text-slate-600 list-disc pl-6">
+            <li><strong>Start with the Home Row:</strong> The beginner path focuses on ASDF and JKL;. Your fingers should always rest here.</li>
+            <li><strong>Don't Look Down:</strong> The golden rule of touch typing. Even if you make mistakes, keep your eyes on the screen.</li>
+            <li><strong>Accuracy Over Speed:</strong> In the beginning, speed does not matter. Focus on hitting the right key with the correct finger. Speed will naturally develop as your muscle memory improves.</li>
+            <li><strong>Practice Daily:</strong> 15 minutes a day is better than 2 hours once a week. Consistency builds the neural pathways required for fast typing.</li>
+          </ul>
         </div>
       </div>
     );
@@ -132,7 +184,7 @@ const Lessons: React.FC = () => {
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
-      <SEO title={seo.title} description={seo.description} />
+      <SEO title={seo.title} description={seo.description} schema={lessonsSchema} />
 
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>

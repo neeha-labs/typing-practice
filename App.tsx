@@ -1,6 +1,6 @@
 
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
@@ -53,6 +53,9 @@ const App: React.FC = () => {
               <Route path="/typing-test/60-second-typing-test" element={<TypingTest />} />
               <Route path="/typing-test/90-second-typing-test" element={<TypingTest />} />
               <Route path="/typing-test/120-second-typing-test" element={<TypingTest />} />
+              <Route path="/typing-test/300-second-typing-test" element={<TypingTest />} />
+              <Route path="/typing-test/1-minute" element={<Navigate to="/typing-test/60-second-typing-test" replace />} />
+              <Route path="/typing-test/5-minute" element={<Navigate to="/typing-test/300-second-typing-test" replace />} />
               <Route path="/easy-typing-test" element={<TypingTest />} />
               <Route path="/hard-typing-test" element={<TypingTest />} />
               <Route path="/typing-test-for-beginners" element={<TypingTest />} />
@@ -62,11 +65,11 @@ const App: React.FC = () => {
               <Route path="/rrb-typing-test-practice" element={<ExamPractice />} />
               <Route path="/ibps-typing-test-practice" element={<ExamPractice />} />
               <Route path="/sbi-typing-test-practice" element={<ExamPractice />} />
-              <Route path="/how-to-improve-typing-speed" element={<Blog predefinedPostId="how-to-improve-typing-speed" />} />
-              <Route path="/typing-practice-for-government-exams" element={<Blog predefinedPostId="government-exam-typing-tips" />} />
-              <Route path="/how-typing-speed-is-calculated" element={<Blog predefinedPostId="how-wpm-is-calculated" />} />
+              <Route path="/how-to-improve-typing-speed" element={<Navigate to="/blog/how-to-improve-typing-speed" replace />} />
+              <Route path="/typing-practice-for-government-exams" element={<Navigate to="/blog/government-exam-typing-tips" replace />} />
+              <Route path="/how-typing-speed-is-calculated" element={<Navigate to="/blog/how-wpm-is-calculated" replace />} />
               <Route path="/learn-touch-typing-free-online" element={<Lessons />} />
-              <Route path="/words-per-minute-calculator-typing" element={<WPMCalculator />} />
+              <Route path="/words-per-minute-calculator-typing" element={<Navigate to="/tools/words-per-minute-calculator" replace />} />
 
               <Route path="/lessons" element={<Lessons />} />
               <Route path="/lessons/:level" element={<Lessons />} />

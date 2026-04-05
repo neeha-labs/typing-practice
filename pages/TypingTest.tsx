@@ -92,6 +92,9 @@ const TypingTest: React.FC = () => {
     } else if (path.includes('120-second')) {
       setDuration(120);
       setTestMode('test');
+    } else if (path.includes('300-second')) {
+      setDuration(300);
+      setTestMode('test');
     } else if (path.includes('easy-typing-test')) {
       setDuration(60);
       setTestMode('easy');
@@ -157,6 +160,10 @@ const TypingTest: React.FC = () => {
       title: "90 Second Typing Test – Accuracy & Speed Benchmark",
       description: "Take a 90-second typing test to measure your sustained typing performance and accuracy."
     };
+    if (path.includes('300-second')) return {
+      title: "5 Minute Typing Test – 300 Second Endurance Challenge",
+      description: "Test your typing endurance with a 5-minute (300 seconds) typing test. Perfect for measuring sustained speed and accuracy over longer periods."
+    };
 
     if (!duration) return {
       title: "Free Typing Speed Test | Measure Your WPM Online",
@@ -172,7 +179,7 @@ const TypingTest: React.FC = () => {
   const seo = getSEOData();
 
   const handleSelectDuration = (d: number) => {
-    const slug = d === 30 ? '30-second-typing-test' : d === 45 ? '45-second-typing-test' : d === 60 ? '60-second-typing-test' : d === 90 ? '90-second-typing-test' : d === 120 ? '120-second-typing-test' : `${d}-second-typing-test`;
+    const slug = d === 30 ? '30-second-typing-test' : d === 45 ? '45-second-typing-test' : d === 60 ? '60-second-typing-test' : d === 90 ? '90-second-typing-test' : d === 120 ? '120-second-typing-test' : d === 300 ? '300-second-typing-test' : `${d}-second-typing-test`;
     navigate(`/typing-test/${slug}`);
   };
 
@@ -266,11 +273,12 @@ const TypingTest: React.FC = () => {
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">Measure your typing speed and accuracy with our professional-grade testing engine. Choose a duration to begin.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
           {[
             { d: 30, label: '30 Seconds', icon: '⚡', desc: 'A quick burst to test your raw speed.' },
             { d: 60, label: '60 Seconds', icon: '⏱️', desc: 'The standard 1-minute typing test.' },
-            { d: 120, label: '120 Seconds', icon: '🏆', desc: 'Test your endurance over 2 minutes.' }
+            { d: 120, label: '120 Seconds', icon: '🏆', desc: 'Test your endurance over 2 minutes.' },
+            { d: 300, label: '5 Minutes', icon: '🔥', desc: 'The ultimate 5-minute endurance test.' }
           ].map((item) => (
             <button
               key={item.d}

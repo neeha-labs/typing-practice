@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO, { SITE_URL } from '../components/SEO';
 import TypingLinksSection from '../components/TypingLinksSection';
 
 const WPMCalculator: React.FC = () => {
@@ -25,11 +25,61 @@ const WPMCalculator: React.FC = () => {
     }
   };
 
+  const calculatorSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "How to Calculate Words Per Minute (WPM)",
+        "description": "Learn how to manually calculate your typing speed using our words per minute calculator.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Count the words",
+            "text": "Count the total number of words you typed. Remember that in typing tests, a 'word' is standardized as 5 characters."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Measure the time",
+            "text": "Note down the exact time it took you to type those words in minutes and seconds."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Use the WPM Calculator",
+            "text": "Enter the number of words and the time into our free typing speed calculator to get your exact WPM."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a WPM calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A WPM calculator is a tool that determines your typing speed in Words Per Minute. It takes the total number of words typed and divides it by the total time taken in minutes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I use a typing speed calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To use our typing speed calculator, simply enter the total number of words you typed and the time it took (in minutes and seconds). The calculator will instantly display your WPM."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
         title="Words Per Minute Calculator Typing | How Typing Speed is Calculated" 
         description="Calculate your typing speed in Words Per Minute (WPM) with our free online calculator. Learn how typing speed is calculated and how to improve your WPM." 
+        schema={calculatorSchema}
       />
 
       <Link to="/tools" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
@@ -100,7 +150,7 @@ const WPMCalculator: React.FC = () => {
         <div className="prose prose-slate max-w-none">
           <h2 className="text-2xl font-bold text-slate-900 mb-6">How WPM is Calculated</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            The standard formula for calculating typing speed is quite simple. It involves taking the total number of words typed and dividing it by the total time taken in minutes.
+            The standard formula for calculating typing speed is quite simple. It involves taking the total number of words typed and dividing it by the total time taken in minutes. Our <strong>typing speed calculator</strong> does this math for you instantly.
           </p>
           <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
             <p className="font-mono text-sm text-slate-700">
@@ -111,17 +161,22 @@ const WPMCalculator: React.FC = () => {
           <p className="text-slate-600 leading-relaxed mb-4">
             In professional typing tests, a "word" is standardized as 5 characters, including spaces and punctuation. This ensures that the difficulty of the text doesn't unfairly affect the WPM score.
           </p>
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 leading-relaxed mb-6">
             For example, if you type 250 characters in one minute, your speed is 50 WPM (250 / 5 = 50).
+          </p>
+          
+          <h3 className="text-xl font-bold text-slate-900 mb-4">Why use a WPM Calculator?</h3>
+          <p className="text-slate-600 leading-relaxed mb-4">
+            While most modern typing tests calculate your speed automatically, you might need a manual <strong>words per minute calculator</strong> if you are transcribing an audio file, copying text from a physical book, or taking a specialized offline test. Simply count the words you typed, note the time, and plug the numbers into our tool above.
           </p>
         </div>
       </div>
 
-      <section className="bg-slate-900 rounded-3xl p-12 text-center text-white shadow-xl">
+      <section className="bg-slate-900 rounded-3xl p-12 text-center text-white shadow-xl mb-16">
         <h2 className="text-3xl font-bold mb-6">Ready for a real test?</h2>
-        <p className="text-slate-400 mb-10 max-w-2xl mx-auto">Instead of manual calculation, let our automated engine measure your speed and accuracy in real-time.</p>
-        <Link to="/typing-test" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-500 transition-all">
-          Take a Typing Test
+        <p className="text-slate-400 mb-10 max-w-2xl mx-auto">Instead of manual calculation, let our automated engine measure your speed and accuracy in real-time. Try our industry-standard 60 second typing test.</p>
+        <Link to="/typing-test/60-second-typing-test" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-500 transition-all">
+          Take a 60 Second Typing Test
         </Link>
       </section>
 

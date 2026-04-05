@@ -1,14 +1,69 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO, { SITE_URL } from '../components/SEO';
 
 const Home: React.FC = () => {
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "url": SITE_URL,
+        "name": "Typing-Practice.online",
+        "description": "Master touch typing with free lessons and speed tests. Improve your WPM for SSC, Banking, and Government exams.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": `${SITE_URL}/search?q={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a good typing speed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A good typing speed for most professionals is around 40 to 60 Words Per Minute (WPM). However, for data entry or transcription jobs, a speed of 70 to 90 WPM is often required. You can measure your current speed using our free 60 second typing test."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is typing speed calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Typing speed is calculated in Words Per Minute (WPM). A 'word' is standardized as 5 characters or keystrokes. Gross WPM is calculated by dividing total characters typed by 5, then dividing by the time in minutes. Net WPM subtracts your errors from the Gross WPM to give your true typing speed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I learn touch typing for free online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can learn touch typing for free online by using our structured typing lessons. Start by mastering the home row keys (ASDF JKL;), then gradually move to the top and bottom rows. Consistent daily practice of 15-30 minutes is the best way to build muscle memory."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why should I take a 60 second typing test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 60 second typing test is the industry standard for measuring typing speed and accuracy. It provides a quick, accurate snapshot of your Words Per Minute (WPM) without causing typing fatigue. It's perfect for daily practice and tracking your progress over time."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="pb-12">
       <SEO 
         title="Typing-Practice.online | Tests, Lessons & Progress Tracking" 
         description="Master touch typing for SSC, Banking, and Government exams. Free speed tests, structured lessons, and professional WPM calculators."
+        schema={homeSchema}
       />
       
       {/* Hero Section */}
@@ -75,7 +130,7 @@ const Home: React.FC = () => {
               title: "Words Per Minute Calculator",
               desc: "Calculate your typing speed manually with our professional WPM tool.",
               icon: "🧮",
-              link: "/words-per-minute-calculator-typing"
+              link: "/tools/words-per-minute-calculator"
             },
             {
               title: "Leaderboard",
@@ -119,7 +174,7 @@ const Home: React.FC = () => {
               <p className="text-slate-600 mb-4 leading-relaxed">
                 The key to fast typing is muscle memory. Always return your fingers to the home row (ASDF JKL;). Look at the screen, not your keyboard. Practice daily with our <Link to="/typing-test/60-second-typing-test" className="text-blue-600 font-semibold hover:underline">60 Second Typing Test</Link> to build consistency.
               </p>
-              <Link to="/how-to-improve-typing-speed" className="text-blue-600 font-bold hover:underline">Read full guide →</Link>
+              <Link to="/blog/how-to-improve-typing-speed" className="text-blue-600 font-bold hover:underline">Read full guide →</Link>
             </div>
             
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
@@ -139,7 +194,7 @@ const Home: React.FC = () => {
               <p className="text-slate-600 mb-4 leading-relaxed">
                 To break the 60 WPM barrier, you need to type words as single units rather than individual letters. Practice reading ahead of what you are currently typing. Take the <Link to="/typing-test/120-second-typing-test" className="text-blue-600 font-semibold hover:underline">120 Second Typing Test</Link> to build endurance.
               </p>
-              <Link to="/how-to-improve-typing-speed" className="text-blue-600 font-bold hover:underline">Advanced techniques →</Link>
+              <Link to="/blog/how-to-improve-typing-speed" className="text-blue-600 font-bold hover:underline">Advanced techniques →</Link>
             </div>
             
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
@@ -149,7 +204,7 @@ const Home: React.FC = () => {
               <p className="text-slate-600 mb-4 leading-relaxed">
                 SSC CHSL and CGL require strict accuracy. Backspace is often disabled or penalized. Our <Link to="/ssc-typing-test-practice" className="text-blue-600 font-semibold hover:underline">SSC Typing Practice</Link> mode simulates these exact conditions to ensure you are fully prepared for test day.
               </p>
-              <Link to="/typing-practice-for-government-exams" className="text-blue-600 font-bold hover:underline">SSC Exam Guide →</Link>
+              <Link to="/blog/government-exam-typing-tips" className="text-blue-600 font-bold hover:underline">SSC Exam Guide →</Link>
             </div>
           </div>
         </div>
@@ -179,7 +234,7 @@ const Home: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold text-slate-900 mb-6">Free Typing Tools</h2>
             <div className="space-y-4">
-              <Link to="/tools/wpm-calculator" className="flex items-center p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all group">
+              <Link to="/tools/words-per-minute-calculator" className="flex items-center p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all group">
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">🧮</div>
                 <div>
                   <h3 className="font-bold text-slate-900">WPM Calculator</h3>
@@ -198,15 +253,55 @@ const Home: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold text-slate-900 mb-6">Latest from Blog</h2>
             <div className="space-y-4">
-              <Link to="/how-to-improve-typing-speed" className="block p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all group">
+              <Link to="/blog/how-to-improve-typing-speed" className="block p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all group">
                 <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">How to Improve Your Typing Speed</h3>
                 <p className="text-sm text-slate-500 mt-1">10 expert tips to boost your WPM from 30 to 80+.</p>
               </Link>
-              <Link to="/typing-practice-for-government-exams" className="block p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all group">
+              <Link to="/blog/government-exam-typing-tips" className="block p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all group">
                 <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Cracking Government Typing Exams</h3>
                 <p className="text-sm text-slate-500 mt-1">Specific strategies for SSC CHSL, CGL, and Banking.</p>
               </Link>
               <Link to="/blog" className="text-blue-600 font-bold text-sm hover:underline inline-block mt-2 px-4">View all articles →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section for SEO */}
+      <section className="bg-slate-50 py-16 px-4 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-slate-600">Everything you need to know about typing tests, WPM calculation, and improving your speed.</p>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">What is a good typing speed?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                A good typing speed for most professionals is around 40 to 60 Words Per Minute (WPM). However, for data entry or transcription jobs, a speed of 70 to 90 WPM is often required. You can measure your current speed using our <Link to="/typing-test/60-second-typing-test" className="text-blue-600 hover:underline">free 60 second typing test</Link>.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">How is typing speed calculated?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Typing speed is calculated in Words Per Minute (WPM). A "word" is standardized as 5 characters or keystrokes. Gross WPM is calculated by dividing total characters typed by 5, then dividing by the time in minutes. Net WPM subtracts your errors from the Gross WPM to give your true typing speed. Use our <Link to="/tools/words-per-minute-calculator" className="text-blue-600 hover:underline">WPM calculator</Link> to check your manual scores.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">How can I learn touch typing for free online?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                You can <Link to="/learn-touch-typing-free-online" className="text-blue-600 hover:underline">learn touch typing for free online</Link> by using our structured typing lessons. Start by mastering the home row keys (ASDF JKL;), then gradually move to the top and bottom rows. Consistent daily practice of 15-30 minutes is the best way to build muscle memory.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Why should I take a 60 second typing test?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                A 60 second typing test is the industry standard for measuring typing speed and accuracy. It provides a quick, accurate snapshot of your Words Per Minute (WPM) without causing typing fatigue. It's perfect for daily practice and tracking your progress over time.
+              </p>
             </div>
           </div>
         </div>
