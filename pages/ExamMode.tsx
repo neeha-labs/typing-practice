@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
@@ -12,6 +12,7 @@ const ExamMode: React.FC = () => {
   const [selectedExam, setSelectedExam] = useState<ExamConfig | null>(null);
   const [isExamRunning, setIsExamRunning] = useState(false);
   const [targetText, setTargetText] = useState('');
+  const [resetKey, setResetKey] = useState(0);
   const lastTextIndex = useRef<number>(-1);
 
   const getRandomTextForDuration = (d: number) => {
@@ -35,6 +36,7 @@ const ExamMode: React.FC = () => {
       if (exam) {
         setSelectedExam(exam);
         setIsExamRunning(false);
+        setResetKey(prev => prev + 1);
       }
     }
   }, [searchParams]);
@@ -48,6 +50,7 @@ const ExamMode: React.FC = () => {
     if (selectedExam) {
       setTargetText(getRandomTextForDuration(selectedExam.duration));
       setIsExamRunning(true);
+      setResetKey(prev => prev + 1);
     }
   };
 
@@ -55,7 +58,12 @@ const ExamMode: React.FC = () => {
     setIsExamRunning(false);
     setSelectedExam(null);
     setSearchParams({});
+    setResetKey(prev => prev + 1);
   };
+
+  const handleExamFinish = useCallback((stats: TypingStats) => {
+    console.log('Exam Finished', stats);
+  }, []);
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
@@ -127,10 +135,11 @@ const ExamMode: React.FC = () => {
             key={selectedExam?.id}
             targetText={targetText}
             duration={selectedExam?.duration || 600}
-            onFinish={(stats) => console.log('Exam Finished', stats)}
+            onFinish={handleExamFinish}
             showHighlight={selectedExam?.highlightEnabled}
             allowBackspace={selectedExam?.backspaceAllowed}
             mode={selectedExam?.id || 'exam'}
+            resetKey={resetKey}
           />
 
           <div className="flex justify-center pt-8">

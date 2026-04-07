@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useSearchParams, useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db, auth } from '../firebase';
@@ -73,6 +73,8 @@ const TypingTest: React.FC = () => {
   const [stats, setStats] = useState<{ wpm: number; accuracy: number; totalChars: number; errors: number } | null>(null);
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [liveStats, setLiveStats] = useState<{ wpm: number; accuracy: number; errors: number }>({ wpm: 0, accuracy: 100, errors: 0 });
+  const [resetKey, setResetKey] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
 
   // Map duration slug to seconds
   useEffect(() => {
@@ -128,6 +130,8 @@ const TypingTest: React.FC = () => {
     setTestStarted(false);
     setStats(null);
     setIsTimerActive(false);
+    setIsFinished(false);
+    setResetKey(prev => prev + 1);
   }, [durationParam, searchParams, location.pathname]);
 
   const getSEOData = () => {
@@ -188,17 +192,20 @@ const TypingTest: React.FC = () => {
       setTargetText(loadParagraphs(testMode, duration));
       setTestStarted(true);
       setStats(null);
-      setIsTimerActive(false);
+      setIsTimerActive(true);
+      setIsFinished(false);
       setLiveStats({ wpm: 0, accuracy: 100, errors: 0 });
+      setResetKey(prev => prev + 1);
     }
   };
 
   const handleTypingStart = () => {
-    setIsTimerActive(true);
+    // Timer started by startTest
   };
 
-  const handleTypingEnd = async (finalStats: { wpm: number; accuracy: number; totalChars: number; errors: number }) => {
+  const handleTypingEnd = useCallback(async (finalStats: { wpm: number; accuracy: number; totalChars: number; errors: number }) => {
     setIsTimerActive(false);
+    setIsFinished(true);
     setStats(finalStats);
 
     if (auth.currentUser) {
@@ -208,7 +215,7 @@ const TypingTest: React.FC = () => {
           60: '60s',
           120: '120s'
         };
-        const testType = testTypeMap[duration] || `${duration}s`;
+        const testType = testTypeMap[duration || 60] || `${duration}s`;
 
         const resultData = {
           userId: auth.currentUser.uid,
@@ -244,7 +251,11 @@ const TypingTest: React.FC = () => {
         console.error("Error saving result:", error);
       }
     }
-  };
+  }, [duration]);
+
+  const handleTimerComplete = useCallback(() => {
+    setIsFinished(true);
+  }, []);
 
   const getDisplayTitle = () => {
     if (testMode === 'easy') return "Easy Typing Test";
@@ -384,9 +395,8 @@ const TypingTest: React.FC = () => {
               <TypingTimer 
                 duration={duration} 
                 isActive={isTimerActive} 
-                onComplete={() => {
-                  // The TypingBox will handle the completion if we pass duration
-                }} 
+                resetKey={resetKey}
+                onComplete={handleTimerComplete} 
               />
               <button 
                 onClick={startTest}
@@ -422,7 +432,10 @@ const TypingTest: React.FC = () => {
                 onTypingEnd={handleTypingEnd} 
                 onStatsUpdate={setLiveStats}
                 isTestMode={true}
+                isActive={isTimerActive}
+                forceFinish={isFinished}
                 duration={duration}
+                resetKey={resetKey}
               />
             </div>
           ) : (

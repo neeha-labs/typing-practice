@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import SEO, { SITE_URL } from '../components/SEO';
 import TypingArea from '../components/TypingArea';
@@ -13,24 +13,33 @@ const Lessons: React.FC = () => {
   const navigate = useNavigate();
   const [level, setLevel] = useState<Level | null>(null);
   const [activeLesson, setActiveLesson] = useState<any>(null);
+  const [resetKey, setResetKey] = useState(0);
 
   useEffect(() => {
     if (levelParam && ['beginner', 'intermediate', 'advanced'].includes(levelParam)) {
       setLevel(levelParam as Level);
       setActiveLesson(null);
+      setResetKey(prev => prev + 1);
     } else if (!levelParam) {
       setLevel(null);
       setActiveLesson(null);
+      setResetKey(prev => prev + 1);
     }
   }, [levelParam]);
 
   const handleLessonSelect = (lesson: any) => {
     setActiveLesson(lesson);
+    setResetKey(prev => prev + 1);
   };
 
   const handleBack = () => {
     setActiveLesson(null);
+    setResetKey(prev => prev + 1);
   };
+
+  const handleLessonFinish = useCallback(() => {
+    // Lesson finished
+  }, []);
 
   const getSEOData = () => {
     if (!level) return {
@@ -258,9 +267,10 @@ const Lessons: React.FC = () => {
             key={activeLesson.id}
             targetText={activeLesson.text}
             duration={60}
-            onFinish={() => {}}
+            onFinish={handleLessonFinish}
             showHighlight={true}
             allowBackspace={true}
+            resetKey={resetKey}
           />
         </div>
       )}

@@ -12,6 +12,7 @@ interface TypingAreaProps {
   showHighlight?: boolean;
   allowBackspace?: boolean;
   mode?: string;
+  resetKey?: number;
 }
 
 const TypingArea: React.FC<TypingAreaProps> = ({
@@ -20,7 +21,8 @@ const TypingArea: React.FC<TypingAreaProps> = ({
   onFinish,
   showHighlight = true,
   allowBackspace = true,
-  mode = 'practice'
+  mode = 'practice',
+  resetKey
 }) => {
   const navigate = useNavigate();
   const [userInput, setUserInput] = useState('');
@@ -37,6 +39,11 @@ const TypingArea: React.FC<TypingAreaProps> = ({
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setIsLoggedIn(!!user);
     });
+    
+    // Start test immediately on mount
+    setIsActive(true);
+    setStartTime(Date.now());
+    
     return () => unsubscribe();
   }, []);
 
@@ -69,23 +76,35 @@ const TypingArea: React.FC<TypingAreaProps> = ({
     };
   }, [userInput, targetText, startTime]);
 
+  const onFinishRef = useRef(onFinish);
+  useEffect(() => {
+    onFinishRef.current = onFinish;
+  }, [onFinish]);
+
   useEffect(() => {
     let interval: any;
     if (isActive && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => {
+          if (prev <= 0) return 0;
+          return prev - 1;
+        });
       }, 1000);
-    } else if (timeLeft === 0 && isActive) {
+    }
+    return () => clearInterval(interval);
+  }, [isActive]);
+
+  useEffect(() => {
+    if (timeLeft === 0 && isActive) {
       setIsActive(false);
       setIsFinished(true);
       const stats = calculateStats();
-      onFinish(stats);
+      onFinishRef.current(stats);
       if (auth.currentUser) {
         saveTestResult(stats.wpm, stats.accuracy, duration, mode, mistypedKeys);
       }
     }
-    return () => clearInterval(interval);
-  }, [isActive, timeLeft, onFinish, calculateStats, duration, mode, mistypedKeys]);
+  }, [timeLeft, isActive, calculateStats, duration, mode, mistypedKeys]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (isFinished) return;
@@ -130,12 +149,22 @@ const TypingArea: React.FC<TypingAreaProps> = ({
   const resetTest = () => {
     setUserInput('');
     setTimeLeft(duration);
-    setIsActive(false);
+    setIsActive(true); // Start immediately
     setIsFinished(false);
-    setStartTime(null);
+    setStartTime(Date.now()); // Set start time
     setMistypedKeys({});
-    setTimeout(() => inputRef.current?.focus(), 0);
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+    // Use a small timeout to ensure focus after state updates
+    setTimeout(() => {
+      if (inputRef.current) inputRef.current.focus();
+    }, 10);
   };
+
+  useEffect(() => {
+    resetTest();
+  }, [resetKey]);
 
   const handleShare = () => {
     const stats = calculateStats();
@@ -161,12 +190,18 @@ const TypingArea: React.FC<TypingAreaProps> = ({
     .sort((a, b) => (b[1] as number) - (a[1] as number))
     .slice(0, 3);
 
+  const isWarning = timeLeft <= 10 && timeLeft > 0;
+
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         <StatCard label="WPM" value={currentStats.wpm} color="text-blue-600" />
         <StatCard label="Accuracy" value={`${currentStats.accuracy}%`} color="text-emerald-600" />
-        <StatCard label="Time Left" value={`${timeLeft}s`} color="text-amber-600" />
+        <StatCard 
+          label="Time Left" 
+          value={`${timeLeft}s`} 
+          color={isWarning ? "text-rose-600 animate-pulse font-black" : "text-amber-600"} 
+        />
         <StatCard label="Errors" value={currentStats.errors} color="text-rose-600" />
       </div>
 

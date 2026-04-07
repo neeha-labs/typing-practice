@@ -13,6 +13,7 @@ const TypingPractice: React.FC = () => {
   const [targetText, setTargetText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [stats, setStats] = useState<{ wpm: number; accuracy: number; totalChars: number; errors: number } | null>(null);
+  const [resetKey, setResetKey] = useState(0);
 
   useEffect(() => {
     startNewPractice();
@@ -22,6 +23,7 @@ const TypingPractice: React.FC = () => {
     setTargetText(loadParagraphs(mode));
     setIsTyping(false);
     setStats(null);
+    setResetKey(prev => prev + 1);
   };
 
   const handleTypingStart = () => {
@@ -86,6 +88,7 @@ const TypingPractice: React.FC = () => {
             onTypingStart={handleTypingStart} 
             onTypingEnd={handleTypingEnd} 
             isTestMode={false} 
+            resetKey={resetKey}
           />
         ) : (
           <div className="text-center">

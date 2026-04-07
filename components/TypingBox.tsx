@@ -6,16 +6,60 @@ interface TypingBoxProps {
   onTypingEnd: (stats: { wpm: number; accuracy: number; totalChars: number; errors: number }) => void;
   onStatsUpdate?: (stats: { wpm: number; accuracy: number; errors: number }) => void;
   isTestMode: boolean;
+  isActive?: boolean;
+  forceFinish?: boolean;
   duration?: number;
+  resetKey?: number;
 }
 
-const TypingBox: React.FC<TypingBoxProps> = ({ targetText, onTypingStart, onTypingEnd, onStatsUpdate, isTestMode, duration }) => {
+const TypingBox: React.FC<TypingBoxProps> = ({ 
+  targetText, 
+  onTypingStart, 
+  onTypingEnd, 
+  onStatsUpdate, 
+  isTestMode, 
+  isActive = false,
+  forceFinish = false,
+  duration, 
+  resetKey 
+}) => {
   const [input, setInput] = useState('');
   const [startTime, setStartTime] = useState<number | null>(null);
   const [errors, setErrors] = useState(0);
   const [totalMistakes, setTotalMistakes] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  // Handle forceFinish from parent
+  useEffect(() => {
+    if (forceFinish && !isFinished) {
+      finishTyping();
+    }
+  }, [forceFinish, isFinished]);
+
+  // Reset all state when resetKey changes
+  useEffect(() => {
+    setInput('');
+    setStartTime(null);
+    setErrors(0);
+    setTotalMistakes(0);
+    setIsFinished(false);
+    // Explicitly clear stats in parent
+    if (onStatsUpdate) {
+      onStatsUpdate({ wpm: 0, accuracy: 100, errors: 0 });
+    }
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [resetKey, onStatsUpdate]);
+
+  // Start timer if isActive becomes true from parent
+  useEffect(() => {
+    if (isActive && !startTime && !isFinished) {
+      setStartTime(Date.now());
+      onTypingStart();
+    }
+  }, [isActive, startTime, isFinished, onTypingStart]);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -43,7 +87,8 @@ const TypingBox: React.FC<TypingBoxProps> = ({ targetText, onTypingStart, onTypi
           });
         }
 
-        if (timeElapsed >= duration) {
+        // We still keep this as a fallback, but TypingTimer will be the primary driver
+        if (timeElapsed >= duration + 0.5) { // Add a small buffer
           finishTyping();
         }
       }, 500);
