@@ -68,8 +68,8 @@ const ExamMode: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="Government Exam Simulation – SSC & Banking Typing Mocks" 
-        description="Simulate real government typing exams like SSC CHSL, CGL, and Banking. Practice with strict accuracy norms and official WPM calculation methods." 
+        title="SSC CGL Typing Test Practice – Official Exam Simulation" 
+        description="Simulate real government typing exams like SSC CHSL, SSC CGL, and Banking. Practice with strict accuracy norms and official WPM calculation methods." 
       />
 
       <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
@@ -80,8 +80,11 @@ const ExamMode: React.FC = () => {
       </Link>
 
       <div className="mb-12">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">Exam Simulation Center</h1>
-        <p className="text-slate-500">Choose your target exam to start a simulated typing test with official rules.</p>
+        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-2">SSC CGL Typing Test Practice Center</h1>
+        <p className="text-xl text-slate-500 max-w-2xl">
+          Prepare for the final skill test with our <strong>ssc cgl typing test practice</strong> module. 
+          We provide official mock simulations for Staff Selection Commission exams.
+        </p>
       </div>
 
       {!isExamRunning ? (
@@ -152,6 +155,25 @@ const ExamMode: React.FC = () => {
           </div>
         </div>
       )}
+
+      <section className="mt-20 border-t border-slate-100 pt-16">
+        <div className="prose prose-slate max-w-none">
+          <h2 className="text-3xl font-black text-slate-900 mb-6 font-black">Preparing for SSC CGL Typing Test Practice</h2>
+          <p className="text-lg text-slate-600 leading-relaxed mb-6">
+            The Staff Selection Commission Skill Test is highly rigorous. Our <strong>ssc cgl typing test practice</strong> arena replicates the exact constraints you will face in the examination hall, including disabling the backspace key (where applicable) and forcing a 15-minute endurance run.
+          </p>
+          <div className="grid md:grid-cols-2 gap-12 not-prose mt-10">
+            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200">
+               <h3 className="text-xl font-bold text-slate-900 mb-4">Official Accuracy Norms</h3>
+               <p className="text-slate-500 text-sm leading-relaxed">Most government exams allow only a small percentage of errors (usually 5-7% for general category). Our simulation tracks your net WPM and counts backspaces as time-effort, helping you align with official scoring standards.</p>
+            </div>
+            <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100">
+               <h3 className="text-xl font-bold text-slate-900 mb-4">Recommended Practice Routine</h3>
+               <p className="text-slate-500 text-sm leading-relaxed">Spend at least 30 minutes daily on this page. Alternate between CHSL and CGL mocks to handle different word densities and formatting styles effectively.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <TypingLinksSection />
     </div>

@@ -43,16 +43,16 @@ const Lessons: React.FC = () => {
 
   const getSEOData = () => {
     if (!level) return {
-      title: "Learn Touch Typing Free Online - Beginner to Advanced Lessons",
-      description: "Master touch typing with our free online lessons. From home row basics to advanced symbol drills, we help you build muscle memory and speed."
+      title: "Learn Touch Typing Free Online – Typing Finger Position Practice",
+      description: "Master touch typing with our free online lessons. Get the best typing finger position practice and start with basic typing letter practice to build a solid foundation."
     };
     if (level === 'beginner') return {
-      title: "Beginner Typing Lessons – Build Speed & Confidence",
-      description: "Start your typing journey with our beginner lessons. Master the home row and build foundational muscle memory without looking at the keys."
+      title: "Beginner Typing Lessons – Typing Letter Practice Online",
+      description: "Start your typing journey with our beginner lessons. Master foundational typing letter practice and build essential muscle memory without looking at the keys."
     };
     if (level === 'intermediate') return {
-      title: "Intermediate Typing Lessons – Improve Flow & Rhythm",
-      description: "Improve your flow with intermediate typing drills. Focus on common word patterns and consistent typing rhythm to boost your WPM."
+      title: "Intermediate Lessons – Typing Practice Sentences",
+      description: "Improve your flow with intermediate typing practice sentences. Focus on common word patterns and consistent typing rhythm to boost your WPM."
     };
     return {
       title: "Advanced Typing Lessons – Master Numbers & Symbols",
@@ -120,8 +120,10 @@ const Lessons: React.FC = () => {
         </Link>
 
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Learn Touch Typing Free Online</h1>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">Structured learning paths designed to take you from zero to pro. Choose your starting point and start building muscle memory today.</p>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Learn Touch Typing Free & Improve Finger Precision</h1>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            Our structured multi-level course provides specialized <strong>typing letter practice</strong> for absolute beginners and <strong>typing practice sentences</strong> for those aiming for professional speed.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -176,15 +178,14 @@ const Lessons: React.FC = () => {
             </div>
           </div>
           
-          <h2 className="text-2xl font-bold mb-6 text-slate-900">How to Learn Touch Typing Free Online</h2>
+          <h2 className="text-2xl font-bold mb-6 text-slate-900">Effective Typing Finger Position Practice</h2>
           <p className="text-slate-600 leading-relaxed mb-6">
-            Our platform provides a completely free, structured curriculum to help you master the keyboard. Here is how to get the most out of our lessons:
+            Our platform provides a completely free, structured curriculum to help you master the keyboard. Here is how to perform effective <strong>typing finger position practice</strong>:
           </p>
-          <ul className="space-y-4 text-slate-600 list-disc pl-6">
-            <li><strong>Start with the Home Row:</strong> The beginner path focuses on ASDF and JKL;. Your fingers should always rest here.</li>
-            <li><strong>Don't Look Down:</strong> The golden rule of touch typing. Even if you make mistakes, keep your eyes on the screen.</li>
-            <li><strong>Accuracy Over Speed:</strong> In the beginning, speed does not matter. Focus on hitting the right key with the correct finger. Speed will naturally develop as your muscle memory improves.</li>
-            <li><strong>Practice Daily:</strong> 15 minutes a day is better than 2 hours once a week. Consistency builds the neural pathways required for fast typing.</li>
+          <ul className="space-y-4 text-slate-600 list-disc pl-6 mb-8">
+            <li><strong>Start with the Home Row:</strong> The beginner path focuses on ASDF and JKL;. Your fingers should always rest here at the start of every session.</li>
+            <li><strong>Typing Letter Practice:</strong> Don't rush into words. Spend the first few days mastering individual letters to ensure your fingers know the exact distance to each key.</li>
+            <li><strong>Advanced Typing Practice Sentences:</strong> Once letters are comfortable, move to full sentences. This teaches you how to handle capital letters and punctuation without pausing.</li>
           </ul>
         </div>
       </div>

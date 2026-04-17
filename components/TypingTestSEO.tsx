@@ -52,10 +52,16 @@ const TypingTestSEO: React.FC<TypingTestSEOProps> = ({ duration = 60, mode = 'te
       intro: "Take a 90-second typing test to measure your sustained typing performance and accuracy.",
       unique: "The 90-second typing test is an excellent benchmark for intermediate typists. It tests your ability to maintain a steady pace and high accuracy as you move through multiple sentences."
     };
+    if (duration === 300) return {
+      h1: "Typing Practice 5 Minutes – Professional Endurance Test",
+      intro: "Our typing practice 5 minutes module is designed for advanced typists preparing for long-duration certification exams.",
+      unique: "Typing for five minutes straight requires mental focus, stamina, and consistent rhythm. This typing practice 5 minutes session mimics real-world office and exam environments, forcing you to maintain finger precision over hundreds of words without losing focus."
+    };
+
     if (duration === 120) return {
-      h1: "120 Second Typing Test – Endurance & Accuracy Focus",
-      intro: "Test your endurance over 2 minutes. This test focuses on maintaining high accuracy over a longer duration.",
-      unique: "The 120-second typing test is the ultimate test of endurance. It reveals how your accuracy holds up as your fingers begin to tire, making it a crucial tool for those training for long-form typing tasks."
+      h1: "120 Second Typing Test – Accuracy Benchmark Online",
+      intro: "Take a 2-minute typing test to measure your sustained typing performance and accuracy levels.",
+      unique: "The 120-second test is perfect for intermediate typists. It provides a deeper look into your typing flow than shorter sprints."
     };
 
     return {
@@ -81,6 +87,22 @@ const TypingTestSEO: React.FC<TypingTestSEOProps> = ({ duration = 60, mode = 'te
       },
       {
         "@type": "Question",
+        "name": "How to practice typing paragraphs online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best way to practice typing paragraphs online is to use a dedicated tool like our Paragraph Practice module. It allows you to focus on endurance and flow without the distractions of shorter tests."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best way to improve typing speed for SSC CGL?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To improve speed for SSC CGL, practice with official-style paragraphs for 15 minutes a day. Focus on Net WPM and minimize errors to stay within the allowed penalty thresholds."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "How is WPM calculated?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -99,100 +121,171 @@ const TypingTestSEO: React.FC<TypingTestSEOProps> = ({ duration = 60, mode = 'te
   };
 
   return (
-    <div className="mt-16 space-y-12 border-t border-slate-100 pt-16">
+    <div className="mt-16 space-y-16 border-t border-slate-100 pt-16">
       <script type="application/ld+json">
         {JSON.stringify(faqSchema)}
       </script>
 
       <section className="prose prose-slate max-w-none">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">{content.h1}</h1>
-        <p className="text-lg text-slate-600 leading-relaxed mb-8">
+        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight">{content.h1}</h1>
+        <p className="text-xl text-slate-600 leading-relaxed mb-12">
           {content.intro}
         </p>
 
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">How It Works</h2>
-        <ul className="space-y-2 text-slate-600 list-disc pl-6 mb-8">
-          <li>Type the given paragraph as accurately as possible</li>
-          <li>The timer runs automatically as soon as you start typing</li>
-          <li>Your WPM (Words Per Minute) is calculated in real-time</li>
-          <li>Accuracy is measured based on correct vs incorrect keystrokes</li>
-        </ul>
+        <div className="grid md:grid-cols-2 gap-12 mb-16 not-prose">
+          <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <span className="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center text-sm">1</span>
+              How It Works
+            </h2>
+            <ul className="space-y-4 text-slate-600 font-medium">
+              <li className="flex items-start gap-3">
+                <span className="text-blue-600 mt-1">●</span>
+                <span>Type the highlighted text as quickly and accurately as possible.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-600 mt-1">●</span>
+                <span>The timer activates automatically upon your first keystroke.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-600 mt-1">●</span>
+                <span>Real-time WPM and Accuracy metrics update as you type.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-600 mt-1">●</span>
+                <span>Review your full analysis, errors, and percentile at the end.</span>
+              </li>
+            </ul>
+          </div>
 
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">What is WPM?</h2>
-        <p className="text-slate-600 leading-relaxed mb-6">
-          WPM stands for Words Per Minute. It is a standard measure of typing speed. Since words vary in length, the industry standard defines one "word" as exactly five characters, including spaces and punctuation. This ensures a fair comparison regardless of the complexity of the text.
+          <div className="bg-blue-600 p-8 rounded-3xl text-white shadow-xl shadow-blue-100">
+            <h2 className="text-2xl font-bold mb-6">Expert Methodology</h2>
+            <p className="leading-relaxed mb-6 font-medium opacity-90">
+              Our 60 second typing test uses the industry-standard word calculation. One word is defined as exactly five characters. This compensates for fluctuating word complexity and provides a scientific benchmark for your proficiency.
+            </p>
+            <div className="flex gap-4">
+               <div className="bg-white/20 px-4 py-2 rounded-xl text-sm font-bold">WPM = (Chars / 5) / Time</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-3xl font-black text-slate-900 mb-6">Understanding Your Score</h2>
+        <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+          What does your WPM actually mean in the professional world? Typing speed is often the first gatekeeper for data entry, administration, and digital creative roles. Understanding where you sit on the global curve helps you target the right practice routine.
         </p>
 
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Why Take This Test?</h2>
-        <p className="text-slate-600 leading-relaxed mb-8">
-          {content.unique}
-        </p>
-
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Average Typing Speed Levels</h2>
-        <div className="overflow-hidden rounded-2xl border border-slate-200 mb-8">
+        <div className="overflow-hidden rounded-3xl border border-slate-200 mb-12 not-prose shadow-sm">
           <table className="min-w-full divide-y divide-slate-200">
-            <thead className="bg-slate-50">
+            <thead className="bg-slate-900 text-white uppercase text-xs tracking-widest font-bold">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Level</th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Speed (WPM)</th>
+                <th className="px-8 py-5 text-left">Skill Level</th>
+                <th className="px-8 py-5 text-left">Speed (WPM)</th>
+                <th className="px-8 py-5 text-left">Professional Context</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-slate-200">
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Beginner</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">10–20 WPM</td>
+            <tbody className="bg-white divide-y divide-slate-100 text-slate-700 font-medium">
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="px-8 py-5">Beginner</td>
+                <td className="px-8 py-5">10–25</td>
+                <td className="px-8 py-5">Hunting & Pecking phase.</td>
               </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Intermediate</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">30–40 WPM</td>
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="px-8 py-5 text-blue-600">Intermediate</td>
+                <td className="px-8 py-5">30–45</td>
+                <td className="px-8 py-5">Average office professional.</td>
               </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Advanced</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">50–70 WPM</td>
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="px-8 py-5 text-emerald-600">Advanced</td>
+                <td className="px-8 py-5">50–75</td>
+                <td className="px-8 py-5">High productivity requirement.</td>
               </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Professional</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">80+ WPM</td>
+              <tr className="hover:bg-slate-50 transition-colors">
+                <td className="px-8 py-5 text-indigo-600">Professional</td>
+                <td className="px-8 py-5">80+</td>
+                <td className="px-8 py-5">Data specialists & Transcriptionists.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Tips to Improve Typing Speed & Reach 80 WPM</h2>
-        <p className="text-slate-600 leading-relaxed mb-4">
-          Reaching a professional typing speed of 80 WPM or higher requires dedication and the right techniques. Here are proven strategies to boost your words per minute:
+        <h2 className="text-3xl font-black text-slate-900 mb-6">Benefits of This Test</h2>
+        <div className="grid sm:grid-cols-2 gap-8 mb-12 not-prose">
+           <div className="border-l-4 border-blue-600 pl-6">
+              <h4 className="font-bold text-slate-900 text-xl mb-2">Real-Time Metrics</h4>
+              <p className="text-slate-500 text-sm leading-relaxed">Instantly see your speed fluctuate as you type, helping you identify which character combinations slow you down.</p>
+           </div>
+           <div className="border-l-4 border-emerald-600 pl-6">
+              <h4 className="font-bold text-slate-900 text-xl mb-2">Error Mapping</h4>
+              <p className="text-slate-500 text-sm leading-relaxed">We pinpoint EXACTLY which letters you miss most frequently, allowing for targeted finger training.</p>
+           </div>
+           <div className="border-l-4 border-orange-600 pl-6">
+              <h4 className="font-bold text-slate-900 text-xl mb-2">Exam Simulation</h4>
+              <p className="text-slate-500 text-sm leading-relaxed">Our interface mimics the high-pressure environment of official government and banking exams.</p>
+           </div>
+           <div className="border-l-4 border-purple-600 pl-6">
+              <h4 className="font-bold text-slate-900 text-xl mb-2">Adaptive Difficulty</h4>
+              <p className="text-slate-500 text-sm leading-relaxed">From simple pangrams to complex technical paragraphs, the test adapts to your chosen mode.</p>
+           </div>
+        </div>
+
+        <h2 className="text-3xl font-black text-slate-900 mb-6">Advanced Tips for Reaching 100 WPM</h2>
+        <p className="text-slate-600 leading-relaxed mb-6 text-lg">
+          Breaking the 100 WPM barrier requires moving beyond letter-by-letter typing. Here is how the pros do it:
         </p>
-        <ul className="space-y-2 text-slate-600 list-disc pl-6 mb-8">
-          <li><strong>Master Touch Typing:</strong> Learn to type without looking at the keyboard. This is the single most important factor in reaching high speeds.</li>
-          <li><strong>Focus on Accuracy First:</strong> It's a common mistake to rush. In our tests, errors reduce your net WPM. A 98% accuracy rate at 60 WPM is better than 90% accuracy at 80 WPM.</li>
-          <li><strong>Proper Finger Placement:</strong> Always return your fingers to the home row (ASDF and JKL;). This minimizes finger travel distance.</li>
-          <li><strong>Read Ahead:</strong> As you type the current word, your eyes should be reading the next 2-3 words. This creates a continuous flow.</li>
-          <li><strong>Take a 60 Second Typing Test Daily:</strong> Consistency is key. Taking a quick 1-minute test every day tracks your progress and builds muscle memory without causing fatigue.</li>
+        <ul className="space-y-4 text-slate-600 mb-12">
+          <li><strong>Unit Recognition:</strong> Train your brain to see whole words as single muscle movements. Instead of t-h-e, your hand should perform one "the" movement.</li>
+          <li><strong>Active Reading:</strong> Your eyes should be 2 to 3 words ahead of your fingers. This eliminates the "hesitation gap" between words.</li>
+          <li><strong>Posture Ergonomics:</strong> Ensure your elbows are at a 90-degree angle. Tension in the shoulders is the #1 cause of speed plateaus.</li>
+          <li><strong>Consistent Daily Bursts:</strong> Take a <Link to="/typing-test/60-second-typing-test" className="text-blue-600 font-bold hover:underline">60 second typing test</Link> three times a day: morning, noon, and night. Short, focused sessions beat long, fatiguing ones.</li>
         </ul>
 
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">60 Second vs 120 Second Typing Test</h2>
-        <p className="text-slate-600 leading-relaxed mb-8">
-          While the <strong>60 second typing test</strong> is the industry standard for quick assessments and job applications, longer tests serve a different purpose. A 1-minute test measures your peak burst speed. However, a 120-second (2-minute) or 5-minute test measures your endurance and sustained accuracy. If you are preparing for a data entry role or a government exam (like SSC CHSL), practicing with longer durations is highly recommended to build stamina.
-        </p>
+        <div className="bg-slate-900 rounded-[3rem] p-12 text-center not-prose mb-16 shadow-2xl">
+           <h2 className="text-3xl font-bold text-white mb-6">Need Structured Improvement?</h2>
+           <p className="text-slate-400 mb-8 max-w-2xl mx-auto">If you are stuck at a certain speed, you might need to fix your core technique. Our guided lessons are the perfect next step.</p>
+           <Link to="/learn-touch-typing-free-online" className="inline-block bg-blue-600 text-white px-10 py-4 rounded-2xl font-black text-lg hover:bg-white hover:text-blue-600 transition-all shadow-xl">
+             START TYPING LESSONS
+           </Link>
+        </div>
 
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
-        <div className="space-y-6 mb-12">
-          <div>
-            <h3 className="font-bold text-slate-900">What is a good typing speed?</h3>
-            <p className="text-slate-600">A speed of 40 WPM is considered average, while 60-80 WPM is excellent for professional work. Data entry specialists often need to type at 80 WPM or higher with 98%+ accuracy.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-slate-900">How is WPM calculated?</h3>
-            <p className="text-slate-600">WPM = (Total Characters / 5) / Time in Minutes. This standardizes word length to 5 characters. You can use our <Link to="/tools/words-per-minute-calculator" className="text-blue-600 hover:underline">WPM calculator</Link> to manually check your scores.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-slate-900">How to improve typing speed?</h3>
-            <p className="text-slate-600">Consistent practice, focusing on accuracy, and using the home row method are the best ways to improve. Taking a daily 60 second typing test helps track your progress.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-slate-900">Is a 60 second typing test enough?</h3>
-            <p className="text-slate-600">Yes, a 60 second typing test is the most common benchmark used by employers to assess typing skills. It provides a highly accurate snapshot of your Words Per Minute (WPM) and error rate.</p>
-          </div>
+        <h2 className="text-3xl font-black text-slate-900 mb-8">Frequently Asked Questions</h2>
+        <div className="grid gap-6 mb-16 not-prose">
+          {[
+            {
+              q: "How to practice typing paragraphs online?",
+              a: "To practice typing paragraphs effectively, use our 'Paragraph' mode specifically designed for long-form text. It helps you build the necessary endurance for professional writing tasks."
+            },
+            {
+               q: "How to practice typing sentences daily?",
+               a: "Start your daily routine with 10 minutes of typing practice sentences. Focusing on full sentences rather than single words helps you master the capitalization and punctuation needed for real-world typing."
+            },
+            {
+              q: "What is the best way to improve typing speed for SSC CGL?",
+              a: "For SSC CGL preparation, consistently use our Exam Simulation mode. It replicates the official test environment, ensuring you are comfortable with the interface and scoring logic before the actual exam."
+            },
+            {
+              q: "How accurate is this typing test?",
+              a: "Extremely. We use standard enterprise-level algorithms to calculate Gross WPM, Net WPM, and KPM (Keystrokes Per Minute). It is highly comparable to the software used in professional and government examination centers."
+            },
+            {
+               q: "Does this test work on mobile?",
+               a: "While you can take the test on mobile, we strongly recommend a physical keyboard. Typing speed is a physical skill dependent on finger placement, which cannot be accurately measured on a touch screen."
+            },
+            {
+               q: "How can I compare my score with others?",
+               a: "After completing your test, check our global leaderboard to see how you rank against the thousands of typists who use our platform daily."
+            },
+            {
+               q: "Do mistakes matter in my WPM?",
+               a: "Yes. Errors significantly impact your Net WPM (which is your final score). Correcting mistakes as you type is usually better than leaving them, as a high error rate disqualifies you from many professional positions."
+            }
+          ].map((faq, idx) => (
+            <div key={idx} className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
+               <h4 className="font-black text-slate-900 text-xl mb-4 flex gap-3">
+                 <span className="text-blue-600">Q.</span> {faq.q}
+               </h4>
+               <p className="text-slate-600 leading-relaxed pl-8 border-l-2 border-slate-50 italic">{faq.a}</p>
+            </div>
+          ))}
         </div>
       </section>
 

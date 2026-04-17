@@ -6,18 +6,20 @@ const TypingLinksSection: React.FC = () => {
   const location = useLocation();
 
   const links = [
-    { path: '/typing-test/30-second-typing-test', text: 'Take a quick 30 second typing test' },
-    { path: '/typing-test/45-second-typing-test', text: 'Try the 45 second typing speed check' },
-    { path: '/typing-test/60-second-typing-test', text: 'Practice with the standard 60 second typing test' },
-    { path: '/typing-test/90-second-typing-test', text: 'Challenge your accuracy with a 90 second typing test' },
-    { path: '/typing-test/120-second-typing-test', text: 'Test your endurance with a 120 second typing test' },
-    { path: '/easy-typing-test', text: 'Practice with an easy typing test for beginners' },
-    { path: '/hard-typing-test', text: 'Challenge yourself with a hard typing test' },
-    { path: '/typing-test-for-beginners', text: 'Start learning with a beginner typing test' },
-    { path: '/typing-test-with-numbers', text: 'Improve data entry with a numbers typing test' },
-    { path: '/paragraph-typing-test', text: 'Practice consistency with a paragraph typing test' },
-    { path: '/typing-practice', text: 'Build muscle memory with free typing practice' },
-    { path: '/lessons', text: 'Learn touch typing with step-by-step lessons' },
+    { path: '/typing-test/60-second-typing-test', text: 'Daily English Typing Practice' },
+    { path: '/typing-test/120-second-typing-test', text: 'Online Typing Paragraph Practice' },
+    { path: '/typing-test/300-second-typing-test', text: 'Typing Practice 5 Minutes' },
+    { path: '/typing-test/30-second-typing-test', text: 'Quick 30-Second Sprint' },
+    { path: '/learn-touch-typing-free-online', text: 'Typing Finger Position Practice' },
+    { path: '/ssc-typing-test-practice', text: 'SSC CGL Typing Test Practice' },
+    { path: '/exam-mode', text: 'Professional Exam Simulation' },
+    { path: '/typing-practice', text: 'Paragraph for Typing Practice' },
+    { path: '/tools/words-per-minute-calculator', text: 'WPM Calculator (Official Formula)' },
+    { path: '/tools/typing-accuracy-calculator', text: 'Check Your Accuracy Percentage' },
+    { path: '/blog', text: 'Typing Tips & Strategy Blog' },
+    { path: '/leaderboard', text: 'Global Typing Rankings' },
+    { path: '/hindi', text: 'Hindi Typing Practice' },
+    { path: '/lessons', text: 'Typing Practice Sentences' },
   ];
 
   // Filter out the current page link to avoid self-linking

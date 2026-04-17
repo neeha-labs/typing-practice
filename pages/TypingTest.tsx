@@ -439,21 +439,44 @@ const TypingTest: React.FC = () => {
               />
             </div>
           ) : (
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Test Completed!</h2>
-              <TypingStats {...stats} />
-              <div className="flex justify-center gap-4">
+            <div className="text-center py-6">
+              <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">🏆</div>
+              <h2 className="text-3xl font-black text-slate-900 mb-8 tracking-tight">Your Performance Report</h2>
+              <div className="mb-12">
+                <TypingStats {...stats} />
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto text-left">
+                 <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
+                    <h4 className="font-bold text-slate-900 text-xl mb-3">AI Breakdown</h4>
+                    <p className="text-slate-500 text-base leading-relaxed">
+                      {stats.wpm > 60 ? `Exceptional! You've crossed the professional threshold. Your speed sitting at ${stats.wpm} WPM puts you ahead of 85% of global typists. To reach 100+, minimize lingering on capital letters.` : 
+                       stats.wpm > 40 ? `Great job! You have a solid foundational speed. You are faster than the average office worker. Focus on your accuracy (currently ${stats.accuracy}%) to gain more fluidity.` :
+                       `A strong start. You have a ${stats.accuracy}% accuracy rate. We recommend moving back to our touch typing lessons to fix core finger placement before chasing higher speeds.`
+                      }
+                    </p>
+                 </div>
+                 <div className="bg-blue-600 p-10 rounded-[2.5rem] text-white shadow-xl shadow-blue-100">
+                    <h4 className="font-bold text-white text-xl mb-3 uppercase tracking-widest text-sm">Recommended Path</h4>
+                    <p className="text-blue-100 mb-8 leading-relaxed">Based on your score, we've unlocked a specific practice module just for you.</p>
+                    <Link to={stats.wpm < 40 ? "/lessons" : "/typing-practice"} className="inline-block bg-white text-blue-600 px-8 py-3 rounded-xl font-black hover:bg-blue-50 transition-all">
+                      {stats.wpm < 40 ? "RESUME LESSONS" : "START ADVANCED DRILLS"}
+                    </Link>
+                 </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={startTest}
-                  className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-md"
+                  className="bg-slate-900 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-blue-600 transition-all shadow-xl shadow-slate-200"
                 >
-                  Try Again
+                  RETAKE TEST
                 </button>
                 <Link 
                   to={`/leaderboard?category=${duration}s`}
-                  className="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-sm"
+                  className="bg-white text-slate-900 border-2 border-slate-200 px-12 py-5 rounded-2xl font-black text-xl hover:border-blue-600 hover:text-blue-600 transition-all"
                 >
-                  View Leaderboard
+                  VIEW RANKING
                 </Link>
               </div>
             </div>
