@@ -38,12 +38,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://typing-practice.online/hindi</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://typing-practice.online/leaderboard</loc>
     <lastmod>2026-03-16</lastmod>
     <changefreq>daily</changefreq>
@@ -222,6 +216,42 @@
   <url>
     <loc>https://typing-practice.online/blog/how-wpm-is-calculated</loc>
     <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typing-practice.online/blog/touch-typing-benefits-for-coders</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typing-practice.online/blog/typing-ergonomics-guide</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typing-practice.online/blog/best-keyboards-for-typing</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typing-practice.online/blog/daily-typing-practice-routine</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typing-practice.online/blog/typing-games-vs-practice</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typing-practice.online/blog/how-to-type-numbers-fast</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

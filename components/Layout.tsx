@@ -52,11 +52,13 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Lessons', path: '/lessons' },
     { name: 'Typing Practice', path: '/typing-practice' },
     { name: 'Typing Test', path: '/typing-test' },
     { name: 'Exam Mode', path: '/ssc-typing-test-practice' },
-    { name: 'Hindi Typing', path: '/hindi' },
     { name: 'Leaderboard', path: '/leaderboard' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Tools', path: '/tools' },
   ];
 
   const isActive = (path: string) => {
@@ -79,8 +81,12 @@ const Navbar: React.FC = () => {
              currentPath === '/ssc-typing-test-practice';
     }
     
-    if (path === '/hindi') {
-      return currentPath === '/hindi';
+    if (path === '/blog') {
+      return currentPath.startsWith('/blog');
+    }
+
+    if (path === '/tools') {
+      return currentPath.startsWith('/tools');
     }
     
     return currentPath.startsWith(path);
@@ -93,11 +99,32 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center group">
-              <div className="relative flex items-center justify-center w-8 h-8 bg-slate-900 rounded-lg overflow-hidden group-hover:bg-blue-600 transition-colors duration-300 shadow-md">
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h12a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              <div className="relative flex items-center justify-center w-9 h-9 bg-transparent overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Base keyboard body */}
+                  <rect x="1" y="8" width="30" height="18" rx="5" fill="#1e293b" className="group-hover:fill-blue-600 transition-colors duration-300"/>
+                  
+                  {/* Top row keys */}
+                  <rect x="4" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="9" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="14" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="19" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="24" y="11" width="4" height="3" rx="1" fill="#3b82f6"/>
+                  
+                  {/* Spacebar section (Face) */}
+                  <rect x="4" y="16" width="24" height="7" rx="3" fill="white"/>
+                  
+                  {/* Cute blushing eyes */}
+                  <circle cx="12" cy="19.5" r="1.5" fill="#1e293b"/>
+                  <circle cx="20" cy="19.5" r="1.5" fill="#1e293b"/>
+                  
+                  {/* Blush */}
+                  <ellipse cx="9.5" cy="20.5" rx="1.5" ry="1" fill="#fecaca"/>
+                  <ellipse cx="22.5" cy="20.5" rx="1.5" ry="1" fill="#fecaca"/>
+                  
+                  {/* Little smile */}
+                  <path d="M14 20.5C14.5 22 17.5 22 18 20.5" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round"/>
                 </svg>
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               </div>
               <div className="ml-2 flex flex-col leading-none">
                 <span className="text-lg font-black text-slate-900 tracking-tighter uppercase">
@@ -124,9 +151,6 @@ const Navbar: React.FC = () => {
                   }`}
                 >
                   {link.name}
-                  {link.path === '/hindi' && (
-                    <span className="flex h-2 w-2 rounded-full bg-orange-500"></span>
-                  )}
                 </Link>
               ))}
             </div>
@@ -259,9 +283,20 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-7 h-7 bg-slate-900 rounded-md flex items-center justify-center shadow-sm">
-                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h12a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              <div className="w-8 h-8 rounded-md flex items-center justify-center bg-transparent">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="8" width="30" height="18" rx="5" fill="#1e293b" />
+                  <rect x="4" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="9" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="14" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="19" y="11" width="4" height="3" rx="1" fill="#64748b"/>
+                  <rect x="24" y="11" width="4" height="3" rx="1" fill="#3b82f6"/>
+                  <rect x="4" y="16" width="24" height="7" rx="3" fill="white"/>
+                  <circle cx="12" cy="19.5" r="1.5" fill="#1e293b"/>
+                  <circle cx="20" cy="19.5" r="1.5" fill="#1e293b"/>
+                  <ellipse cx="9.5" cy="20.5" rx="1.5" ry="1" fill="#fecaca"/>
+                  <ellipse cx="22.5" cy="20.5" rx="1.5" ry="1" fill="#fecaca"/>
+                  <path d="M14 20.5C14.5 22 17.5 22 18 20.5" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round"/>
                 </svg>
               </div>
               <div className="flex flex-col leading-none">
@@ -284,7 +319,6 @@ const Footer: React.FC = () => {
               <li><Link to="/typing-test/60-second-typing-test" className="hover:text-blue-600">60 Second Typing Test</Link></li>
               <li><Link to="/typing-test/120-second-typing-test" className="hover:text-blue-600">120 Second Typing Test</Link></li>
               <li><Link to="/ssc-typing-test-practice" className="hover:text-blue-600">SSC Typing Practice</Link></li>
-              <li><Link to="/hindi" className="hover:text-blue-600">Hindi Typing Test</Link></li>
             </ul>
           </div>
           <div>

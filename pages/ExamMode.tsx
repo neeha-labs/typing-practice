@@ -4,7 +4,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import TypingLinksSection from '../components/TypingLinksSection';
-import { EXAM_MODES, DURATION_TEXTS } from '../constants';
+import { EXAM_MODES, EXAM_TEXTS } from '../constants';
 import { TypingStats, ExamConfig } from '../types';
 
 const ExamMode: React.FC = () => {
@@ -15,11 +15,8 @@ const ExamMode: React.FC = () => {
   const [resetKey, setResetKey] = useState(0);
   const lastTextIndex = useRef<number>(-1);
 
-  const getRandomTextForDuration = (d: number) => {
-    let pool: string[] = [];
-    if (d <= 60) pool = DURATION_TEXTS.one_minute;
-    else if (d <= 300) pool = DURATION_TEXTS.five_minute;
-    else pool = DURATION_TEXTS.ten_minute;
+  const getRandomTextForMode = (examId: string) => {
+    const pool = EXAM_TEXTS[examId] || EXAM_TEXTS['ssc-chsl'];
     
     let nextIndex = Math.floor(Math.random() * pool.length);
     if (pool.length > 1 && nextIndex === lastTextIndex.current) {
@@ -48,7 +45,7 @@ const ExamMode: React.FC = () => {
 
   const handleStartExam = () => {
     if (selectedExam) {
-      setTargetText(getRandomTextForDuration(selectedExam.duration));
+      setTargetText(getRandomTextForMode(selectedExam.id));
       setIsExamRunning(true);
       setResetKey(prev => prev + 1);
     }
@@ -80,10 +77,10 @@ const ExamMode: React.FC = () => {
       </Link>
 
       <div className="mb-12">
-        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-2">SSC CGL Typing Test Practice Center</h1>
+        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-2">Professional Exam Typing Simulation</h1>
         <p className="text-xl text-slate-500 max-w-2xl">
-          Prepare for the final skill test with our <strong>ssc cgl typing test practice</strong> module. 
-          We provide official mock simulations for Staff Selection Commission exams.
+          Prepare for your final skill test with our <strong>ssc cgl typing test practice</strong> module and other government exam simulations. 
+          We provide official mock interfaces for SSC, Banking, Court Clerk, and Data Entry Operator (DEO) exams.
         </p>
       </div>
 
@@ -116,7 +113,27 @@ const ExamMode: React.FC = () => {
           </div>
 
           {selectedExam && (
-            <div className="flex flex-col items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="flex flex-col items-center gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500 bg-slate-50 p-8 rounded-3xl border border-slate-200 mt-8">
+              <div className="text-center max-w-2xl">
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Exam Structure: What to Expect</h4>
+                <p className="text-slate-600 mb-6">
+                  Yes, real government skill tests (like the SSC DEST, Bank Clerk, and Court exams) consist <strong>entirely</strong> of a single, continuous paragraph typing task. There are no mini-games, lessons, or multiple-choice questions. You will be evaluated purely on your ability to type the provided official text accurately within the fixed duration.
+                </p>
+                <div className="bg-white p-4 rounded-xl text-left border border-slate-100 flex flex-col md:flex-row gap-6 justify-center">
+                  <div>
+                    <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Duration</span>
+                    <span className="font-medium text-slate-900">{selectedExam.duration / 60} Minutes</span>
+                  </div>
+                  <div>
+                    <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Backspace</span>
+                    <span className="font-medium text-slate-900">{selectedExam.backspaceAllowed ? 'Allowed' : 'Disabled'}</span>
+                  </div>
+                  <div>
+                    <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Highlighting</span>
+                    <span className="font-medium text-slate-900">{selectedExam.highlightEnabled ? 'Enabled' : 'Disabled'}</span>
+                  </div>
+                </div>
+              </div>
               <button 
                 onClick={handleStartExam}
                 className="bg-slate-900 text-white px-12 py-4 rounded-xl font-bold text-xl hover:bg-slate-800 transition-all shadow-xl"

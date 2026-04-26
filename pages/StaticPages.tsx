@@ -60,23 +60,42 @@ export const Privacy: React.FC = () => (
   <div className="py-16 px-4 max-w-3xl mx-auto">
     <SEO 
       title="Privacy Policy - Data Handling Practices" 
-      description="Read our privacy policy to understand how we collect, use, and protect your typing performance data at Typing-Practice.online." 
+      description="Read our privacy policy to understand how we collect, use, and protect your data at Typing-Practice.online in compliance with AdSense policies." 
     />
     <header className="mb-12 border-b border-slate-200 pb-8">
       <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Privacy Policy</h1>
-      <p className="text-slate-500 text-sm">Last Updated: March 2026</p>
+      <p className="text-slate-500 text-sm">Last Updated: April 2026</p>
     </header>
-    <div className="prose">
-      <p>At Typing-Practice.online, we value your privacy. This policy explains how we collect and use your data to provide a better learning experience.</p>
+    <div className="prose prose-slate max-w-none">
+      <p>At Typing-Practice.online, the privacy of our visitors is of extreme importance to us. This privacy policy document outlines the types of personal information received and collected by Typing-Practice.online and how it is used.</p>
       
-      <h2>1. Data Collection</h2>
-      <p>We collect basic information like your WPM scores, accuracy percentages, and time spent practicing. This data is used solely to provide you with progress reports and personalized feedback.</p>
+      <h2>1. Log Files</h2>
+      <p>Like many other Web sites, Typing-Practice.online makes use of log files. The information inside the log files includes internet protocol (IP) addresses, type of browser, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks to analyze trends, administer the site, track user's movement around the site, and gather demographic information. IP addresses and other such information are not linked to any information that is personally identifiable.</p>
       
-      <h2>2. Cookies and Local Storage</h2>
-      <p>We use local storage and cookies to remember your preferences, such as keyboard settings, theme choices, and skill levels. This ensures a seamless experience across sessions.</p>
+      <h2>2. Cookies and Web Beacons</h2>
+      <p>Typing-Practice.online does use cookies to store information about visitors' preferences, record user-specific information on which pages the user access or visit, customize Web page content based on visitors browser type or other information that the visitor sends via their browser.</p>
       
-      <h2>3. Third-Party Services</h2>
-      <p>We use Firebase for authentication and data storage. Your data is protected by Google's industry-leading security infrastructure.</p>
+      <h2>3. DoubleClick DART Cookie</h2>
+      <ul>
+        <li>Google, as a third-party vendor, uses cookies to serve ads on Typing-Practice.online.</li>
+        <li>Google's use of the DART cookie enables it to serve ads to users based on their visit to Typing-Practice.online and other sites on the Internet.</li>
+        <li>Users may opt-out of the use of the DART cookie by visiting the Google ad and content network privacy policy at the following URL: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a></li>
+      </ul>
+
+      <h2>4. Advertising Partners</h2>
+      <p>Some of our advertising partners may use cookies and web beacons on our site. Our advertising partners include Google AdSense.</p>
+      <p>These third-party ad servers or ad networks use technology to send the advertisements and links that appear on Typing-Practice.online directly to your browsers. They automatically receive your IP address when this occurs. Other technologies (such as cookies, JavaScript, or Web Beacons) may also be used by the third-party ad networks to measure the effectiveness of their advertisements and / or to personalize the advertising content that you see.</p>
+      <p>Typing-Practice.online has no access to or control over these cookies that are used by third-party advertisers.</p>
+      
+      <h2>5. Third Party Privacy Policies</h2>
+      <p>You should consult the respective privacy policies of these third-party ad servers for more detailed information on their practices as well as for instructions about how to opt-out of certain practices. Typing-Practice.online's privacy policy does not apply to, and we cannot control the activities of, such other advertisers or web sites.</p>
+      <p>If you wish to disable cookies, you may do so through your individual browser options. More detailed information about cookie management with specific web browsers can be found at the browsers' respective websites.</p>
+
+      <h2>6. Data Collection & Authentication</h2>
+      <p>If you choose to create an account, we use Firebase Authentication. We collect basic information such as your email address and associated profile information (like your name or avatar) solely to save your typing progress, preferences, and leaderboard standings. We do not sell this information to third parties.</p>
+
+      <h2>Consent</h2>
+      <p>By using our website, you hereby consent to our privacy policy and agree to its terms.</p>
     </div>
   </div>
 );

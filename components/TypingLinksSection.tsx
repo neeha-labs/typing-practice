@@ -18,7 +18,6 @@ const TypingLinksSection: React.FC = () => {
     { path: '/tools/typing-accuracy-calculator', text: 'Check Your Accuracy Percentage' },
     { path: '/blog', text: 'Typing Tips & Strategy Blog' },
     { path: '/leaderboard', text: 'Global Typing Rankings' },
-    { path: '/hindi', text: 'Hindi Typing Practice' },
     { path: '/lessons', text: 'Typing Practice Sentences' },
   ];
 

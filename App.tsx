@@ -11,7 +11,6 @@ const TypingTest = lazy(() => import('./pages/TypingTest'));
 const TypingPractice = lazy(() => import('./pages/TypingPractice'));
 const ExamMode = lazy(() => import('./pages/ExamMode'));
 const Lessons = lazy(() => import('./pages/Lessons'));
-const HindiTyping = lazy(() => import('./pages/HindiTyping'));
 const Signin = lazy(() => import('./pages/Signin'));
 const Tools = lazy(() => import('./pages/Tools'));
 const Blog = lazy(() => import('./pages/Blog'));
@@ -75,7 +74,6 @@ const App: React.FC = () => {
               <Route path="/lessons/:level" element={<Lessons />} />
               <Route path="/exam-mode" element={<ExamMode />} />
               <Route path="/practice" element={<Lessons />} />
-              <Route path="/hindi" element={<HindiTyping />} />
               <Route path="/signin" element={<Signin />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/profile" element={<Profile />} />
