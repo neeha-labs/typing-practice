@@ -9,20 +9,29 @@ const ExamPractice: React.FC = () => {
   const path = location.pathname;
 
   const getExamData = () => {
+    if (path.includes('sbi')) return {
+      name: "SBI (State Bank of India)",
+      title: "SBI Typing Test Practice | Free Clerk & PO Mock Test",
+      description: "Prepare for the SBI typing test with our free mock practice. Simulate the exact exam environment for SBI Clerk and PO, and achieve your target WPM today.",
+      keywords: "SBI typing test, SBI clerk typing practice, bank exam typing test, SBI PO typing test, banking typing preparation"
+    };
+    if (path.includes('ssc')) return {
+      name: "SSC (Staff Selection Commission)",
+      title: "SSC Typing Test Practice | Free CGL, CHSL Mock Test",
+      description: "Crack the SSC typing test with our official mock practice. Designed specifically for SSC CGL, CHSL, and MTS exams to help you pass the skill test smoothly.",
+      keywords: "SSC typing test, SSC CGL typing test, SSC CHSL typing practice, government exam typing test, SSC skill test mock"
+    };
     if (path.includes('rrb')) return {
       name: "RRB (Railway Recruitment Board)",
-      title: "RRB Typing Test Practice Online | Free RRB Typing Speed Test",
-      description: "Prepare for RRB NTPC and other railway exams with our free RRB typing test practice tool. Accurate WPM calculation and exam-style interface."
+      title: "RRB NTPC Typing Test Practice | Free Railway Mock Test",
+      description: "Practice for the RRB NTPC typing test using our realistic railway exam simulator. Perfect your keystrokes and hit the required WPM for Indian Railways.",
+      keywords: "RRB typing test, RRB NTPC typing practice, railway typing test, railway recruitment board skill test"
     };
     if (path.includes('ibps')) return {
       name: "IBPS (Institute of Banking Personnel Selection)",
-      title: "IBPS Typing Test Practice Online | Free IBPS Typing Speed Test",
-      description: "Practice for IBPS Clerk and PO exams with our free IBPS typing test tool. Improve your speed and accuracy for banking sector exams."
-    };
-    if (path.includes('sbi')) return {
-      name: "SBI (State Bank of India)",
-      title: "SBI Typing Test Practice Online | Free SBI Typing Speed Test",
-      description: "Prepare for SBI Clerk and PO exams with our free SBI typing test practice tool. Realistic exam interface and performance tracking."
+      title: "IBPS Typing Test Practice | Free Bank Skill Test",
+      description: "Master the IBPS typing test with our realistic banking mock test. Improve your typing accuracy and speed for IBPS Clerk and specialized bank officer exams.",
+      keywords: "IBPS typing test, IBPS clerk typing practice, banking skill test, bank clerical typing test"
     };
     return {
       name: "Government Exam",
@@ -35,7 +44,7 @@ const ExamPractice: React.FC = () => {
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
-      <SEO title={exam.title} description={exam.description} />
+      <SEO title={exam.title} description={exam.description} keywords={(exam as any).keywords} />
 
       <Link to="/typing-tests" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

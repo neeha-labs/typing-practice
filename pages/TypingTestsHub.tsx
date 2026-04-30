@@ -57,8 +57,9 @@ const TypingTestsHub: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="All Typing Tests & Tools | Typing-Practice.online" 
-        description="Explore our full directory of typing speed tests, practice modes, lessons, and calculators to improve your WPM and accuracy." 
+        title="Free Online Typing Speed Tests | Check Your WPM" 
+        description="Explore our free online typing tests. Check your typing speed in WPM, practice with numbers, and track your accuracy across different difficulty levels."
+        keywords="typing test, typing speed test, WPM test, check typing speed, online typing test"
       />
 
       <div className="text-center mb-16">

@@ -25,8 +25,9 @@ const Blog: React.FC<BlogProps> = ({ predefinedPostId }) => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="Typing Tips & Educational Blog" 
-        description="Learn how to improve your typing speed, avoid common mistakes, and prepare for government typing exams with our expert guides."
+        title="Typing Practice Blog | Top Typing Tips and Tutorials" 
+        description="Explore our typing blog for expert tips, touch typing tutorials, and comprehensive guides to significantly improve your typing speed and overall accuracy."
+        keywords="typing practice blog, typing tips, touch typing tutorials, increase typing speed, typing test tips"
       />
       <div className="text-center mb-16">
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-4 block">← Back to Home</Link>
@@ -121,8 +122,9 @@ const Blog: React.FC<BlogProps> = ({ predefinedPostId }) => {
 const ImproveSpeedPost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
     <SEO 
-      title="How to Improve Typing Speed - 10 Expert Tips" 
-      description="Learn the best techniques to increase your typing speed. From finger placement to rhythm, master touch typing with our expert guide."
+      title="How to Improve Typing Speed | 10 Actionable Tips" 
+      description="Learn exactly how to improve typing speed with our expert guide. Discover touch typing techniques, hand posture, and daily practice routines for fast WPM."
+      keywords="how to improve typing speed, touch typing tips, type faster, increase WPM, typing techniques, typing posture"
       canonicalPath="/blog/how-to-improve-typing-speed"
       ogType="article"
     />

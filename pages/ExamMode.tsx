@@ -65,8 +65,9 @@ const ExamMode: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="SSC CGL Typing Test Practice – Official Exam Simulation" 
-        description="Simulate real government typing exams like SSC CHSL, SSC CGL, and Banking. Practice with strict accuracy norms and official WPM calculation methods." 
+        title="Government Exam Typing Mode | Official Mock Simulator" 
+        description="Experience real government exam typing mode. Our official mock simulator disables backspace and highlighting to perfectly recreate SSC and Banking skill tests." 
+        keywords="exam mode typing test, government exam typing simulator, strict typing test, no backspace typing test, professional typing mock"
       />
 
       <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">

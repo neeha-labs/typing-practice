@@ -156,13 +156,30 @@ const TypingTest: React.FC = () => {
       title: "Paragraph Typing Test – Long Text Practice",
       description: "Focus on endurance and consistency with our paragraph typing test. Practice with longer, meaningful texts."
     };
+    if (path.includes('30-second')) return {
+      title: "30 Second Typing Test | Quick WPM Speed Check",
+      description: "Take our 30 second typing test for a quick speed check. Perfect for daily warm-ups, this short typing practice helps you measure your WPM in under a minute.",
+      keywords: "30 second typing test, quick typing test, short typing test, WPM check, daily typing practice"
+    };
     if (path.includes('45-second')) return {
-      title: "45 Second Typing Test – Quick Speed Check",
-      description: "Test your typing speed in just 45 seconds. A perfect middle ground for a quick yet accurate assessment."
+      title: "45 Second Typing Test | Boost Your Typing Speed",
+      description: "Challenge yourself with our 45 second typing test. Boost your typing speed, improve your accuracy, and focus on fast, error-free keyboarding techniques.",
+      keywords: "45 second typing test, typing speed test, improve typing speed, keyboarding test, accurate typing"
+    };
+    if (path.includes('60-second')) return {
+      title: "60 Second Typing Test | One Minute WPM Check",
+      description: "Take the classic 60 second typing test to find your true words per minute. This one minute WPM check is the standard for professional typing assessment.",
+      keywords: "60 second typing test, 1 minute typing test, one minute typing test, WPM assessment, standard typing test"
     };
     if (path.includes('90-second')) return {
-      title: "90 Second Typing Test – Accuracy & Speed Benchmark",
-      description: "Take a 90-second typing test to measure your sustained typing performance and accuracy."
+      title: "90 Second Typing Test | Build Typing Endurance",
+      description: "Build your typing endurance with our 90 second typing test. Perfect for intermediate typists looking to maintain focus and accuracy over a longer period.",
+      keywords: "90 second typing test, typing endurance practice, 1.5 minute typing test, intermediate typing test"
+    };
+    if (path.includes('120-second')) return {
+      title: "120 Second Typing Test | 2 Minute Typing Assessment",
+      description: "Pace yourself with the 120 second typing test. This intensive 2 minute typing assessment ensures you maintain high speed and accuracy without fatigue.",
+      keywords: "120 second typing test, 2 minute typing test, advanced typing test, typing stamina, WPM certification test"
     };
     if (path.includes('300-second')) return {
       title: "5 Minute Typing Test – 300 Second Endurance Challenge",
@@ -269,7 +286,7 @@ const TypingTest: React.FC = () => {
   if (!duration) {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
-        <SEO title={seo.title} description={seo.description} />
+        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} />
 
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -353,7 +370,7 @@ const TypingTest: React.FC = () => {
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
-      <SEO title={seo.title} description={seo.description} />
+      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} />
 
       <div className="mb-6 flex justify-between items-center">
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold inline-flex items-center gap-1">

@@ -71,6 +71,12 @@ const App: React.FC = () => {
               <Route path="/words-per-minute-calculator-typing" element={<Navigate to="/tools/words-per-minute-calculator" replace />} />
 
               <Route path="/lessons" element={<Lessons />} />
+              <Route path="/beginner-lessons" element={<Lessons />} />
+              <Route path="/intermediate-lessons" element={<Lessons />} />
+              <Route path="/advanced-lessons" element={<Lessons />} />
+              <Route path="/wpm-calculator" element={<WPMCalculator />} />
+              <Route path="/typing-accuracy-calculator" element={<Tools />} />
+              <Route path="/words-per-minute-calculator" element={<WPMCalculator />} />
               <Route path="/lessons/:level" element={<Lessons />} />
               <Route path="/exam-mode" element={<ExamMode />} />
               <Route path="/practice" element={<Lessons />} />

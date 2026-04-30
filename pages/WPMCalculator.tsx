@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SEO, { SITE_URL } from '../components/SEO';
 import TypingLinksSection from '../components/TypingLinksSection';
 
@@ -9,6 +9,29 @@ const WPMCalculator: React.FC = () => {
   const [minutes, setMinutes] = useState<string>('');
   const [seconds, setSeconds] = useState<string>('');
   const [result, setResult] = useState<number | null>(null);
+  
+  const location = useLocation();
+  const path = location.pathname;
+
+  const getSEOData = () => {
+    if (path.includes('words-per-minute-calculator')) return {
+      title: "Words Per Minute Calculator | Check Your Typing Speed",
+      description: "Quickly check your typing speed with our words per minute calculator. Find out exactly how fast you type and track your WPM progress accurately over time.",
+      keywords: "words per minute calculator, WPM calculator, check typing speed, typing speed calculator online, calculate words per minute"
+    };
+    if (path.includes('accuracy')) return {
+      title: "Typing Accuracy Calculator | Check Error Percentage",
+      description: "Measure your precision using our free typing accuracy calculator. Calculate your exact error percentage to improve keystroke accuracy and overall speed.",
+      keywords: "typing accuracy calculator, calculate typing accuracy, error percentage calculator, typing precision test, improve typing accuracy"
+    };
+    return {
+      title: "WPM Calculator | Fast & Free Typing Speed Calculator",
+      description: "Our WPM calculator helps you instantly calculate your typing speed. Just enter your words and time to get an accurate words per minute score for free.",
+      keywords: "WPM calculator, calculate typing speed, typing speed calculator, fast WPM check, words per minute test"
+    };
+  };
+
+  const seo = getSEOData();
 
   const calculateWPM = (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,8 +100,9 @@ const WPMCalculator: React.FC = () => {
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="Words Per Minute Calculator Typing | How Typing Speed is Calculated" 
-        description="Calculate your typing speed in Words Per Minute (WPM) with our free online calculator. Learn how typing speed is calculated and how to improve your WPM." 
+        title={seo.title} 
+        description={seo.description} 
+        keywords={(seo as any).keywords}
         schema={calculatorSchema}
       />
 

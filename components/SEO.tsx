@@ -8,6 +8,7 @@ export const SITE_URL = 'https://typing-practice.online';
 interface SEOProps {
   title: string;
   description: string;
+  keywords?: string;
   canonicalPath?: string;
   noIndex?: boolean;
   ogType?: 'website' | 'article';
@@ -17,6 +18,7 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({ 
   title, 
   description, 
+  keywords,
   canonicalPath, 
   noIndex = false,
   ogType = 'website',
@@ -55,6 +57,7 @@ const SEO: React.FC<SEOProps> = ({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={url} />
       
       {/* Robots */}

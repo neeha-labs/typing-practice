@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import SEO, { SITE_URL } from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import TypingLinksSection from '../components/TypingLinksSection';
@@ -41,22 +41,29 @@ const Lessons: React.FC = () => {
     // Lesson finished
   }, []);
 
+  const location = useLocation();
+  const path = location.pathname;
+
   const getSEOData = () => {
-    if (!level) return {
-      title: "Learn Touch Typing Free Online – Typing Finger Position Practice",
-      description: "Master touch typing with our free online lessons. Get the best typing finger position practice and start with basic typing letter practice to build a solid foundation."
+    if (path.includes('beginner')) return {
+      title: "Beginner Typing Lessons | Learn Typing Letter Practice",
+      description: "Step-by-step beginner typing lessons for everyone. Focus on proper finger placement and essential typing letter practice to learn touch typing correctly.",
+      keywords: "beginner typing lessons, typing letter practice, learn touch typing, typing basics, finger placement"
     };
-    if (level === 'beginner') return {
-      title: "Beginner Typing Lessons – Typing Letter Practice Online",
-      description: "Start your typing journey with our beginner lessons. Master foundational typing letter practice and build essential muscle memory without looking at the keys."
+    if (path.includes('intermediate')) return {
+      title: "Intermediate Typing Lessons | Master Practice Sentences",
+      description: "Take your skills to the next level with intermediate typing lessons. Improve your flow using complete typing practice sentences and increase overall WPM.",
+      keywords: "intermediate typing lessons, typing practice sentences, boost WPM, typing flow, intermediate typing practice"
     };
-    if (level === 'intermediate') return {
-      title: "Intermediate Lessons – Typing Practice Sentences",
-      description: "Improve your flow with intermediate typing practice sentences. Focus on common word patterns and consistent typing rhythm to boost your WPM."
+    if (path.includes('advanced')) return {
+      title: "Advanced Typing Lessons | Professional Speed Training",
+      description: "Challenge yourself with our advanced typing lessons. Master numbers, complex symbols, and difficult text passages to achieve true professional typing speed.",
+      keywords: "advanced typing lessons, professional typing speed, master numbers typing, heavy typing drills, typing mastery"
     };
     return {
-      title: "Advanced Typing Lessons – Master Numbers & Symbols",
-      description: "Push your limits with advanced typing lessons featuring complex sentences, numbers, and symbols. Target 98%+ accuracy for professional mastery."
+      title: "Learn Touch Typing Free Online | Finger Position Practice",
+      description: "Master touch typing from scratch with our free online lessons. Discover the best typing finger position practice to build a solid foundation today.",
+      keywords: "learn touch typing free online, typing finger position practice, touch typing lessons, free typing course"
     };
   };
 
@@ -110,7 +117,7 @@ const Lessons: React.FC = () => {
   if (!level) {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
-        <SEO title={seo.title} description={seo.description} schema={lessonsSchema} />
+        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} schema={lessonsSchema} />
         
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -194,7 +201,7 @@ const Lessons: React.FC = () => {
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
-      <SEO title={seo.title} description={seo.description} schema={lessonsSchema} />
+      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} schema={lessonsSchema} />
 
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>

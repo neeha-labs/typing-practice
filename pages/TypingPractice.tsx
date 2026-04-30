@@ -38,8 +38,9 @@ const TypingPractice: React.FC = () => {
   return (
     <div className="pb-24 bg-white">
       <SEO 
-        title="Paragraph for Typing Practice | Best Typing Pages for Practice" 
-        description="Access the best paragraph for typing practice online. Improve your WPM and accuracy using professional typing pages for practice and high-quality exercises." 
+        title="Free Typing Practice Online | Paragraphs for Speed Test" 
+        description="Access our free typing practice tool online with engaging paragraphs. Step up your WPM and test your keystroke accuracy using professional typing pages for practice." 
+        keywords="typing practice, free typing practice online, paragraph for typing practice, typing pages for practice, improve typing accuracy"
       />
 
       <section className="bg-slate-900 pt-16 pb-20 px-4">

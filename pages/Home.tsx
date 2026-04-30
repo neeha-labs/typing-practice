@@ -61,8 +61,9 @@ const Home: React.FC = () => {
   return (
     <div className="pb-12 bg-white">
       <SEO 
-        title="English Typing Practice Online | Best WPM & Accuracy Test" 
-        description="Master English typing practice with our free high-speed tools. Measure your WPM, accuracy, and efficiency for professional and government exams without sign-up."
+        title="Master Touch Typing Online | Free Typing Practice & Tests" 
+        description="Master touch typing with our free online typing practice tool. From beginner lessons to advanced government exam prep, improve your WPM and accuracy today."
+        keywords="typing practice, touch typing, free typing test, online typing lessons, improve typing speed"
         schema={homeSchema}
       />
       

@@ -1,14 +1,16 @@
 
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingLinksSection from '../components/TypingLinksSection';
 
 const Tools: React.FC = () => {
   const { toolId } = useParams();
+  const location = useLocation();
+  const path = location.pathname;
 
-  if (toolId === 'wpm-calculator') return <WPMCalculator />;
-  if (toolId === 'typing-accuracy-calculator') return <AccuracyCalculator />;
+  if (toolId === 'wpm-calculator' || path.includes('/wpm-calculator')) return <WPMCalculator />;
+  if (toolId === 'typing-accuracy-calculator' || path.includes('/typing-accuracy-calculator')) return <AccuracyCalculator />;
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
@@ -130,8 +132,9 @@ const AccuracyCalculator = () => {
   return (
     <div className="py-12 px-4 max-w-3xl mx-auto">
       <SEO 
-        title="Typing Accuracy Calculator - Check Your Percentage" 
-        description="Calculate your typing accuracy percentage instantly. Learn how to improve your precision for professional data entry and clerk roles."
+        title="Typing Accuracy Calculator | Check Error Percentage" 
+        description="Measure your precision using our free typing accuracy calculator. Calculate your exact error percentage to improve keystroke accuracy and overall speed."
+        keywords="typing accuracy calculator, calculate typing accuracy, error percentage calculator, typing precision test, improve typing accuracy"
       />
       <Link to="/tools" className="text-blue-600 hover:underline text-sm font-bold mb-4 block">← Back to Tools</Link>
       <h1 className="text-3xl font-bold mb-8">Typing Accuracy Calculator</h1>
