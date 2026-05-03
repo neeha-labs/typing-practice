@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import TypingLinksSection from '../components/TypingLinksSection';
@@ -9,6 +9,7 @@ import { TypingStats, ExamConfig } from '../types';
 
 const ExamMode: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
   const [selectedExam, setSelectedExam] = useState<ExamConfig | null>(null);
   const [isExamRunning, setIsExamRunning] = useState(false);
   const [targetText, setTargetText] = useState('');
@@ -62,12 +63,43 @@ const ExamMode: React.FC = () => {
     console.log('Exam Finished', stats);
   }, []);
 
+  const getSEOData = () => {
+    if (location.pathname.includes('ssc-typing-test-practice')) {
+      return {
+        title: "SSC Typing Test Practice — Govt Exam Prep | Typing-Practice.online",
+        description: "SSC typing test practice for government exam preparation. Practice at official exam speed requirements and improve accuracy for competitive exams.",
+        canonicalPath: "/exam-mode"
+      };
+    }
+    return {
+      title: "Typing Exam Mode — Government Exam Practice | Typing-Practice.online",
+      description: "Practice typing in exam mode. Simulate government and competitive exam typing conditions to improve your accuracy and speed under pressure.",
+      canonicalPath: "/exam-mode"
+    };
+  };
+
+  const getDisplayContent = () => {
+    if (location.pathname.includes('ssc-typing-test-practice')) {
+      return {
+        h1: "SSC Typing Test Practice — Government Exam Preparation",
+        p: "Prepare for SSC and other government competitive exam typing tests. Practice at the required speed and accuracy level to clear your official typing examination."
+      };
+    }
+    return {
+      h1: "Professional Exam Typing Simulation",
+      p: "Prepare for your final skill test with our ssc cgl typing test practice module and other government exam simulations. We provide official mock interfaces for SSC, Banking, Court Clerk, and Data Entry Operator (DEO) exams."
+    };
+  };
+
+  const seo = getSEOData();
+  const displayContent = getDisplayContent();
+
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO 
-        title="Government Exam Typing Mode | Official Mock Simulator" 
-        description="Experience real government exam typing mode. Our official mock simulator disables backspace and highlighting to perfectly recreate SSC and Banking skill tests." 
-        keywords="exam mode typing test, government exam typing simulator, strict typing test, no backspace typing test, professional typing mock"
+        title={seo.title} 
+        description={seo.description}
+        canonicalPath={seo.canonicalPath}
       />
 
       <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
@@ -78,10 +110,9 @@ const ExamMode: React.FC = () => {
       </Link>
 
       <div className="mb-12">
-        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-2">Professional Exam Typing Simulation</h1>
+        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-2">{displayContent.h1}</h1>
         <p className="text-xl text-slate-500 max-w-2xl">
-          Prepare for your final skill test with our <strong>ssc cgl typing test practice</strong> module and other government exam simulations. 
-          We provide official mock interfaces for SSC, Banking, Court Clerk, and Data Entry Operator (DEO) exams.
+          {displayContent.p}
         </p>
       </div>
 

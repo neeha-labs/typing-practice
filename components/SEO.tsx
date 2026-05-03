@@ -26,30 +26,91 @@ const SEO: React.FC<SEOProps> = ({
 }) => {
   const location = useLocation();
   const url = `${SITE_URL}${canonicalPath || location.pathname}`;
-  const fullTitle = `${title} | Typing-Practice.online`;
+  const fullTitle = title.includes('Typing-Practice.online') ? title : `${title} | Typing-Practice.online`;
 
-  const defaultSchema = {
+  const webAppSchema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": SITE_URL,
-    "name": "Typing-Practice.online",
-    "description": "Master touch typing with free lessons and speed tests.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": `${SITE_URL}/search?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
+    "@type": "WebApplication",
+    "name": "Typing Practice Online",
+    "url": "https://typing-practice.online",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web Browser",
+    "description": "Free online typing test to improve WPM typing speed and accuracy",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": location.pathname.split('/').filter(Boolean).map((path, index, array) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": path.charAt(0).toUpperCase() + path.slice(1).replace(/-/g, ' '),
-      "item": `${SITE_URL}/${array.slice(0, index + 1).join('/')}`
-    }))
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://typing-practice.online/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Typing Test",
+        "item": "https://typing-practice.online/typing-test"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Typing Lessons",
+        "item": "https://typing-practice.online/lessons"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Exam Mode",
+        "item": "https://typing-practice.online/exam-mode"
+      }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a good typing speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The average typing speed is 40 WPM. Above 60 WPM is fast, and 80+ WPM is excellent for professionals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I improve my typing speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Practice daily for 10-15 minutes focusing on accuracy first. Speed will naturally improve over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this typing test free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, completely free with no sign-up required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is WPM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WPM means Words Per Minute. Every 5 characters is counted as one word in the standard calculation."
+        }
+      }
+    ]
   };
 
   return (
@@ -62,6 +123,10 @@ const SEO: React.FC<SEOProps> = ({
       
       {/* Robots */}
       <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+
+      {/* International SEO */}
+      <link rel="alternate" hrefLang="en-in" href={url} />
+      <link rel="alternate" hrefLang="en" href={url} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:url" content={url} />
@@ -77,11 +142,19 @@ const SEO: React.FC<SEOProps> = ({
 
       {/* Structured Data */}
       <script type="application/ld+json">
-        {JSON.stringify(schema || defaultSchema)}
+        {JSON.stringify(webAppSchema)}
       </script>
-      {location.pathname !== '/' && (
+      <script type="application/ld+json">
+        {JSON.stringify(breadcrumbSchema)}
+      </script>
+      {schema && (
         <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
+          {JSON.stringify(schema)}
+        </script>
+      )}
+      {location.pathname === '/' && (
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
         </script>
       )}
     </Helmet>

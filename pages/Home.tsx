@@ -61,8 +61,8 @@ const Home: React.FC = () => {
   return (
     <div className="pb-12 bg-white">
       <SEO 
-        title="Master Touch Typing Online | Free Typing Practice & Tests" 
-        description="Master touch typing with our free online typing practice tool. From beginner lessons to advanced government exam prep, improve your WPM and accuracy today."
+        title="Free Typing Test & Practice Online" 
+        description="Free online typing test and practice platform. Improve your WPM typing speed with daily practice lessons. No sign-up required."
         keywords="typing practice, touch typing, free typing test, online typing lessons, improve typing speed"
         schema={homeSchema}
       />
@@ -71,11 +71,10 @@ const Home: React.FC = () => {
       <section className="bg-slate-900 pt-16 pb-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Advanced <span className="text-blue-400">English Typing Practice</span> Online
+            Free Typing Test — Improve Your Typing Speed Online
           </h1>
           <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Improve your performance with the most robust English typing practice platform. 
-            Free to use, sign-up is only required if you want to save your scores.
+            Welcome to Typing Practice Online — the best free tool to test and improve your typing speed. Whether you're a beginner or a professional, our WPM typing test helps you track your progress and build accuracy.
           </p>
           
           <div className="bg-white p-2 rounded-3xl shadow-2xl flex flex-col md:flex-row gap-2 max-w-3xl mx-auto border-4 border-slate-800">
@@ -142,10 +141,13 @@ const Home: React.FC = () => {
               <div className="bg-blue-50 p-10 rounded-[3rem] border border-blue-100">
                 <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                   <span className="w-10 h-10 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-lg">🚀</span>
-                  Why Improve Speed?
+                  Why Practice Typing?
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
-                  The modern world lives on digital communication. Increasing your typing speed from 30 WPM to 60 WPM effectively doubles your productivity for writing emails, coding, or data entry. It saves you hundreds of hours per year and reduces cognitive load, allowing you to focus on your thoughts rather than your fingers.
+                  Typing faster saves hours every day. Students, programmers, writers, and professionals all benefit from improved typing speed. Regular practice on our platform helps you go from a beginner typist to 80+ WPM with consistent daily sessions.
+                </p>
+                <p className="text-slate-600 leading-relaxed mb-6 font-medium">
+                  Try our <Link to="/typing-test" className="text-blue-600 hover:underline">free typing speed test</Link> now, or check our <Link to="/lessons" className="text-blue-600 hover:underline">typing lessons for beginners</Link> to get started.
                 </p>
                 <ul className="space-y-3 text-slate-700 font-medium">
                   <li>✨ Save up to 5 hours per week</li>
@@ -238,38 +240,37 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Deep Content Section 2 - How to Improve */}
+      {/* Deep Content Section 2 - How It Works */}
       <section className="bg-slate-50 py-24 px-4 border-y border-slate-200">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white p-12 md:p-20 rounded-[4rem] shadow-xl border border-slate-100">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8">How to Improve Your Typing Speed Online</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8">How It Works</h2>
             <p className="text-xl text-slate-600 leading-relaxed mb-12">
-              Improving your typing speed is a journey of muscle memory building. It's not about how fast you move your fingers, 
-              but how efficiently you use the keyboard layout. Below are the steps to go from a beginner to a pro.
+              Improving your typing speed is a journey of muscle memory building. Follow these simple steps to start testing your speed right away.
             </p>
 
             <div className="space-y-12">
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">1</div>
                 <div>
-                  <h4 className="text-2xl font-bold text-slate-900 mb-3">Master the Home Row</h4>
-                  <p className="text-slate-600 leading-relaxed">Your fingers should always rest on the <strong>ASDF</strong> and <strong>JKL;</strong> keys. The "F" and "J" keys have small bumps to help you find them without looking. Every keystroke should originate from this home position and return to it immediately.</p>
+                  <h4 className="text-2xl font-bold text-slate-900 mb-3">Choose your typing test duration</h4>
+                  <p className="text-slate-600 leading-relaxed">Select between 1, 2, or 5 minutes. A 1-minute test offers a quick benchmark, while a 5-minute test helps you practice real-world typing stamina and focus.</p>
                 </div>
               </div>
 
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">2</div>
                 <div>
-                  <h4 className="text-2xl font-bold text-slate-900 mb-3">Stop Looking at the Keyboard</h4>
-                  <p className="text-slate-600 leading-relaxed">This is the most difficult but essential step. Looking down creates a cognitive bottleneck. By keeping your eyes on the screen, you allow your brain to build a spatial map of the keys, leading to subconscious finger movements.</p>
+                  <h4 className="text-2xl font-bold text-slate-900 mb-3">Start typing the words shown on screen as fast and accurately as you can</h4>
+                  <p className="text-slate-600 leading-relaxed">Keep your eyes on the screen and do your best to touch type. Every correct word counts towards tracking your progression effectively.</p>
                 </div>
               </div>
 
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">3</div>
                 <div>
-                  <h4 className="text-2xl font-bold text-slate-900 mb-3">Focus on Rhythm, Not Speed</h4>
-                  <p className="text-slate-600 leading-relaxed">Consistent rhythm leads to naturally high speeds. Instead of bursting and stopping, try to type at a steady pace. This reduces errors and makes the typing process much smoother over long durations like a 5-minute test.</p>
+                  <h4 className="text-2xl font-bold text-slate-900 mb-3">See your WPM score, accuracy percentage, and track your improvement</h4>
+                  <p className="text-slate-600 leading-relaxed">Instantly view your gross and net WPM scores once the timer finishes. Consistently logging your sessions builds muscle memory naturally.</p>
                 </div>
               </div>
             </div>
@@ -335,23 +336,19 @@ const Home: React.FC = () => {
             {[
               {
                 q: "What is a good typing speed?",
-                a: "A good typing speed for most professional environments is between 40 and 60 Words Per Minute (WPM). However, for specialized roles like transcription or courtroom typing, you should aim for 80-100 WPM with near-perfect accuracy."
+                a: "The average typing speed is 40 WPM. A speed above 60 WPM is considered fast, and 80+ WPM is excellent for professionals."
               },
               {
-                q: "How can I improve my typing speed for FREE?",
-                a: "Consistent practice on platforms like Typing-Practice.online is the best way. Use our structured lessons to build foundational skills, and then transition to daily 60 second typing tests to track and boost your performance."
+                q: "How do I improve my typing speed?",
+                a: "Practice daily for 10–15 minutes. Focus on accuracy first, then speed will follow naturally over time."
               },
               {
-                q: "How is WPM calculated standardizedly?",
-                a: "The industry standard formula is: WPM = (Total Characters typed / 5) / Time in Minutes. One 'word' is standardized as 5 characters to ensure fairness regardless of word complexity. Net WPM is your Final Speed = Gross WPM - (Errors / Time)."
+                q: "Is this typing test free?",
+                a: "Yes, completely free with no sign-up required."
               },
               {
-                q: "What is the best way to practice touch typing?",
-                a: "Focus on finger placement first. Always return to the home row. Avoid looking at your keyboard at all costs. Use our lessons to learn the correct fingers for each key before attempting high-speed tests."
-              },
-              {
-                q: "Why is accuracy more important than speed?",
-                a: "In real-world typing and exams, errors require time to fix. A typist at 80 WPM with 5 errors may actually be slower than a typist at 65 WPM with 0 errors because of the 'repair time' needed. Most exams have strict accuracy thresholds."
+                q: "What is WPM?",
+                a: "WPM means Words Per Minute. Every 5 characters is counted as one word in the standard calculation."
               }
             ].map((faq, i) => (
               <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 transition-all hover:shadow-md">

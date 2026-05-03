@@ -60,10 +60,15 @@ const Lessons: React.FC = () => {
       description: "Challenge yourself with our advanced typing lessons. Master numbers, complex symbols, and difficult text passages to achieve true professional typing speed.",
       keywords: "advanced typing lessons, professional typing speed, master numbers typing, heavy typing drills, typing mastery"
     };
+    if (path.includes('learn-touch-typing-free-online')) return {
+      title: "Learn Touch Typing Free Online",
+      description: "Learn touch typing online for free. Master finger positions, home row technique and type without looking at your keyboard with our guided lessons.",
+      canonicalPath: "/lessons"
+    };
     return {
-      title: "Learn Touch Typing Free Online | Finger Position Practice",
-      description: "Master touch typing from scratch with our free online lessons. Discover the best typing finger position practice to build a solid foundation today.",
-      keywords: "learn touch typing free online, typing finger position practice, touch typing lessons, free typing course"
+      title: "Free Typing Lessons for Beginners",
+      description: "Free typing lessons for beginners and advanced users. Learn proper finger placement, home row keys, and touch typing techniques step by step.",
+      canonicalPath: "/lessons"
     };
   };
 
@@ -114,10 +119,25 @@ const Lessons: React.FC = () => {
     ]
   };
 
+  const getDisplayContent = () => {
+    if (location.pathname.includes('learn-touch-typing-free-online')) {
+      return {
+        h1: "Learn Touch Typing Free Online — Finger Position Guide",
+        p: "Master touch typing from scratch with our free finger position lessons. Learn the correct hand placement and home row keys to type without looking at the keyboard."
+      };
+    }
+    return {
+      h1: "Learn Touch Typing Free & Improve Finger Precision",
+      p: "Our structured multi-level course provides specialized typing letter practice for absolute beginners and typing practice sentences for those aiming for professional speed."
+    };
+  };
+
+  const displayContent = getDisplayContent();
+
   if (!level) {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
-        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} schema={lessonsSchema} />
+        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} schema={lessonsSchema} />
         
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -127,9 +147,9 @@ const Lessons: React.FC = () => {
         </Link>
 
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Learn Touch Typing Free & Improve Finger Precision</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">{displayContent.h1}</h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-            Our structured multi-level course provides specialized <strong>typing letter practice</strong> for absolute beginners and <strong>typing practice sentences</strong> for those aiming for professional speed.
+            {displayContent.p}
           </p>
         </div>
 
@@ -201,7 +221,7 @@ const Lessons: React.FC = () => {
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
-      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} schema={lessonsSchema} />
+      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} schema={lessonsSchema} />
 
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>

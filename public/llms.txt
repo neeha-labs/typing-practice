@@ -1,0 +1,14 @@
+# typing-practice.online
+
+> A free online typing test and practice platform to improve WPM typing speed.
+
+## Pages
+- [Home](https://typing-practice.online/): Main typing test and homepage
+- [Typing Test](https://typing-practice.online/typing-test): Take a timed WPM test
+- [Lessons](https://typing-practice.online/lessons): Typing lessons for beginners
+- [About](https://typing-practice.online/about): About this platform
+
+## Description
+typing-practice.online is a free tool for anyone looking to improve their 
+typing speed and accuracy. It offers timed typing tests, WPM tracking, 
+and practice lessons for all skill levels.

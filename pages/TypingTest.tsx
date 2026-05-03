@@ -186,9 +186,16 @@ const TypingTest: React.FC = () => {
       description: "Test your typing endurance with a 5-minute (300 seconds) typing test. Perfect for measuring sustained speed and accuracy over longer periods."
     };
 
-    if (!duration) return {
-      title: "Free Typing Speed Test | Measure Your WPM Online",
-      description: "Take a free typing speed test to measure your WPM and accuracy. Choose from 30, 60, or 120-second durations."
+    if (path.includes('typing-speed-test')) return {
+      title: "Typing Speed Test — Measure WPM Instantly",
+      description: "Measure your exact typing speed in words per minute. Our WPM speed test gives instant results and tracks your improvement over time.",
+      canonicalPath: "/typing-test"
+    };
+
+    if (!duration || path === '/typing-test' || path === '/typing-test/') return {
+      title: "Online Typing Test — Check Your WPM",
+      description: "Take a free typing test online and check your WPM score instantly. Practice typing accuracy and speed with our real-time typing test tool.",
+      canonicalPath: "/typing-test"
     };
     
     return {
@@ -283,10 +290,25 @@ const TypingTest: React.FC = () => {
     return `${duration} Second Typing Test`;
   };
 
+  const getDisplayContent = () => {
+    if (location.pathname.includes('typing-speed-test')) {
+      return {
+        h1: "Typing Speed Test — Measure Your WPM in Real Time",
+        p: "Check how fast you type with our instant WPM speed test. Get your words per minute score in under 60 seconds with no sign-up needed."
+      };
+    }
+    return {
+      h1: getDisplayTitle(),
+      p: "Measure your typing speed and accuracy with our professional-grade testing engine. Choose a duration to begin."
+    };
+  };
+
+  const displayContent = getDisplayContent();
+
   if (!duration) {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
-        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} />
+        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath || location.pathname} />
 
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -296,9 +318,9 @@ const TypingTest: React.FC = () => {
         </Link>
 
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Free Typing Speed Test</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">{displayContent.h1}</h1>
           <p className="text-blue-600 font-bold mb-4">Free typing test – no login required</p>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">Measure your typing speed and accuracy with our professional-grade testing engine. Choose a duration to begin.</p>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">{displayContent.p}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
@@ -370,7 +392,7 @@ const TypingTest: React.FC = () => {
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
-      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} />
+      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath || location.pathname} />
 
       <div className="mb-6 flex justify-between items-center">
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold inline-flex items-center gap-1">

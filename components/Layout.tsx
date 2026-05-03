@@ -52,13 +52,10 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Lessons', path: '/lessons' },
-    { name: 'Typing Practice', path: '/typing-practice' },
     { name: 'Typing Test', path: '/typing-test' },
-    { name: 'Exam Mode', path: '/ssc-typing-test-practice' },
-    { name: 'Leaderboard', path: '/leaderboard' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Tools', path: '/tools' },
+    { name: 'Lessons', path: '/lessons' },
+    { name: 'Exam Mode', path: '/exam-mode' },
+    { name: 'About', path: '/about' },
   ];
 
   const isActive = (path: string) => {
@@ -332,12 +329,13 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Company</h4>
+            <h4 className="font-semibold text-slate-900 mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/about" className="hover:text-blue-600">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-blue-600">Contact</Link></li>
-              <li><Link to="/privacy" className="hover:text-blue-600">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-blue-600">Terms of Use</Link></li>
+              <li><Link to="/" className="hover:text-blue-600">Home</Link></li>
+              <li><Link to="/typing-test" className="hover:text-blue-600">Typing Test</Link></li>
+              <li><Link to="/lessons" className="hover:text-blue-600">Lessons</Link></li>
+              <li><Link to="/exam-mode" className="hover:text-blue-600">Exam Mode</Link></li>
+              <li><Link to="/about" className="hover:text-blue-600">About</Link></li>
             </ul>
           </div>
           <div>
