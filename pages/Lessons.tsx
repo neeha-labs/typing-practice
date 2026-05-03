@@ -61,13 +61,13 @@ const Lessons: React.FC = () => {
       keywords: "advanced typing lessons, professional typing speed, master numbers typing, heavy typing drills, typing mastery"
     };
     if (path.includes('learn-touch-typing-free-online')) return {
-      title: "Learn Touch Typing Free Online",
-      description: "Learn touch typing online for free. Master finger positions, home row technique and type without looking at your keyboard with our guided lessons.",
+      title: "Learn Touch Typing Free — Finger Position Guide",
+      description: "Learn touch typing online for free. Master finger positions and home row keys with guided lessons.",
       canonicalPath: "/lessons"
     };
     return {
-      title: "Free Typing Lessons for Beginners",
-      description: "Free typing lessons for beginners and advanced users. Learn proper finger placement, home row keys, and touch typing techniques step by step.",
+      title: "Free Typing Lessons for Beginners | Practice",
+      description: "Free typing lessons for beginners. Learn proper finger placement and touch typing techniques step by step.",
       canonicalPath: "/lessons"
     };
   };
@@ -76,47 +76,6 @@ const Lessons: React.FC = () => {
 
   const handleLevelChange = (l: Level) => {
     navigate(`/lessons/${l}`);
-  };
-
-  const lessonsSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Course",
-        "name": "Learn Touch Typing Free Online",
-        "description": "A comprehensive, free online course to learn touch typing from beginner to advanced levels.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Typing-Practice.online",
-          "sameAs": SITE_URL
-        },
-        "hasCourseInstance": {
-          "@type": "CourseInstance",
-          "courseMode": "online"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How can I learn touch typing for free online?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can learn touch typing for free online using our structured lessons. Start with the beginner path to master the home row, then progress to intermediate and advanced drills to build speed and accuracy."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does it take to learn touch typing?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "With 15-30 minutes of daily practice, most people can learn the basic touch typing finger placements in 1-2 weeks. Reaching a professional speed of 60+ WPM usually takes a few months of consistent practice."
-            }
-          }
-        ]
-      }
-    ]
   };
 
   const getDisplayContent = () => {
@@ -137,7 +96,7 @@ const Lessons: React.FC = () => {
   if (!level) {
     return (
       <div className="py-12 px-4 max-w-7xl mx-auto">
-        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} schema={lessonsSchema} />
+        <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} />
         
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -221,7 +180,7 @@ const Lessons: React.FC = () => {
 
   return (
     <div className="py-12 px-4 max-w-7xl mx-auto">
-      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} schema={lessonsSchema} />
+      <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} />
 
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>

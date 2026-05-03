@@ -66,14 +66,14 @@ const ExamMode: React.FC = () => {
   const getSEOData = () => {
     if (location.pathname.includes('ssc-typing-test-practice')) {
       return {
-        title: "SSC Typing Test Practice — Govt Exam Prep | Typing-Practice.online",
-        description: "SSC typing test practice for government exam preparation. Practice at official exam speed requirements and improve accuracy for competitive exams.",
+        title: "SSC Typing Test Practice — Exam Preparation",
+        description: "SSC typing test practice for government exam preparation. Practice at official exam speed requirements.",
         canonicalPath: "/exam-mode"
       };
     }
     return {
-      title: "Typing Exam Mode — Government Exam Practice | Typing-Practice.online",
-      description: "Practice typing in exam mode. Simulate government and competitive exam typing conditions to improve your accuracy and speed under pressure.",
+      title: "Typing Exam Mode — Govt Exam Practice Online",
+      description: "Practice typing in exam simulation mode. Prepare for government typing exams with timed practice.",
       canonicalPath: "/exam-mode"
     };
   };
@@ -222,6 +222,13 @@ const ExamMode: React.FC = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mt-16 page-description text-slate-600 leading-relaxed bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm text-left">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Exam Mode Simulation</h2>
+        <p className="mb-4">Our online typing exam mode is designed to simulate the exact conditions of government competitive exams, such as the SSC CGL, RRB, and banking skill tests. It is for candidates preparing for official typing qualification rounds where pressure is high and accuracy is tightly monitored.</p>
+        <p className="mb-4">Each simulation enforces specific rules such as strict time limits, disabling the backspace key, or turning off word highlighting. By practicing under these constrained environments, you can condition your mind and fingers without relying on visual crutches or immediate corrections, replicating the real exam software.</p>
+        <p>To use this module effectively, choose your specific exam format from the start options. We recommend completing at least two full-length 15-minute practice tests a day using these modes to build stamina and ensure there are no surprises on test day.</p>
       </section>
 
       <TypingLinksSection />

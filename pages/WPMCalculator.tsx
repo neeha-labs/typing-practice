@@ -103,7 +103,6 @@ const WPMCalculator: React.FC = () => {
         title={seo.title} 
         description={seo.description} 
         keywords={(seo as any).keywords}
-        schema={calculatorSchema}
       />
 
       <Link to="/tools" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">

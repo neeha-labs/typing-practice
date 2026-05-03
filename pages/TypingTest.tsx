@@ -188,13 +188,13 @@ const TypingTest: React.FC = () => {
 
     if (path.includes('typing-speed-test')) return {
       title: "Typing Speed Test — Measure WPM Instantly",
-      description: "Measure your exact typing speed in words per minute. Our WPM speed test gives instant results and tracks your improvement over time.",
+      description: "Measure your typing speed in words per minute. Get instant WPM results and track your improvement.",
       canonicalPath: "/typing-test"
     };
 
     if (!duration || path === '/typing-test' || path === '/typing-test/') return {
-      title: "Online Typing Test — Check Your WPM",
-      description: "Take a free typing test online and check your WPM score instantly. Practice typing accuracy and speed with our real-time typing test tool.",
+      title: "Online Typing Test — Check Your WPM Speed",
+      description: "Take a free typing test and check your WPM score instantly. Measure typing accuracy in real time.",
       canonicalPath: "/typing-test"
     };
     
@@ -522,6 +522,13 @@ const TypingTest: React.FC = () => {
           )}
         </div>
       )}
+
+      <section className="mt-16 page-description text-slate-600 leading-relaxed bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm text-left">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Online Typing Test</h2>
+        <p className="mb-4">Our free online typing test helps you measure your exact typing speed in Words Per Minute (WPM). Whether you are a student, job seeker, or professional, knowing your typing speed is an important skill in today's digital world.</p>
+        <p className="mb-4">Simply start typing the words shown on screen. The test measures both your speed and accuracy in real time. When the timer ends, you get your final WPM score along with your accuracy percentage.</p>
+        <p>Regular practice on our typing test will help you improve significantly within just a few weeks. Most users see a 10 to 20 WPM improvement after 2 weeks of daily 10-minute practice sessions.</p>
+      </section>
 
       <TypingTestSEO duration={duration || 60} mode={testMode} />
     </div>

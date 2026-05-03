@@ -4,67 +4,12 @@ import { Link } from 'react-router-dom';
 import SEO, { SITE_URL } from '../components/SEO';
 
 const Home: React.FC = () => {
-  const homeSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "url": SITE_URL,
-        "name": "Typing-Practice.online",
-        "description": "Master touch typing with free lessons and speed tests. Improve your WPM for SSC, Banking, and Government exams.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": `${SITE_URL}/search?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is a good typing speed?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A good typing speed for most professionals is around 40 to 60 Words Per Minute (WPM). However, for data entry or transcription jobs, a speed of 70 to 90 WPM is often required. You can measure your current speed using our free 60 second typing test."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How is typing speed calculated?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Typing speed is calculated in Words Per Minute (WPM). A 'word' is standardized as 5 characters or keystrokes. Gross WPM is calculated by dividing total characters typed by 5, then dividing by the time in minutes. Net WPM subtracts your errors from the Gross WPM to give your true typing speed."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can I learn touch typing for free online?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can learn touch typing for free online by using our structured typing lessons. Start by mastering the home row keys (ASDF JKL;), then gradually move to the top and bottom rows. Consistent daily practice of 15-30 minutes is the best way to build muscle memory."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why should I take a 60 second typing test?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A 60 second typing test is the industry standard for measuring typing speed and accuracy. It provides a quick, accurate snapshot of your Words Per Minute (WPM) without causing typing fatigue. It's perfect for daily practice and tracking your progress over time."
-            }
-          }
-        ]
-      }
-    ]
-  };
-
   return (
     <div className="pb-12 bg-white">
       <SEO 
-        title="Free Typing Test & Practice Online" 
-        description="Free online typing test and practice platform. Improve your WPM typing speed with daily practice lessons. No sign-up required."
-        keywords="typing practice, touch typing, free typing test, online typing lessons, improve typing speed"
-        schema={homeSchema}
+        title="Free Typing Test Online | Typing-Practice.online" 
+        description="Free online typing test and practice platform. Improve your WPM typing speed with daily practice. No sign-up required."
+        canonicalPath="/"
       />
       
       {/* Tool-First Section */}
