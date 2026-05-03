@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&amp;display=swap');
+      .font-sans { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    </style>
+  </defs>
+  
+  <rect width="400" height="400" fill="#2563EB" />
+  
+  <!-- Keyboard Icon -->
+  <g transform="translate(0, -10)">
+    <rect x="110" y="70" width="180" height="110" rx="16" fill="none" stroke="#ffffff" stroke-width="12" />
+    <rect x="135" y="95" width="30" height="30" rx="6" fill="#ffffff" />
+    <rect x="185" y="95" width="30" height="30" rx="6" fill="#ffffff" />
+    <rect x="235" y="95" width="30" height="30" rx="6" fill="#ffffff" />
+    <rect x="135" y="140" width="130" height="18" rx="6" fill="#ffffff" />
+  </g>
+
+  <!-- Typography -->
+  <text x="200" y="240" class="font-sans" font-size="36" font-weight="800" fill="#ffffff" text-anchor="middle">Typing Practice</text>
+  <text x="200" y="280" class="font-sans" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="4">ONLINE</text>
+  
+  <!-- Tagline -->
+  <text x="200" y="340" class="font-sans" font-size="18" font-weight="500" fill="#93C5FD" text-anchor="middle" letter-spacing="1">Test. Learn. Improve.</text>
+</svg>
