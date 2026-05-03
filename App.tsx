@@ -19,6 +19,7 @@ const Profile = lazy(() => import('./pages/Profile'));
 const TypingTestsHub = lazy(() => import('./pages/TypingTestsHub'));
 const ExamPractice = lazy(() => import('./pages/ExamPractice'));
 const WPMCalculator = lazy(() => import('./pages/WPMCalculator'));
+const SitemapPage = lazy(() => import('./pages/Sitemap'));
 const About = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.Contact })));
 const Privacy = lazy(() => import('./pages/StaticPages').then(m => ({ default: m.Privacy })));
@@ -92,6 +93,7 @@ const App: React.FC = () => {
               <Route path="/blog/:postId" element={<Blog />} />
 
               <Route path="/about" element={<About />} />
+              <Route path="/sitemap" element={<SitemapPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />

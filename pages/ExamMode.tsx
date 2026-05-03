@@ -4,6 +4,8 @@ import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import TypingLinksSection from '../components/TypingLinksSection';
+import PageSEOContent from '../components/PageSEOContent';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { EXAM_MODES, EXAM_TEXTS } from '../constants';
 import { TypingStats, ExamConfig } from '../types';
 
@@ -102,12 +104,7 @@ const ExamMode: React.FC = () => {
         canonicalPath={seo.canonicalPath}
       />
 
-      <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-        Back to Home
-      </Link>
+      <Breadcrumbs />
 
       <div className="mb-12">
         <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-2">{displayContent.h1}</h1>
@@ -224,12 +221,23 @@ const ExamMode: React.FC = () => {
         </div>
       </section>
 
-      <section className="mt-16 page-description text-slate-600 leading-relaxed bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm text-left">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Exam Mode Simulation</h2>
-        <p className="mb-4">Our online typing exam mode is designed to simulate the exact conditions of government competitive exams, such as the SSC CGL, RRB, and banking skill tests. It is for candidates preparing for official typing qualification rounds where pressure is high and accuracy is tightly monitored.</p>
-        <p className="mb-4">Each simulation enforces specific rules such as strict time limits, disabling the backspace key, or turning off word highlighting. By practicing under these constrained environments, you can condition your mind and fingers without relying on visual crutches or immediate corrections, replicating the real exam software.</p>
-        <p>To use this module effectively, choose your specific exam format from the start options. We recommend completing at least two full-length 15-minute practice tests a day using these modes to build stamina and ensure there are no surprises on test day.</p>
-      </section>
+      <PageSEOContent 
+        topic="Government Typing Exam Simulator"
+        offers="Simulate the exact environment of competitive government skill tests, strictly adhering to official rules."
+        steps={[
+          "Select your specific target exam format from the choices above.",
+          "Read the specific rules (e.g. backspace disabled) for that tier.",
+          "Type the provided mock paragraph within the rigid time limit.",
+          "Review your net WPM accuracy formatted exactly like the real scorecards."
+        ]}
+        benefits={[
+          "Eliminates dependency on visual crutches (highlighting, easy corrections).",
+          "Condition your nerves to test-stress before entering the examination hall.",
+          "Familiarize yourself with the exact length and complex vocabulary used by SSC / IBPS."
+        ]}
+        relatedPath="/lessons/advanced"
+        relatedName="Advanced Speed Drills"
+      />
 
       <TypingLinksSection />
     </div>

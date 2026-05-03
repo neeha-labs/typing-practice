@@ -32,8 +32,8 @@ const SEO: React.FC<SEOProps> = ({
     "name": "Typing Practice Online",
     "url": "https://typing-practice.online",
     "applicationCategory": "EducationalApplication",
-    "operatingSystem": "Web Browser",
-    "description": "Free typing test to improve WPM speed",
+    "operatingSystem": "Any",
+    "description": "Free online typing test to improve WPM typing speed and accuracy",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -50,7 +50,7 @@ const SEO: React.FC<SEOProps> = ({
         "name": "What is a good typing speed?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Average is 40 WPM. Above 60 WPM is fast. 80+ WPM is excellent for professionals."
+          "text": "The average typing speed is 40 WPM. Above 60 WPM is fast and 80+ WPM is excellent."
         }
       },
       {
@@ -58,7 +58,7 @@ const SEO: React.FC<SEOProps> = ({
         "name": "How do I improve my typing speed?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Practice 10-15 minutes daily. Focus on accuracy first, speed follows naturally."
+          "text": "Practice daily for 10-15 minutes focusing on accuracy first. Speed improves naturally."
         }
       },
       {
@@ -66,7 +66,15 @@ const SEO: React.FC<SEOProps> = ({
         "name": "Is this typing test free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, completely free with no sign-up needed."
+          "text": "Yes completely free with no sign-up needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is WPM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WPM stands for Words Per Minute. Every 5 characters counts as one word."
         }
       }
     ]
@@ -84,9 +92,9 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
 
       {/* International SEO */}
-      <link rel="alternate" hrefLang="en" href={url} />
-      <link rel="alternate" hrefLang="en-IN" href={url} />
-      <link rel="alternate" hrefLang="x-default" href={url} />
+      <link rel="alternate" hrefLang="en" href="https://typing-practice.online/" />
+      <link rel="alternate" hrefLang="en-IN" href="https://typing-practice.online/" />
+      <link rel="alternate" hrefLang="x-default" href="https://typing-practice.online/" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:url" content={url} />

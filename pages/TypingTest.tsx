@@ -10,6 +10,9 @@ import TypingStats from '../components/TypingStats';
 import TypingTestSEO from '../components/TypingTestSEO';
 import { loadParagraphs } from '../utils/ParagraphLoader';
 
+import PageSEOContent from '../components/PageSEOContent';
+import Breadcrumbs from '../components/Breadcrumbs';
+
 enum OperationType {
   CREATE = 'create',
   UPDATE = 'update',
@@ -287,13 +290,14 @@ const TypingTest: React.FC = () => {
     if (testMode === 'beginners') return "Typing Test for Beginners";
     if (testMode === 'numbers') return "Typing Test with Numbers";
     if (testMode === 'paragraph') return "Paragraph Typing Test";
-    return `${duration} Second Typing Test`;
+    if (duration) return `${duration} Second Typing Speed Test`;
+    return "Test Your Typing Speed and Accuracy Online";
   };
 
   const getDisplayContent = () => {
     if (location.pathname.includes('typing-speed-test')) {
       return {
-        h1: "Typing Speed Test — Measure Your WPM in Real Time",
+        h1: "Test Your Typing Speed and Accuracy Online",
         p: "Check how fast you type with our instant WPM speed test. Get your words per minute score in under 60 seconds with no sign-up needed."
       };
     }
@@ -310,12 +314,7 @@ const TypingTest: React.FC = () => {
       <div className="py-12 px-4 max-w-7xl mx-auto">
         <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath || location.pathname} />
 
-        <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to Home
-        </Link>
+        <Breadcrumbs />
 
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">{displayContent.h1}</h1>
@@ -385,6 +384,23 @@ const TypingTest: React.FC = () => {
           </div>
         </div>
         
+        <PageSEOContent 
+          topic="Online Typing Test"
+          offers="Test your actual typing speed with 100% accuracy using professional test formats."
+          steps={[
+            "Select a test duration from the options above.",
+            "Start typing the highlighted words as quickly as you can.",
+            "Check your final WPM and accuracy metrics when time runs out."
+          ]}
+          benefits={[
+            "Track your WPM progress accurately over time.",
+            "Identify frequent errors for targeted practice.",
+            "Prepare for rigorous typing exams."
+          ]}
+          relatedPath="/lessons"
+          relatedName="Free Typing Lessons"
+        />
+
         <TypingTestSEO duration={duration || 60} mode={testMode} />
       </div>
     );
@@ -394,20 +410,7 @@ const TypingTest: React.FC = () => {
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath || location.pathname} />
 
-      <div className="mb-6 flex justify-between items-center">
-        <Link to="/" className="text-blue-600 hover:underline text-sm font-bold inline-flex items-center gap-1">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to Home
-        </Link>
-        <Link to="/typing-test" className="text-slate-500 hover:underline text-sm font-bold inline-flex items-center gap-1">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to All Tests
-        </Link>
-      </div>
+      <Breadcrumbs />
 
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -522,13 +525,6 @@ const TypingTest: React.FC = () => {
           )}
         </div>
       )}
-
-      <section className="mt-16 page-description text-slate-600 leading-relaxed bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm text-left">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Online Typing Test</h2>
-        <p className="mb-4">Our free online typing test helps you measure your exact typing speed in Words Per Minute (WPM). Whether you are a student, job seeker, or professional, knowing your typing speed is an important skill in today's digital world.</p>
-        <p className="mb-4">Simply start typing the words shown on screen. The test measures both your speed and accuracy in real time. When the timer ends, you get your final WPM score along with your accuracy percentage.</p>
-        <p>Regular practice on our typing test will help you improve significantly within just a few weeks. Most users see a 10 to 20 WPM improvement after 2 weeks of daily 10-minute practice sessions.</p>
-      </section>
 
       <TypingTestSEO duration={duration || 60} mode={testMode} />
     </div>

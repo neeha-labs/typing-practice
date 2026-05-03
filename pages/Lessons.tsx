@@ -4,6 +4,8 @@ import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import SEO, { SITE_URL } from '../components/SEO';
 import TypingArea from '../components/TypingArea';
 import TypingLinksSection from '../components/TypingLinksSection';
+import PageSEOContent from '../components/PageSEOContent';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { LESSONS } from '../constants';
 
 type Level = 'beginner' | 'intermediate' | 'advanced';
@@ -98,12 +100,7 @@ const Lessons: React.FC = () => {
       <div className="py-12 px-4 max-w-7xl mx-auto">
         <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} />
         
-        <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-6 inline-flex items-center gap-1">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to Home
-        </Link>
+        <Breadcrumbs />
 
         <div className="text-center mb-16">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-4">{displayContent.h1}</h1>
@@ -151,29 +148,24 @@ const Lessons: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-24 bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200">
-          <h2 className="text-3xl font-bold mb-8 text-center text-slate-900">Why Learn Touch Typing?</h2>
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
-            <div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Double Your Productivity</h3>
-              <p className="text-slate-600 leading-relaxed">The average person types at 40 WPM using the "hunt and peck" method. Touch typists easily reach 80+ WPM, saving you hours of work every week. Whether you are coding, writing emails, or taking an online exam, speed is your biggest advantage.</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Focus on Content, Not Keys</h3>
-              <p className="text-slate-600 leading-relaxed">When you don't have to look at your fingers, your brain is free to focus on what you're actually writing. This reduces cognitive load and allows for better flow state, improving the quality of your work.</p>
-            </div>
-          </div>
-          
-          <h2 className="text-2xl font-bold mb-6 text-slate-900">Effective Typing Finger Position Practice</h2>
-          <p className="text-slate-600 leading-relaxed mb-6">
-            Our platform provides a completely free, structured curriculum to help you master the keyboard. Here is how to perform effective <strong>typing finger position practice</strong>:
-          </p>
-          <ul className="space-y-4 text-slate-600 list-disc pl-6 mb-8">
-            <li><strong>Start with the Home Row:</strong> The beginner path focuses on ASDF and JKL;. Your fingers should always rest here at the start of every session.</li>
-            <li><strong>Typing Letter Practice:</strong> Don't rush into words. Spend the first few days mastering individual letters to ensure your fingers know the exact distance to each key.</li>
-            <li><strong>Advanced Typing Practice Sentences:</strong> Once letters are comfortable, move to full sentences. This teaches you how to handle capital letters and punctuation without pausing.</li>
-          </ul>
-        </div>
+        <PageSEOContent 
+          topic="Touch Typing Lessons"
+          offers="Step-by-step guided lessons tailored to your exact skill level, from single home row keys up to advanced punctuation drills."
+          steps={[
+            "Select your comfort level: Beginner, Intermediate, or Advanced.",
+            "Choose Lesson 1 and carefully place your fingers on the Home Row (ASDF JKL;).",
+            "Follow the on-screen highlights without looking down at your keyboard.",
+            "Repeat the lesson until you reach 100% accuracy before moving on."
+          ]}
+          benefits={[
+            "Build correct muscle memory that lasts a lifetime.",
+            "Double your productivity by typing at the speed of thought.",
+            "Reduce wrist strain and RSI by typing ergonomically."
+          ]}
+          relatedPath="/typing-test/60-second-typing-test"
+          relatedName="60 Second Typing Test"
+        />
+
       </div>
     );
   }
@@ -182,14 +174,10 @@ const Lessons: React.FC = () => {
     <div className="py-12 px-4 max-w-7xl mx-auto">
       <SEO title={seo.title} description={seo.description} keywords={(seo as any).keywords} canonicalPath={(seo as any).canonicalPath} />
 
+      <Breadcrumbs />
+
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <Link to="/lessons" className="text-blue-600 hover:underline text-sm font-bold mb-4 flex items-center gap-1">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to All Lessons
-          </Link>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 capitalize">{level} Typing Lessons</h1>
           <p className="text-slate-500">Master muscle memory with structured drills.</p>
         </div>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
+import PageSEOContent from '../components/PageSEOContent';
 import TypingLinksSection from '../components/TypingLinksSection';
 
 const Tools: React.FC = () => {
@@ -42,6 +43,24 @@ const Tools: React.FC = () => {
           <p className="text-slate-500 leading-relaxed">Determine your typing accuracy percentage by comparing total characters and errors.</p>
         </Link>
       </div>
+
+      <PageSEOContent 
+        topic="Typing Speed Calculators"
+        offers="Calculate your gross WPM, net WPM, and detailed accuracy percentages instantly."
+        steps={[
+          "Choose the WPM Calculator or Accuracy Calculator based on your needs.",
+          "Enter your test metrics such as total characters typed, minutes passed, and error count.",
+          "Instantly view your calculated results to benchmark your progress.",
+          "Review the standard formulas used by professional examinations like SSC."
+        ]}
+        benefits={[
+          "Takes the guesswork out of judging your typing test performance.",
+          "Uses official formulas authorized by typing certifications.",
+          "Helps you understand whether you need to fix accuracy or push raw speed."
+        ]}
+        relatedPath="/typing-test/300-second-typing-test"
+        relatedName="5-Minute Typing Challenge"
+      />
 
       <TypingLinksSection />
     </div>
