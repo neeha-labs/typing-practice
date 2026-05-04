@@ -92,6 +92,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://typing-practice.online/ssc-typing-test-practice</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://typing-practice.online/rrb-typing-test-practice</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -103,6 +108,11 @@
   </url>
   <url>
     <loc>https://typing-practice.online/sbi-typing-test-practice</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typing-practice.online/learn-touch-typing-free-online</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

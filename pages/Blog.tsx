@@ -395,7 +395,7 @@ const ExamTipsPost = () => (
 
 const CodersTypingPost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
-    <SEO title="Why Every Programmer Should Learn Touch Typing" description="Increase your coding efficiency by learning touch typing. Master symbols and improve ideation speed." />
+    <SEO title="Why Every Programmer Should Learn Touch Typing | Blog" description="Increase your coding efficiency by learning touch typing. Master symbols and improve ideation speed." />
     <header className="mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">Why Every Programmer Should Learn Touch Typing</h1>
     </header>
@@ -413,7 +413,7 @@ const CodersTypingPost = () => (
 
 const ErgonomicsPost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
-    <SEO title="The Ultimate Guide to Typing Ergonomics" description="Learn proper desk posture to prevent wrist pain and Repetitive Strain Injury (RSI) while typing." />
+    <SEO title="The Ultimate Guide to Typing Ergonomics | Safety Tips" description="Learn proper desk posture to prevent wrist pain and Repetitive Strain Injury (RSI) while typing." />
     <header className="mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">The Ultimate Guide to Typing Ergonomics</h1>
     </header>
@@ -431,7 +431,7 @@ const ErgonomicsPost = () => (
 
 const KeyboardsPost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
-    <SEO title="Mechanical vs Membrane: Best Keyboards for Typing" description="Compare mechanical switches (Blue, Brown, Red) against membrane keyboards to find the best fit for typists." />
+    <SEO title="Mechanical vs Membrane: Best Keyboards for Typing Guide" description="Compare mechanical switches (Blue, Brown, Red) against membrane keyboards to find the best fit for typists." />
     <header className="mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">Mechanical vs Membrane: Best Keyboards for Typing</h1>
     </header>
@@ -453,7 +453,7 @@ const KeyboardsPost = () => (
 
 const PracticeRoutinePost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
-    <SEO title="The Perfect 15-Minute Daily Typing Routine" description="Follow this structured 15-minute daily typing practice routine to hit 100 WPM in 3 months." />
+    <SEO title="The Perfect 15-Minute Daily Typing Routine to Master WPM" description="Follow this structured 15-minute daily typing practice routine to hit 100 WPM in 3 months." />
     <header className="mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">The Perfect 15-Minute Daily Typing Routine</h1>
     </header>
@@ -471,7 +471,7 @@ const PracticeRoutinePost = () => (
 
 const GamesVsPracticePost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
-    <SEO title="Typing Games vs Structured Practice" description="Are typing games effective? Learn when to use them and when to switch to structured typing tests." />
+    <SEO title="Typing Games vs Structured Practice: What's Best?" description="Are typing games effective? Learn when to use them and when to switch to structured typing tests." />
     <header className="mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">Typing Games vs Structured Practice: Which is Better?</h1>
     </header>
@@ -489,7 +489,7 @@ const GamesVsPracticePost = () => (
 
 const NumberPadPost = () => (
   <article className="py-12 px-4 max-w-3xl mx-auto">
-    <SEO title="Mastering the Number Row & Numpad" description="Learn data entry techniques. How to type numbers fast using the number row and the ten-key numpad." />
+    <SEO title="Mastering the Number Row & Numpad for Data Entry" description="Learn data entry techniques. How to type numbers fast using the number row and the ten-key numpad." />
     <header className="mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">Mastering the Number Row & Numpad</h1>
     </header>

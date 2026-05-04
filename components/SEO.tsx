@@ -85,6 +85,19 @@ const SEO: React.FC<SEOProps> = ({
     ]
   };
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "url": url,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Typing Practice Online",
+      "url": "https://typing-practice.online"
+    }
+  };
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
@@ -97,8 +110,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="robots" content={(noIndex || shouldNoIndex) ? "noindex, nofollow" : "index, follow"} />
 
       {/* International SEO */}
-      <link rel="alternate" hrefLang="en" href="https://typing-practice.online/" />
-      <link rel="alternate" hrefLang="en-IN" href="https://typing-practice.online/" />
+      <link rel="alternate" hrefLang="en" href={url} />
+      <link rel="alternate" hrefLang="en-IN" href={url} />
       <link rel="alternate" hrefLang="x-default" href="https://typing-practice.online/" />
 
       {/* Open Graph / Facebook */}
@@ -125,6 +138,11 @@ const SEO: React.FC<SEOProps> = ({
       {location.pathname === '/' && (
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
+        </script>
+      )}
+      {location.pathname.startsWith('/blog/') && location.pathname !== '/blog' && (
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
         </script>
       )}
     </Helmet>

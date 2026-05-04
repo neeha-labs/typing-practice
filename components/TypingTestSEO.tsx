@@ -123,7 +123,7 @@ const TypingTestSEO: React.FC<TypingTestSEOProps> = ({ duration = 60, mode = 'te
   return (
     <div className="mt-16 space-y-16 border-t border-slate-100 pt-16">
       <section className="prose prose-slate max-w-none">
-        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight">{content.h1}</h1>
+        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight">{content.h1}</h2>
         <p className="text-xl text-slate-600 leading-relaxed mb-12">
           {content.intro}
         </p>
