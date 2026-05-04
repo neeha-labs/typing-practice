@@ -116,7 +116,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:image" content="https://typing-practice.online/og-image.png" />
 
       {/* Site Verification */}
-      <meta name="google-site-verification" content="" />
+      <meta name="google-site-verification" content="66d332494c486c98" />
 
       {/* Structured Data */}
       <script type="application/ld+json">
