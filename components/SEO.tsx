@@ -14,6 +14,60 @@ interface SEOProps {
   ogType?: 'website' | 'article';
 }
 
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Typing Practice Online",
+  "url": "https://typing-practice.online",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "description": "Free online typing test to improve WPM typing speed and accuracy",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a good typing speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The average typing speed is 40 WPM. Above 60 WPM is fast and 80+ WPM is excellent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I improve my typing speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Practice daily for 10-15 minutes focusing on accuracy first. Speed improves naturally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this typing test free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes completely free with no sign-up needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is WPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WPM stands for Words Per Minute. Every 5 characters counts as one word."
+      }
+    }
+  ]
+};
+
 const SEO: React.FC<SEOProps> = ({ 
   title, 
   description, 
@@ -30,60 +84,6 @@ const SEO: React.FC<SEOProps> = ({
     location.pathname === '/signin' ||
     location.pathname === '/profile' ||
     location.pathname.includes('/admin');
-
-  const webAppSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Typing Practice Online",
-    "url": "https://typing-practice.online",
-    "applicationCategory": "EducationalApplication",
-    "operatingSystem": "Any",
-    "description": "Free online typing test to improve WPM typing speed and accuracy",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is a good typing speed?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The average typing speed is 40 WPM. Above 60 WPM is fast and 80+ WPM is excellent."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I improve my typing speed?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Practice daily for 10-15 minutes focusing on accuracy first. Speed improves naturally."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is this typing test free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes completely free with no sign-up needed."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is WPM?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "WPM stands for Words Per Minute. Every 5 characters counts as one word."
-        }
-      }
-    ]
-  };
 
   const articleSchema = {
     "@context": "https://schema.org",
