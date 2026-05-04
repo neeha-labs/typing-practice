@@ -16,7 +16,6 @@ const SitemapPage: React.FC = () => {
           <ul className="space-y-2 text-blue-600">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/typing-test">Typing Test</Link></li>
-            <li><Link to="/typing-speed-test">Typing Speed Test</Link></li>
             <li><Link to="/lessons">Lessons</Link></li>
             <li><Link to="/exam-mode">Exam Mode</Link></li>
             <li><Link to="/ssc-typing-test-practice">SSC Practice</Link></li>

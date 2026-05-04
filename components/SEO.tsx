@@ -26,6 +26,11 @@ const SEO: React.FC<SEOProps> = ({
   const url = `${SITE_URL}${canonicalPath || location.pathname}`;
   const fullTitle = title;
 
+  const shouldNoIndex = 
+    location.pathname === '/signin' ||
+    location.pathname === '/profile' ||
+    location.pathname.includes('/admin');
+
   const webAppSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -89,7 +94,7 @@ const SEO: React.FC<SEOProps> = ({
       <link rel="canonical" href={url} />
       
       {/* Robots */}
-      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+      <meta name="robots" content={(noIndex || shouldNoIndex) ? "noindex, nofollow" : "index, follow"} />
 
       {/* International SEO */}
       <link rel="alternate" hrefLang="en" href="https://typing-practice.online/" />
@@ -102,11 +107,16 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content="Typing Practice Online" />
+      <meta property="og:image" content="https://typing-practice.online/og-image.png" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content="https://typing-practice.online/og-image.png" />
+
+      {/* Site Verification */}
+      <meta name="google-site-verification" content="" />
 
       {/* Structured Data */}
       <script type="application/ld+json">

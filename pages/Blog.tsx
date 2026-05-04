@@ -331,7 +331,7 @@ const WPMCalculationPost = () => (
         <p className="text-slate-400 mb-6">Use our professional tool to get your Gross and Net WPM instantly.</p>
         <div className="flex flex-wrap gap-4">
           <Link to="/tools/words-per-minute-calculator" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">WPM Calculator</Link>
-          <Link to="/typing-speed-test" className="bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-all">Take Speed Test</Link>
+          <Link to="/typing-test" className="bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-all">Take Typing Test</Link>
         </div>
       </div>
     </div>

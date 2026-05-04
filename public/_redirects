@@ -1,1 +1,11 @@
-/* /index.html 200
+# Duplicate Lessons Pages → Redirect to /lessons
+/beginner-lessons        /lessons        301
+/intermediate-lessons    /lessons        301
+/advanced-lessons        /lessons        301
+
+# Duplicate WPM Calculator → Redirect to /wpm-calculator
+/words-per-minute-calculator          /wpm-calculator    301
+/tools/words-per-minute-calculator    /wpm-calculator    301
+
+# IMPORTANT: React SPA fallback (must be LAST line)
+/*    /index.html    200

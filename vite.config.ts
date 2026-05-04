@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import sitemap from 'vite-plugin-sitemap';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
@@ -9,7 +10,50 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
-      plugins: [react()],
+      plugins: [
+        react(),
+        sitemap({
+          hostname: 'https://typing-practice.online',
+          dynamicRoutes: [
+            '/',
+            '/typing-test',
+            '/typing-speed-test',
+            '/lessons',
+            '/exam-mode',
+            '/tools',
+            '/typing-test/30-second-typing-test',
+            '/typing-test/45-second-typing-test',
+            '/typing-test/60-second-typing-test',
+            '/typing-test/90-second-typing-test',
+            '/typing-test/120-second-typing-test',
+            '/typing-test/300-second-typing-test',
+            '/easy-typing-test',
+            '/hard-typing-test',
+            '/typing-test-for-beginners',
+            '/typing-test-with-numbers',
+            '/paragraph-typing-test',
+            '/ssc-typing-test-practice',
+            '/rrb-typing-test-practice',
+            '/ibps-typing-test-practice',
+            '/sbi-typing-test-practice',
+            '/learn-touch-typing-free-online',
+            '/typing-practice',
+            '/practice',
+            '/wpm-calculator',
+            '/typing-accuracy-calculator',
+            '/blog',
+            '/blog/how-to-improve-typing-speed',
+            '/blog/common-typing-mistakes',
+            '/blog/how-wpm-is-calculated',
+            '/blog/government-exam-typing-tips',
+            '/about',
+            '/contact',
+            '/privacy',
+            '/terms',
+            '/sitemap'
+          ]
+        })
+      ],
       build: {
         rollupOptions: {
           output: {

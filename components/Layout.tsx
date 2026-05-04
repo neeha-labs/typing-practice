@@ -53,7 +53,6 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Typing Test', path: '/typing-test' },
-    { name: 'Speed Test', path: '/typing-speed-test' },
     { name: 'Lessons', path: '/lessons' },
     { name: 'Exam Mode', path: '/exam-mode' },
     { name: 'About', path: '/about' }
@@ -334,7 +333,6 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm text-slate-500">
               <li><Link to="/" className="hover:text-blue-600">Home</Link></li>
               <li><Link to="/typing-test" className="hover:text-blue-600">Typing Test</Link></li>
-              <li><Link to="/typing-speed-test" className="hover:text-blue-600">Speed Test</Link></li>
               <li><Link to="/lessons" className="hover:text-blue-600">Lessons</Link></li>
               <li><Link to="/exam-mode" className="hover:text-blue-600">Exam Mode</Link></li>
               <li><Link to="/about" className="hover:text-blue-600">About</Link></li>

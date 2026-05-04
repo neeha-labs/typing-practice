@@ -23,8 +23,7 @@ const TypingTestsHub: React.FC = () => {
         { name: "Hard Typing Test", path: "/hard-typing-test", icon: "🔴" },
         { name: "Typing Test for Beginners", path: "/typing-test-for-beginners", icon: "🌱" },
         { name: "Typing Test with Numbers", path: "/typing-test-with-numbers", icon: "🔢" },
-        { name: "Paragraph Typing Test", path: "/paragraph-typing-test", icon: "📝" },
-        { name: "Typing Speed Test", path: "/typing-speed-test", icon: "🚀" }
+        { name: "Paragraph Typing Test", path: "/paragraph-typing-test", icon: "📝" }
       ]
     },
     {
