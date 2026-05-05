@@ -340,12 +340,12 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Support</h4>
-            <p className="text-sm text-slate-500 mb-4">Subscribe for typing tips and practice materials.</p>
-            <div className="flex gap-2">
-              <input type="email" placeholder="Email" className="flex-1 bg-slate-100 border-none rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500" />
-              <button className="bg-slate-900 text-white px-3 py-2 rounded-lg text-sm font-medium">Join</button>
-            </div>
+            <h4 className="font-semibold text-slate-900 mb-4">Support & Legal</h4>
+            <ul className="space-y-2 text-sm text-slate-500">
+              <li><Link to="/contact" className="hover:text-blue-600">Contact Us</Link></li>
+              <li><Link to="/privacy" className="hover:text-blue-600">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-blue-600">Terms of Service</Link></li>
+            </ul>
           </div>
         </div>
       </div>

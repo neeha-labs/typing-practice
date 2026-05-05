@@ -9,7 +9,7 @@ export const About: React.FC = () => (
       description="Learn about Typing-Practice.online, our mission to bridge the skill gap for government job aspirants, and why we build realistic exam simulations." 
     />
     <header className="mb-12 border-b border-slate-200 pb-8">
-      <h1 className="text-4xl font-extrabold text-slate-900 mb-4">About Us</h1>
+      <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Learn About Our Mission to Improve Global Typing</h1>
       <p className="text-lg text-slate-500">Bridging the skill gap for government job aspirants.</p>
     </header>
     <div className="prose">
@@ -25,6 +25,19 @@ export const About: React.FC = () => (
         <li><strong>Data-Driven Growth:</strong> Detailed analytics on your WPM, accuracy, and mistyped keys.</li>
         <li><strong>Free Forever:</strong> We believe essential skill-building tools should be accessible to everyone.</li>
       </ul>
+
+      <section className="mt-12 p-8 bg-blue-50 rounded-3xl text-slate-700">
+        <h3 className="text-xl font-bold text-slate-900 mb-3">Our Core Philosophy</h3>
+        <p className="mb-4">
+          Typing seems like an intuitive skill, but without guided instruction, almost everyone develops inefficient habits that eventually cap their speed. Our philosophy is that typing should be taught like a physical sport. You need to understand your form, build muscle memory, and track your metrics rigorously. We provide all the specialized exercises needed to take you from a hunt-and-pecker to a professional touch typist in a matter of weeks.
+        </p>
+        <p className="mb-4">
+          Before launching this platform, we examined the highest-rated government exam centers and premium keyboarding software. We found that most free tools are either cluttered with ads or use inaccurate grading metrics that do not actually reflect how official examinations penalize errors. We built this platform to guarantee that when you score 40 WPM here, you will score 40 WPM on your big day.
+        </p>
+        <p>
+          We continue to expand our features based on user feedback. Our recent updates introduced adaptive lessons, detailed letter-error mapping, and customizable exam interfaces. We are dedicated to ensuring that you always have the most scientifically sound methodology for keyboard mastery available directly in your browser.
+        </p>
+      </section>
     </div>
   </div>
 );
@@ -35,7 +48,7 @@ export const Contact: React.FC = () => (
       title="Contact Support - Get in Touch" 
       description="Have questions or feedback about our typing tools? Contact the Typing-Practice.online team for support or partnership inquiries." 
     />
-    <h1 className="text-4xl font-bold mb-8 text-center">Contact Support</h1>
+    <h1 className="text-4xl font-bold mb-8 text-center">Get in Touch with Our Typing Experts</h1>
     <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
       <form className="space-y-6">
         <div>
@@ -53,6 +66,20 @@ export const Contact: React.FC = () => (
         <button type="button" className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">Send Message</button>
       </form>
     </div>
+
+    <section className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mt-12 text-left text-slate-700">
+      <h2 className="text-2xl font-bold text-slate-900 mb-4">How Can We Assist You?</h2>
+      <p className="mb-4">
+        Our support team is primarily dedicated to ensuring that your typing practice experience is flawless. If you encounter any issues regarding WPM calculation discrepancies, exam simulation glitches, or account data problems, please provide detailed context in your message. We aim to resolve all technical support tickets within 48 hours to ensure your study schedule remains uninterrupted.
+      </p>
+      <p className="mb-4">
+        For users who are preparing for upcoming government exams and notice a difference between our interface and the official examination software, we highly encourage you to reach out! We actively update our styling, highlighting logic, and error-penalty formulas to precisely match regional specific typing boards. Your feedback helps us maintain the gold standard of free typing utilities.
+      </p>
+      <h3 className="text-xl font-bold text-slate-900 mb-3">Partnerships & Feature Ideas</h3>
+      <p>
+        If you run a coaching center, an educational publication, or an e-learning platform, we are open to partnerships. We have previously customized our tools for specialized learning hubs to better serve their students. Additionally, if there is a specific metric, graph, or lesson structure you wish we had, let us know! Many of our most popular advanced features were directly inspired by typists reaching out to our contact desk.
+      </p>
+    </section>
   </div>
 );
 

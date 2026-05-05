@@ -51,7 +51,7 @@ const TypingPractice: React.FC = () => {
             </svg>
             Back to Dashboard
           </Link>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Online <span className="text-blue-400">Typing Paragraph Practice</span></h1>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Level Up Your Typing Skills with Daily Practice</h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Boost your productivity with a high-quality <strong>paragraph for typing practice</strong>. 
             Our tool helps you master precision using dedicated <strong>typing pages for practice</strong>.
@@ -205,6 +205,23 @@ const TypingPractice: React.FC = () => {
              </div>
           </div>
         </div>
+      </section>
+
+      <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 max-w-5xl mx-auto mb-16 text-left">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Typing Practice Online</h2>
+        <p className="text-slate-600 mb-4">
+          Consistent typing practice online is the single most effective way to improve your keyboarding skills. Unlike standardized tests that stress you with a ticking timer, this practice environment is designed to help you focus entirely on your form, your rhythm, and your accuracy.
+        </p>
+        <p className="text-slate-600 mb-4">
+          Whether you are a beginner looking to solidify your home-row technique or an advanced user aiming to break the 100 WPM ceiling, untimed practice sessions are mandatory. The paragraphs served here are specifically curated to balance common vocabulary with challenging letter transitions.
+        </p>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">How to Maximize Your Practice Sessions</h3>
+        <p className="text-slate-600 mb-4">
+          We recommend dedicating at least 15 minutes a day to focused typing practice online. Turn off distractions and do not look at your keyboard. If you make a mistake, gently press the backspace key without moving your entire hand from the home-row position. Slow down initially to ensure 100% accuracy; raw speed will naturally follow as your muscle memory strengthens.
+        </p>
+        <p className="text-slate-600">
+          Once you feel comfortable typing paragraphs with over 95% accuracy in this practice environment, challenge yourself by heading over to our timed tests. Consistent toggle between relaxed practice and timed sprints is the proven method for rapid typing improvement.
+        </p>
       </section>
 
       <TypingLinksSection />

@@ -73,53 +73,6 @@ const TypingTestSEO: React.FC<TypingTestSEOProps> = ({ duration = 60, mode = 'te
 
   const content = getUniqueContent();
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is a good typing speed?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A good typing speed for most people is around 40 words per minute (WPM). Professional typists often reach speeds of 60-80 WPM, while experts can exceed 100 WPM with high accuracy."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How to practice typing paragraphs online?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The best way to practice typing paragraphs online is to use a dedicated tool like our Paragraph Practice module. It allows you to focus on endurance and flow without the distractions of shorter tests."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the best way to improve typing speed for SSC CGL?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To improve speed for SSC CGL, practice with official-style paragraphs for 15 minutes a day. Focus on Net WPM and minimize errors to stay within the allowed penalty thresholds."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is WPM calculated?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "WPM stands for Words Per Minute. It is calculated by taking the total number of characters typed, dividing by 5 (the average word length), and then dividing by the time spent typing in minutes."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can I improve my typing speed?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To improve your typing speed, practice touch typing without looking at the keyboard, maintain good posture, focus on accuracy first, and practice consistently using typing tests and lessons."
-        }
-      }
-    ]
-  };
-
   return (
     <div className="mt-16 space-y-16 border-t border-slate-100 pt-16">
       <section className="prose prose-slate max-w-none">

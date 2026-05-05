@@ -88,7 +88,7 @@ const Lessons: React.FC = () => {
       };
     }
     return {
-      h1: "Learn Touch Typing Free & Improve Finger Precision",
+      h1: "Start Free Touch Typing Practice Lessons Today",
       p: "Our structured multi-level course provides specialized typing letter practice for absolute beginners and typing practice sentences for those aiming for professional speed."
     };
   };
@@ -278,6 +278,23 @@ const Lessons: React.FC = () => {
           </Link>
         </div>
       </div>
+
+      <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 max-w-5xl mx-auto mb-16 text-left">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Touch Typing Practice Lessons</h2>
+        <p className="text-slate-600 mb-4">
+          Learning to touch type is a skill that will save you hundreds of hours over your lifetime. Our typing practice lessons are designed from the ground up to prevent the "hunt and peck" bad habits that plague most computer users. By starting at the beginner level, you train your hands to navigate independently without relying on your eyes.
+        </p>
+        <p className="text-slate-600 mb-4">
+          The core of touch typing revolves around the home row (ASDF and JKL;). Once you build muscle memory for these central keys, navigating to the top and bottom rows becomes a seamless fluid motion rather than a targeted strike. Our progressive lesson plans guide you exactly through this anatomical transition.
+        </p>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">Progressing Through Practice Sentences</h3>
+        <p className="text-slate-600 mb-4">
+          If you are already familiar with the keyboard layout, jumping into our intermediate typing practice sentences will help you build momentum. Here, we move beyond individual keystrokes and focus on "n-grams", which are common letter groupings (like "ing" or "tion"). Professional typists do not read letter-by-letter; they read word rhythms.
+        </p>
+        <p className="text-slate-600">
+          Make it a goal to complete at least two lessons daily. Attempting to cram ten lessons in one day leads to fatigue and actually degrades muscle recall. Short, focused, and tension-free practice is the undisputed best way to increase your typing velocity and eliminate spelling errors.
+        </p>
+      </section>
 
       <TypingLinksSection />
     </div>

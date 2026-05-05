@@ -32,11 +32,9 @@ export default defineConfig(({ mode }) => {
             '/typing-test-for-beginners',
             '/typing-test-with-numbers',
             '/paragraph-typing-test',
-            '/ssc-typing-test-practice',
             '/rrb-typing-test-practice',
             '/ibps-typing-test-practice',
             '/sbi-typing-test-practice',
-            '/learn-touch-typing-free-online',
             '/typing-practice',
             '/practice',
             '/wpm-calculator',
@@ -51,6 +49,60 @@ export default defineConfig(({ mode }) => {
             '/privacy',
             '/terms',
             '/sitemap'
+          ],
+          robots: [
+            {
+              userAgent: '*',
+              allow: '/'
+            },
+            {
+              userAgent: 'Googlebot',
+              allow: '/'
+            },
+            {
+              userAgent: 'Googlebot-Image',
+              allow: '/'
+            },
+            {
+              userAgent: 'ChatGPT-User',
+              allow: '/'
+            },
+            {
+              userAgent: 'OAI-SearchBot',
+              allow: '/'
+            },
+            {
+              userAgent: 'PerplexityBot',
+              allow: '/'
+            },
+            {
+              userAgent: 'anthropic-ai',
+              allow: '/'
+            },
+            {
+              userAgent: 'ClaudeBot',
+              allow: '/'
+            },
+            {
+              userAgent: 'Google-Extended',
+              allow: '/'
+            },
+            {
+              userAgent: 'Bingbot',
+              allow: '/'
+            },
+            {
+              userAgent: 'AhrefsBot',
+              disallow: '/'
+            },
+            {
+              userAgent: 'MJ12bot',
+              disallow: '/'
+            },
+            {
+              userAgent: 'DotBot',
+              disallow: '/'
+            }
           ]
         })
       ],

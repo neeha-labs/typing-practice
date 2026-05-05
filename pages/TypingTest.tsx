@@ -285,19 +285,19 @@ const TypingTest: React.FC = () => {
   }, []);
 
   const getDisplayTitle = () => {
-    if (testMode === 'easy') return "Easy Typing Test";
-    if (testMode === 'hard') return "Hard Typing Test";
-    if (testMode === 'beginners') return "Typing Test for Beginners";
-    if (testMode === 'numbers') return "Typing Test with Numbers";
-    if (testMode === 'paragraph') return "Paragraph Typing Test";
-    if (duration) return `${duration} Second Typing Speed Test`;
-    return "Test Your Typing Speed and Accuracy Online";
+    if (testMode === 'easy') return "Start Your Typing Journey with Our Easy Test";
+    if (testMode === 'hard') return "Challenge Your Typing Speed with Hard Mode";
+    if (testMode === 'beginners') return "Build Core Skills with Typing Test for Beginners";
+    if (testMode === 'numbers') return "Master the Top Row with Numbers Typing Test";
+    if (testMode === 'paragraph') return "Improve Endurance with Paragraph Typing Practice";
+    if (duration) return `Challenge Yourself with the ${duration} Second Speed Run`;
+    return "Test Your Raw Typing Speed and Accuracy Online";
   };
 
   const getDisplayContent = () => {
     if (location.pathname.includes('typing-speed-test')) {
       return {
-        h1: "Test Your Typing Speed and Accuracy Online",
+        h1: "Test Your Raw Typing Speed and Accuracy Online",
         p: "Check how fast you type with our instant WPM speed test. Get your words per minute score in under 60 seconds with no sign-up needed."
       };
     }
@@ -400,6 +400,101 @@ const TypingTest: React.FC = () => {
           relatedPath="/lessons"
           relatedName="Free Typing Lessons"
         />
+
+        {testMode === 'easy' && (
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 text-left">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Easy Typing Test</h2>
+            <p className="text-slate-600 mb-4">
+              Our easy typing test is designed specifically for beginners who are just starting their typing journey. With simple common words and a relaxed pace, this test helps build your confidence before moving to harder challenges.
+            </p>
+            <p className="text-slate-600 mb-4">
+              The easy mode uses the most frequently used English words, making it perfect for students, seniors, or anyone new to touch typing. Practice daily for just 10 minutes and watch your WPM score improve week by week.
+            </p>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">How to Use the Easy Typing Test</h3>
+            <p className="text-slate-600 mb-4">
+              Simply click Start Test, type the words shown on screen, and get your instant WPM and accuracy score. No sign-up needed. Take the test as many times as you want completely free. Accurate and slow is always better than fast and error-prone when you first begin.
+            </p>
+            <p className="text-slate-600">
+              When you feel comfortable scoring over 30 words per minute on this easy version without looking at the keyboard, consider trying our standard 60-second test or exploring typing tests with uppercase letters and punctuation.
+            </p>
+          </section>
+        )}
+
+        {testMode === 'hard' && (
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 text-left">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Hard Typing Test</h2>
+            <p className="text-slate-600 mb-4">
+              Step up to our hard typing test to push your limits. Designed for advanced typists aiming for 80+ WPM, this test includes complex vocabulary, mixed punctuation, and technical terms to simulate the most demanding professional environments.
+            </p>
+            <p className="text-slate-600 mb-4">
+              If you have already mastered the home row and basic words, this is where you build true proficiency. It forces you to maintain your rhythm while dealing with unusual letter combinations, numbers, and capital letters that often slow down average typists.
+            </p>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Maximizing Speed on Hard Mode</h3>
+            <p className="text-slate-600 mb-4">
+              Focus on keeping your eyes on the screen, reading one to two words ahead of what you are currently typing. This advanced technique minimizes the hesitation gap between difficult words and complex string inputs.
+            </p>
+            <p className="text-slate-600">
+              Do not be discouraged if your WPM drops on this test compared to easy modes. The goal here is strict accuracy while handling advanced keyboard maneuvers. Master this, and standard text typing will feel effortless.
+            </p>
+          </section>
+        )}
+
+        {testMode === 'beginners' && (
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 text-left">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Typing Test for Beginners Overview</h2>
+            <p className="text-slate-600 mb-4">
+              Welcome to the specially crafted typing test for beginners. If you are learning touch typing, jumping straight into high-speed tests can be frustrating. This test uses simple sentence structures and repetitive word patterns.
+            </p>
+            <p className="text-slate-600 mb-4">
+              By using foundational vocabulary, you can train your muscle memory without the stress of complicated grammar. We highly recommend matching this test with our free typing lessons to ensure your finger placement is correct.
+            </p>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Why Start Here?</h3>
+            <p className="text-slate-600 mb-4">
+              Many new typists develop bad habits like the "hunt and peck" method. Our beginner test encourages you to trust your finger mapping. Remember, at this stage, scoring perfectly without looking down is much more valuable than hitting 40 words per minute.
+            </p>
+            <p className="text-slate-600">
+              Make it a habit to take this test once a day. You will notice significant improvements in just a few weeks. Focus entirely on hitting the correct keys utilizing the correct fingers. Your speed will naturally scale.
+            </p>
+          </section>
+        )}
+
+        {testMode === 'numbers' && (
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 text-left">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Typing Test With Numbers And Symbols</h2>
+            <p className="text-slate-600 mb-4">
+              Data entry, programming, and accounting require exact precision on the top row of your keyboard. Our typing test with numbers and symbols forces you to practice the numerical keys and shift-modifiers that most typists actively avoid.
+            </p>
+            <p className="text-slate-600 mb-4">
+              It is very common for fast typists to drop by 20 WPM or more when numbers are introduced. By practicing in this specific test mode, you can close that gap and make your typing flow completely uninterrupted regardless of the content.
+            </p>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Tips for Number Keys</h3>
+            <p className="text-slate-600 mb-4">
+              Do not use a number pad for this test. Practice using the standard top row numbers, utilizing the correct finger reach. Relying on muscle memory for top row symbols like standard letters translates to huge productivity gains for developers and data entry clerks.
+            </p>
+            <p className="text-slate-600">
+              If your accuracy is low, slow down significantly. A single missed number in a professional setting can cause massive issues. Accuracy is the absolute highest priority in this test mode.
+            </p>
+          </section>
+        )}
+
+        {testMode === 'paragraph' && (
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 text-left">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Why Take a Paragraph Typing Test?</h2>
+            <p className="text-slate-600 mb-4">
+              Many people can type fast for 10 or 20 seconds, but struggle to maintain that speed over a full page. Our paragraph typing test simulates real-world writing. It requires stamina, concentration, and a consistent, steady rhythm.
+            </p>
+            <p className="text-slate-600 mb-4">
+              These extended typing tests are critical for those preparing for transcription roles, professional writing positions, or official government skill tests where multiple paragraphs must be typed flawlessly over ten to fifteen minutes.
+            </p>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Sustaining High WPM</h3>
+            <p className="text-slate-600 mb-4">
+              The secret to high scores across longer paragraphs is a smooth, continuous flow rather than rapid bursts. Do not pause between sentences. Train yourself to hit the spacebar and immediately begin the next word without breaking concentration.
+            </p>
+            <p className="text-slate-600">
+              In paragraph typing, correcting errors immediately is often more time-efficient than leaving them, as a high penalty rate will tank your net WPM. Practice this format daily to build professional-grade keyboard endurance.
+            </p>
+          </section>
+        )}
 
         <TypingTestSEO duration={duration || 60} mode={testMode} />
       </div>

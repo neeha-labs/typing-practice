@@ -82,7 +82,7 @@ const WPMCalculator = () => {
         description="Calculate your typing speed in Words Per Minute (WPM) with our free online calculator. Learn how typing speed is calculated and how to improve your WPM." 
       />
       <Link to="/tools" className="text-blue-600 hover:underline text-sm font-bold mb-4 block">← Back to Tools</Link>
-      <h1 className="text-3xl font-bold mb-8">Words Per Minute (WPM) Calculator</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculate Your Exact Words Per Minute Score</h1>
       
       <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
         <div className="grid md:grid-cols-3 gap-6">
@@ -137,6 +137,23 @@ const WPMCalculator = () => {
         </div>
       </div>
 
+      <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-12 mb-12 text-left">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Free WPM Calculator</h2>
+        <p className="text-slate-600 mb-4">
+          Understanding how fast you type requires more than simply guessing your speed. Our words per minute calculator uses the standardized formula adopted by typing schools, government examination boards, and professional certifications worldwide. It measures exactly how efficiently you are hitting the keyboard based on characters typed over your chosen duration.
+        </p>
+        <p className="text-slate-600 mb-4">
+          Most users are surprised to learn that a "word" in typing metrics is exactly five characters long, regardless of the actual English words you typed. This ensures that typing a heavy technical paragraph is graded on the same scale as typing a simple children's story, providing a truly objective baseline score.
+        </p>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">Gross WPM vs Net WPM Breakdown</h3>
+        <p className="text-slate-600 mb-4">
+          Simply input your total characters and the time elapsed. The calculator will immediately output your Gross WPM, which is your raw speed. If you also input your total errors, you will see your Net WPM. The Net WPM is your true, penalized score that determines whether you pass or fail in professional banking or government typing skill tests.
+        </p>
+        <p className="text-slate-600">
+          Use this WPM calculator regularly after your un-guided typing drills to map your progress. By keeping a log of your Net WPM over several weeks, you will see exactly how your accuracy and speed metrics correspond and improve.
+        </p>
+      </section>
+
       <TypingLinksSection />
     </div>
   );
@@ -156,7 +173,7 @@ const AccuracyCalculator = () => {
         keywords="typing accuracy calculator, calculate typing accuracy, error percentage calculator, typing precision test, improve typing accuracy"
       />
       <Link to="/tools" className="text-blue-600 hover:underline text-sm font-bold mb-4 block">← Back to Tools</Link>
-      <h1 className="text-3xl font-bold mb-8">Typing Accuracy Calculator</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculate Your Exact Typing Accuracy Percentage</h1>
       
       <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
@@ -193,6 +210,23 @@ const AccuracyCalculator = () => {
           <p>Focusing on accuracy first builds better muscle memory, which naturally leads to higher speeds over time without the penalty of frequent mistakes.</p>
         </div>
       </div>
+
+      <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-12 mb-12 text-left">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Typing Accuracy Calculator</h2>
+        <p className="text-slate-600 mb-4">
+          Speed is useless without precision. Our typing accuracy calculator is built to help typists pinpoint the exact percentage of correct keystrokes they achieve during any session. Whether you are typing from a textbook, coding a program, or transcribing an audio file, measuring your accuracy percentage is vital to improvement.
+        </p>
+        <p className="text-slate-600 mb-4">
+          Professional standards typically demand an accuracy rate of 95% or higher. When your accuracy drops below this threshold, the time you spend returning to backspace and correct your mistakes heavily degrades your overall words per minute. This calculator makes the math simple—just input your total characters and how many errors you made.
+        </p>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">Why Calculate Your Precision?</h3>
+        <p className="text-slate-600 mb-4">
+          If you are applying for data entry jobs, legal transcription, or medical records positions, you will often find strict precision requirements. If your calculated accuracy is consistently hovering around 90%, it is a strong signal that you need to slow your raw speed down and rebuild your finger memory using guided lessons.
+        </p>
+        <p className="text-slate-600">
+          We recommend using this accuracy calculator alongside our WPM calculator. By tracking both metrics, you can easily identify if you are sacrificing too much exactness for the sake of speed. Remember, typing fast is easy; typing fast and flawlessly takes genuine practice.
+        </p>
+      </section>
 
       <TypingLinksSection />
     </div>
