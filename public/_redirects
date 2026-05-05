@@ -3,6 +3,12 @@
 /intermediate-lessons    /lessons        301
 /advanced-lessons        /lessons        301
 
+# Duplicate touch typing → Redirect to /lessons
+/learn-touch-typing-free-online    /lessons    301
+
+# Duplicate SSC page → Redirect to /exam-mode
+/ssc-typing-test-practice    /exam-mode    301
+
 # Duplicate WPM Calculator → Redirect to /wpm-calculator
 /words-per-minute-calculator          /wpm-calculator    301
 /tools/words-per-minute-calculator    /wpm-calculator    301

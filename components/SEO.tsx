@@ -14,21 +14,6 @@ interface SEOProps {
   ogType?: 'website' | 'article';
 }
 
-const webAppSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Typing Practice Online",
-  "url": "https://typing-practice.online",
-  "applicationCategory": "EducationalApplication",
-  "operatingSystem": "Any",
-  "description": "Free online typing test to improve WPM typing speed and accuracy",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -131,10 +116,7 @@ const SEO: React.FC<SEOProps> = ({
       {/* Site Verification */}
       <meta name="google-site-verification" content="66d332494c486c98" />
 
-      {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(webAppSchema)}
-      </script>
+
       {location.pathname === '/' && (
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}

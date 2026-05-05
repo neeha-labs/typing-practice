@@ -106,7 +106,7 @@ export const Privacy: React.FC = () => (
       <ul>
         <li>Google, as a third-party vendor, uses cookies to serve ads on Typing-Practice.online.</li>
         <li>Google's use of the DART cookie enables it to serve ads to users based on their visit to Typing-Practice.online and other sites on the Internet.</li>
-        <li>Users may opt-out of the use of the DART cookie by visiting the Google ad and content network privacy policy at the following URL: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a></li>
+        <li>Users may opt-out of the use of the DART cookie by visiting the Google ad and content network privacy policy at the following URL: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Advertising Policies</a></li>
       </ul>
 
       <h2>4. Advertising Partners</h2>

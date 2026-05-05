@@ -194,6 +194,7 @@ const ImproveSpeedPost = () => (
         </div>
       </div>
     </div>
+    <RelatedPosts currentSlug="how-to-improve-typing-speed" />
   </article>
 );
 
@@ -261,6 +262,7 @@ const CommonMistakesPost = () => (
         </div>
       </div>
     </div>
+    <RelatedPosts currentSlug="common-typing-mistakes" />
   </article>
 );
 
@@ -335,6 +337,7 @@ const WPMCalculationPost = () => (
         </div>
       </div>
     </div>
+    <RelatedPosts currentSlug="how-wpm-is-calculated" />
   </article>
 );
 
@@ -390,6 +393,7 @@ const ExamTipsPost = () => (
         </div>
       </div>
     </div>
+    <RelatedPosts currentSlug="government-exam-typing-tips" />
   </article>
 );
 
@@ -408,6 +412,7 @@ const CodersTypingPost = () => (
       <h2>Faster Documentation</h2>
       <p>Writing READMEs, comments, and project specs takes up a large chunk of a developer's day. A 80+ WPM typing speed makes documentation effortless.</p>
     </div>
+    <RelatedPosts currentSlug="touch-typing-benefits-for-coders" />
   </article>
 );
 
@@ -426,6 +431,7 @@ const ErgonomicsPost = () => (
       <h2>Screen Position</h2>
       <p>The top of your monitor should be at or slightly below eye level to prevent neck strain. Good posture keeps blood flowing to your hands, improving speed.</p>
     </div>
+    <RelatedPosts currentSlug="typing-ergonomics-guide" />
   </article>
 );
 
@@ -448,6 +454,7 @@ const KeyboardsPost = () => (
       <h2>Ergonomic Split Keyboards</h2>
       <p>For those suffering from wrist pain, split keyboards force proper hand angles, preventing ulnar deviation.</p>
     </div>
+    <RelatedPosts currentSlug="best-keyboards-for-typing" />
   </article>
 );
 
@@ -466,6 +473,7 @@ const PracticeRoutinePost = () => (
       <h2>Minute 10-15: Speed Sprints</h2>
       <p>Finish with five 60-second sprints. Here, push your speed slightly past your comfort zone. This trains your brain to process n-grams faster.</p>
     </div>
+    <RelatedPosts currentSlug="daily-typing-practice-routine" />
   </article>
 );
 
@@ -484,6 +492,7 @@ const GamesVsPracticePost = () => (
       <h2>The Verdict</h2>
       <p>Use games for the first week to memorize the keys. After that, switch to structured paragraph practice to build real-world speed and exam readiness.</p>
     </div>
+    <RelatedPosts currentSlug="typing-games-vs-practice" />
   </article>
 );
 
@@ -502,7 +511,78 @@ const NumberPadPost = () => (
       <h2>Practice Routine</h2>
       <p>Use our 'Typing Test with Numbers' mode to force yourself to integrate digits smoothly into standard text without pausing.</p>
     </div>
+    <RelatedPosts currentSlug="how-to-type-numbers-fast" />
   </article>
 );
+
+
+const allBlogPosts = [
+  {
+    slug: "how-to-improve-typing-speed",
+    title: "How to Improve Typing Speed",
+    description: "10 actionable tips to boost your WPM score fast."
+  },
+  {
+    slug: "common-typing-mistakes",
+    title: "7 Common Typing Mistakes",
+    description: "Identify and fix the errors that are holding your speed back."
+  },
+  {
+    slug: "how-wpm-is-calculated",
+    title: "How WPM is Calculated",
+    description: "Understand exactly how your typing speed score is measured."
+  },
+  {
+    slug: "daily-typing-practice-routine",
+    title: "15-Minute Daily Typing Routine",
+    description: "The perfect daily practice schedule to reach 80 WPM."
+  },
+  {
+    slug: "best-keyboards-for-typing",
+    title: "Best Keyboards for Typing",
+    description: "Mechanical vs membrane keyboards compared for typists."
+  },
+  {
+    slug: "touch-typing-benefits-for-coders",
+    title: "Touch Typing for Programmers",
+    description: "Why every programmer should learn touch typing."
+  },
+  {
+    slug: "typing-ergonomics-guide",
+    title: "Typing Ergonomics Guide",
+    description: "Stay safe and comfortable with proper typing posture."
+  },
+  {
+    slug: "how-to-type-numbers-fast",
+    title: "Mastering Numbers & Numpad",
+    description: "Improve your data entry speed with number row practice."
+  }
+];
+
+const RelatedPosts = ({ currentSlug }: { currentSlug: string }) => {
+  const relatedPosts = allBlogPosts
+    .filter(post => post.slug !== currentSlug)
+    .slice(0, 3);
+
+  return (
+    <section className="mt-16 pt-12 border-t border-slate-200">
+      <h2 className="text-2xl font-bold text-slate-900 mb-8">Related Articles</h2>
+      <div className="grid md:grid-cols-3 gap-6">
+        {relatedPosts.map(post => (
+          <Link 
+            key={post.slug}
+            to={`/blog/${post.slug}`}
+            className="block p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-300 transition-colors"
+          >
+            <h3 className="font-bold text-slate-900 mb-2">{post.title}</h3>
+            <p className="text-slate-600 text-sm">
+              {post.description}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Blog;
