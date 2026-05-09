@@ -48,7 +48,7 @@ const Lessons: React.FC = () => {
 
   const getSEOData = () => {
     if (path.includes('beginner')) return {
-      title: "Beginner Typing Lessons | Learn Typing Letter Practice",
+      title: "Typing Test for Beginners | Free Lessons",
       description: "Step-by-step beginner typing lessons for everyone. Focus on proper finger placement and essential typing letter practice to learn touch typing correctly.",
       keywords: "beginner typing lessons, typing letter practice, learn touch typing, typing basics, finger placement"
     };
@@ -178,7 +178,9 @@ const Lessons: React.FC = () => {
 
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 capitalize">{level} Typing Lessons</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+            {level === 'beginner' ? 'Free Typing Test for Beginners — Start Your Touch Typing Journey' : `${level.charAt(0).toUpperCase() + level.slice(1)} Typing Lessons`}
+          </h1>
           <p className="text-slate-500">Master muscle memory with structured drills.</p>
         </div>
         
@@ -282,7 +284,7 @@ const Lessons: React.FC = () => {
       <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm mt-16 max-w-5xl mx-auto mb-16 text-left">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Touch Typing Practice Lessons</h2>
         <p className="text-slate-600 mb-4">
-          Learning to touch type is a skill that will save you hundreds of hours over your lifetime. Our typing practice lessons are designed from the ground up to prevent the "hunt and peck" bad habits that plague most computer users. By starting at the beginner level, you train your hands to navigate independently without relying on your eyes.
+          Learning to touch type correctly from the beginning will accelerate your typing speed more than any other method. Our typing practice lessons are designed from the ground up to prevent the "hunt and peck" bad habits that plague most computer users. By starting at the beginner level, you train your hands to navigate independently without relying on your eyes. Our beginner lessons teach you to touch type without looking at the keyboard, which is the foundation of improving your typing speed.
         </p>
         <p className="text-slate-600 mb-4">
           The core of touch typing revolves around the home row (ASDF and JKL;). Once you build muscle memory for these central keys, navigating to the top and bottom rows becomes a seamless fluid motion rather than a targeted strike. Our progressive lesson plans guide you exactly through this anatomical transition.
@@ -295,6 +297,76 @@ const Lessons: React.FC = () => {
           Make it a goal to complete at least two lessons daily. Attempting to cram ten lessons in one day leads to fatigue and actually degrades muscle recall. Short, focused, and tension-free practice is the undisputed best way to increase your typing velocity and eliminate spelling errors.
         </p>
       </section>
+
+      {level === 'beginner' && (
+        <div className="space-y-12 max-w-5xl mx-auto mb-16 text-left">
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">What is the Beginner Typing Test for Beginners?</h2>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Our typing test for beginners is specifically designed for people who are new to typing or want to improve their basic keyboard skills. Unlike standard typing tests that use complex vocabulary, our beginner typing test uses simple common English words that help you build confidence and muscle memory from the very first session.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              The beginner typing test measures your current words per minute (WPM) score and accuracy percentage in real time. This gives you a clear baseline to track your improvement as you progress through the beginner lessons.
+            </p>
+          </section>
+
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">How to Start Touch Typing as a Beginner</h2>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Touch typing is the ability to type without looking at the keyboard. It is the single most important skill to develop for improving your typing speed. Most beginners start by looking at the keyboard which severely limits how fast they can ever type.
+            </p>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              To start touch typing correctly: First place your left hand fingers on A S D F keys. Place your right hand fingers on J K L ; keys. Your thumbs should rest on the spacebar. This position is called the home row and it is where your fingers return after every keystroke.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              Practice our beginner typing lessons daily for 15 minutes and you will be touch typing naturally within 2 weeks.
+            </p>
+          </section>
+
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+
+            <h3 className="text-xl font-bold text-slate-900 mb-2 mt-6">How long does it take to learn touch typing as a beginner?</h3>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Most beginners can learn the basic touch typing technique within 1 to 2 weeks of daily 15 minute practice sessions. Reaching a comfortable typing speed of 40 WPM typically takes 4 to 6 weeks of consistent practice.
+            </p>
+
+            <h3 className="text-xl font-bold text-slate-900 mb-2 mt-6">What typing speed should a beginner aim for?</h3>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              As a beginner, aim for 20 to 25 WPM with high accuracy in your first week. Focus on accuracy over speed. Once you consistently type with 95%+ accuracy, your typing speed will naturally increase with practice.
+            </p>
+
+            <h3 className="text-xl font-bold text-slate-900 mb-2 mt-6">Is this typing test for beginners completely free?</h3>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Yes. Our typing test for beginners and all beginner lessons are completely free with no signup or registration required. Practice as many times as you want at no cost.
+            </p>
+
+            <h3 className="text-xl font-bold text-slate-900 mb-2 mt-6">What makes a good typing test for beginners?</h3>
+            <p className="text-slate-600 leading-relaxed">
+              A good typing test for beginners uses simple common words, provides real-time feedback on errors, shows both speed and accuracy metrics and allows unlimited practice without pressure. Our beginner typing test meets all these criteria.
+            </p>
+          </section>
+
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Your Journey from Beginner to Advanced Typist</h2>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Starting with our typing test for beginners is just the first step in your typing journey. Here is what your progress will look like with consistent daily practice:
+            </p>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Week 1 to 2: Master home row keys and reach 20 WPM with good accuracy. Focus entirely on touch typing without looking at keyboard.
+            </p>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Week 3 to 4: Expand to full keyboard and reach 30 to 35 WPM. Your typing speed will increase naturally as muscle memory develops.
+            </p>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Week 5 to 8: Reach 40 to 50 WPM consistently. You are now typing at the global average and ready for intermediate and advanced lessons.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              After completing beginner lessons, continue with our intermediate and advanced typing lessons to keep improving your typing speed beyond 60 WPM.
+            </p>
+          </section>
+        </div>
+      )}
 
       <TypingLinksSection />
     </div>

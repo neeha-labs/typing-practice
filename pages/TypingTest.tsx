@@ -170,7 +170,7 @@ const TypingTest: React.FC = () => {
       keywords: "45 second typing test, typing speed test, improve typing speed, keyboarding test, accurate typing"
     };
     if (path.includes('60-second')) return {
-      title: "60 Second Typing Test | One Minute WPM Check",
+      title: "Free 60 Second Typing Test | Check WPM Speed",
       description: "Take the classic 60 second typing test to find your true words per minute. This one minute WPM check is the standard for professional typing assessment.",
       keywords: "60 second typing test, 1 minute typing test, one minute typing test, WPM assessment, standard typing test"
     };
@@ -290,6 +290,7 @@ const TypingTest: React.FC = () => {
     if (testMode === 'beginners') return "Build Core Skills with Typing Test for Beginners";
     if (testMode === 'numbers') return "Master the Top Row with Numbers Typing Test";
     if (testMode === 'paragraph') return "Improve Endurance with Paragraph Typing Practice";
+    if (duration === 60) return "Free 60 Second Typing Test — Check Your Typing Speed in 60 Seconds";
     if (duration) return `Challenge Yourself with the ${duration} Second Speed Run`;
     return "Test Your Raw Typing Speed and Accuracy Online";
   };
@@ -618,6 +619,59 @@ const TypingTest: React.FC = () => {
               </div>
             </div>
           )}
+        </div>
+      )}
+
+      {duration === 60 && !location.pathname.includes('easy') && !location.pathname.includes('hard') && !location.pathname.includes('beginners') && !location.pathname.includes('numbers') && !location.pathname.includes('paragraph') && (
+        <div className="mt-16 space-y-12 text-left max-w-4xl mx-auto">
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Improve Your Typing Skills</h2>
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Our free typing test 60 seconds format is the most popular way to measure typing speed worldwide. When you take this typing test 60 seconds challenge, you get accurate WPM test results that reflect your real typing ability. The 60 second typing assessment is used by employers, educators, and government exam boards as the standard benchmark to verify you can type fast.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              If you want to improve your typing speed, taking online typing tests daily is essential. This typing speed test 60 seconds gives you enough time to showcase your typing speed and accuracy. By regularly typing in 60 seconds, you will naturally build the muscle memory required for typing faster and improving your overall word per minute score on this minute typing test.
+            </p>
+          </section>
+
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">What is the 60 Second Typing Test?</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              The 60 second typing test is a timed assessment that measures how many words per minute (WPM) you can type accurately in exactly one minute. It is the industry standard typing speed test used by employers, educational institutions and government exam boards worldwide.
+            </p>
+
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">How Does the 60 Second Typing Test Work?</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              Start typing the words displayed on screen. The timer begins automatically with your first keystroke. Type as fast and accurately as possible for 60 seconds. When time ends, your WPM score and speed and accuracy percentage are displayed instantly. No signup required.
+            </p>
+
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">What is a Good Score on the 60 Second Test?</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              A good typing speed on the 60 second typing test depends on your goal. The global average is 40 WPM. For office work, 50-60 WPM is considered good. Government exam requirements typically require 30-35 WPM. Professional typists achieve 80-100 WPM consistently.
+            </p>
+
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Is This 60 Second Typing Test Free?</h2>
+            <p className="text-slate-600 leading-relaxed">
+              Yes. Our 60 second typing test is a completely free typing test with no signup, registration or payment required. Take the test unlimited times to track your improvement over time.
+            </p>
+          </section>
+
+          <section className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Why Take a 60 Second Typing Test?</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              The free typing test 60 seconds format strikes the perfect balance between accuracy and real performance measurement. Unlike shorter tests that only measure burst speed, the typing test 60 seconds gives enough time to reveal your true sustained typing skills. It is long enough to settle into a rhythm but short enough to maintain full concentration throughout.
+            </p>
+
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">How to Improve Your 60 Second Typing Score</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              To improve your score on the typing speed test 60 seconds, practice daily for at least 15 minutes. Focus on accuracy before speed. Type without looking at the keyboard. Keep your fingers on the home row keys ASDF and JKL at all times. Review your error analysis after each test to identify which keys slow you down most.
+            </p>
+
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">60 Second Typing Test for Government Exams</h2>
+            <p className="text-slate-600 leading-relaxed">
+              The typing in 60 seconds format is directly relevant to SSC CGL, SSC CHSL, RRB NTPC, IBPS Clerk and SBI Clerk typing tests. All these government exams require sustained typing speed and accuracy. Regular practice with our free typing test 60 seconds tool will prepare you effectively for the actual exam conditions.
+            </p>
+          </section>
         </div>
       )}
 
