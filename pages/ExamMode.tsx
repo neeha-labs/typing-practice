@@ -221,6 +221,26 @@ const ExamMode: React.FC = () => {
         </div>
       </section>
 
+      <section className="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-200">
+        <h2 className="text-xl font-bold text-slate-900 mb-4">
+          Practice by Exam Type
+        </h2>
+        <div className="grid grid-cols-2 gap-3">
+          <Link to="/ssc-typing-test-practice" className="p-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 font-medium text-slate-700 text-sm">
+            SSC CGL / CHSL Practice →
+          </Link>
+          <Link to="/rrb-typing-test-practice" className="p-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 font-medium text-slate-700 text-sm">
+            RRB NTPC Practice →
+          </Link>
+          <Link to="/ibps-typing-test-practice" className="p-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 font-medium text-slate-700 text-sm">
+            IBPS Clerk Practice →
+          </Link>
+          <Link to="/sbi-typing-test-practice" className="p-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 font-medium text-slate-700 text-sm">
+            SBI Clerk Practice →
+          </Link>
+        </div>
+      </section>
+
       <PageSEOContent 
         topic="Government Typing Exam Simulator"
         offers="Simulate the exact environment of competitive government skill tests, strictly adhering to official rules."

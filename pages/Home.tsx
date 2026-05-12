@@ -269,6 +269,46 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      <section className="py-12 px-4 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+            Explore All Typing Tests
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <Link to="/easy-typing-test" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors text-center">
+              <div className="text-2xl mb-2">🟢</div>
+              <div className="font-semibold text-slate-900">Easy Typing Test</div>
+              <div className="text-sm text-slate-500">For beginners</div>
+            </Link>
+            <Link to="/hard-typing-test" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors text-center">
+              <div className="text-2xl mb-2">🔴</div>
+              <div className="font-semibold text-slate-900">Hard Typing Test</div>
+              <div className="text-sm text-slate-500">For advanced typists</div>
+            </Link>
+            <Link to="/paragraph-typing-test" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors text-center">
+              <div className="text-2xl mb-2">📝</div>
+              <div className="font-semibold text-slate-900">Paragraph Test</div>
+              <div className="text-sm text-slate-500">Long text practice</div>
+            </Link>
+            <Link to="/ibps-typing-test-practice" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors text-center">
+              <div className="text-2xl mb-2">🏦</div>
+              <div className="font-semibold text-slate-900">IBPS Typing Test</div>
+              <div className="text-sm text-slate-500">Bank exam practice</div>
+            </Link>
+            <Link to="/sbi-typing-test-practice" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors text-center">
+              <div className="text-2xl mb-2">🏛️</div>
+              <div className="font-semibold text-slate-900">SBI Typing Test</div>
+              <div className="text-sm text-slate-500">Bank clerk practice</div>
+            </Link>
+            <Link to="/blog" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors text-center">
+              <div className="text-2xl mb-2">📚</div>
+              <div className="font-semibold text-slate-900">Typing Blog</div>
+              <div className="text-sm text-slate-500">Tips and guides</div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section for SEO */}
       <section className="bg-slate-50 py-24 px-4 border-t border-slate-200">
         <div className="max-w-4xl mx-auto">

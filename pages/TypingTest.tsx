@@ -345,6 +345,10 @@ const TypingTest: React.FC = () => {
           ))}
         </div>
 
+        <div className="text-center text-sm text-slate-500 mb-16">
+           Looking for other durations? Try our <Link to="/typing-test/45-second-typing-test" className="text-blue-600 hover:underline font-medium">45 Second Typing Test</Link> or the <Link to="/typing-test/90-second-typing-test" className="text-blue-600 hover:underline font-medium">90 Second Typing Test</Link>. Calculate your accurate speed manually using our <Link to="/wpm-calculator" className="text-blue-600 hover:underline font-medium">WPM Calculator</Link>.
+        </div>
+
         {/* Internal SEO Linking */}
         <section className="bg-slate-900 text-center py-12 px-4 rounded-3xl shadow-xl mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Need more practice first?</h2>
@@ -674,6 +678,26 @@ const TypingTest: React.FC = () => {
           </section>
         </div>
       )}
+
+      <section className="mt-8 mb-8 p-6 bg-slate-50 rounded-2xl border border-slate-200">
+        <h2 className="text-xl font-bold text-slate-900 mb-4">
+          Try Different Test Modes
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          <Link to="/easy-typing-test" className="px-4 py-2 bg-green-50 border border-green-200 rounded-xl text-green-700 font-medium text-sm hover:bg-green-100 transition-colors">
+            🟢 Easy Mode
+          </Link>
+          <Link to="/hard-typing-test" className="px-4 py-2 bg-red-50 border border-red-200 rounded-xl text-red-700 font-medium text-sm hover:bg-red-100 transition-colors">
+            🔴 Hard Mode
+          </Link>
+          <Link to="/paragraph-typing-test" className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-xl text-blue-700 font-medium text-sm hover:bg-blue-100 transition-colors">
+            📝 Paragraph Mode
+          </Link>
+          <Link to="/typing-test-with-numbers" className="px-4 py-2 bg-purple-50 border border-purple-200 rounded-xl text-purple-700 font-medium text-sm hover:bg-purple-100 transition-colors">
+            🔢 Numbers Mode
+          </Link>
+        </div>
+      </section>
 
       <TypingTestSEO duration={duration || 60} mode={testMode} />
     </div>

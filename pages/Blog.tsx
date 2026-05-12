@@ -533,9 +533,19 @@ const allBlogPosts = [
     description: "Understand exactly how your typing speed score is measured."
   },
   {
+    slug: "government-exam-typing-tips",
+    title: "Cracking Government Typing Exams",
+    description: "Specific strategies for SSC CHSL, CGL, and Banking typing tests."
+  },
+  {
     slug: "daily-typing-practice-routine",
     title: "15-Minute Daily Typing Routine",
     description: "The perfect daily practice schedule to reach 80 WPM."
+  },
+  {
+    slug: "typing-games-vs-practice",
+    title: "Typing Games vs Practice",
+    description: "Understanding when to use games and when to stick to standard tests."
   },
   {
     slug: "best-keyboards-for-typing",

@@ -365,6 +365,20 @@ const Lessons: React.FC = () => {
               After completing beginner lessons, continue with our intermediate and advanced typing lessons to keep improving your typing speed beyond 60 WPM.
             </p>
           </section>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Related Resources</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Link to="/typing-test-for-beginners" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors">
+                <div className="font-bold text-slate-900 mb-1">Typing Test for Beginners →</div>
+                <div className="text-sm text-slate-500">Practice your new skills with a test designed for you.</div>
+              </Link>
+              <Link to="/easy-typing-test" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors">
+                <div className="font-bold text-slate-900 mb-1">Easy Typing Test →</div>
+                <div className="text-sm text-slate-500">Build confidence with simple, common words.</div>
+              </Link>
+            </div>
+          </section>
         </div>
       )}
 

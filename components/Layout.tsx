@@ -277,8 +277,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-slate-200 mt-auto py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-1">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-8 h-8 rounded-md flex items-center justify-center bg-transparent">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -305,46 +305,46 @@ const Footer: React.FC = () => {
                 </span>
               </div>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
               Empowering learners to master the art of touch typing with precision and speed for exams and productivity.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Typing Tests</h4>
+            <h4 className="font-semibold text-slate-900 mb-4">Tests & Exams</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/typing-test/30-second-typing-test" className="hover:text-blue-600">30 Second Typing Test</Link></li>
-              <li><Link to="/typing-test/60-second-typing-test" className="hover:text-blue-600">60 Second Typing Test</Link></li>
-              <li><Link to="/typing-test/120-second-typing-test" className="hover:text-blue-600">120 Second Typing Test</Link></li>
-              <li><Link to="/ssc-typing-test-practice" className="hover:text-blue-600">SSC Typing Practice</Link></li>
+              <li><Link to="/typing-test/30-second-typing-test" className="hover:text-blue-600">30 Second Test</Link></li>
+              <li><Link to="/typing-test/60-second-typing-test" className="hover:text-blue-600">60 Second Test</Link></li>
+              <li><Link to="/typing-test/120-second-typing-test" className="hover:text-blue-600">120 Second Test</Link></li>
+              <li><Link to="/ssc-typing-test-practice" className="hover:text-blue-600">SSC Practice</Link></li>
+              <li><Link to="/exam-mode" className="hover:text-blue-600">All Exams</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-slate-900 mb-4">Popular Articles</h4>
+            <ul className="space-y-2 text-sm text-slate-500">
+              <li><Link to="/blog/how-to-type-numbers-fast" className="hover:text-blue-600">Type Numbers Fast</Link></li>
+              <li><Link to="/blog/touch-typing-benefits-for-coders" className="hover:text-blue-600">Touch Typing for Coders</Link></li>
+              <li><Link to="/blog/typing-ergonomics-guide" className="hover:text-blue-600">Typing Ergonomics</Link></li>
+              <li><Link to="/blog/typing-games-vs-practice" className="hover:text-blue-600">Games vs Practice</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/lessons" className="hover:text-blue-600">Typing Lessons</Link></li>
+              <li><Link to="/lessons" className="hover:text-blue-600">Lessons</Link></li>
               <li><Link to="/tools/wpm-calculator" className="hover:text-blue-600">WPM Calculator</Link></li>
               <li><Link to="/tools/typing-accuracy-calculator" className="hover:text-blue-600">Accuracy Calculator</Link></li>
               <li><Link to="/blog" className="hover:text-blue-600">Typing Blog</Link></li>
-              <li><Link to="/blog/government-exam-typing-tips" className="hover:text-blue-600">Exam Tips</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/" className="hover:text-blue-600">Home</Link></li>
-              <li><Link to="/typing-test" className="hover:text-blue-600">Typing Test</Link></li>
-              <li><Link to="/lessons" className="hover:text-blue-600">Lessons</Link></li>
-              <li><Link to="/exam-mode" className="hover:text-blue-600">Exam Mode</Link></li>
-              <li><Link to="/about" className="hover:text-blue-600">About</Link></li>
               <li><Link to="/sitemap" className="hover:text-blue-600">Sitemap</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-slate-900 mb-4">Support & Legal</h4>
+            <h4 className="font-semibold text-slate-900 mb-4">Links</h4>
             <ul className="space-y-2 text-sm text-slate-500">
               <li><Link to="/contact" className="hover:text-blue-600">Contact Us</Link></li>
               <li><Link to="/privacy" className="hover:text-blue-600">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-blue-600">Terms of Service</Link></li>
+              <li><Link to="/about" className="hover:text-blue-600">About</Link></li>
             </ul>
           </div>
         </div>
