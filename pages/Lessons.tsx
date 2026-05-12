@@ -377,6 +377,14 @@ const Lessons: React.FC = () => {
                 <div className="font-bold text-slate-900 mb-1">Easy Typing Test →</div>
                 <div className="text-sm text-slate-500">Build confidence with simple, common words.</div>
               </Link>
+              <Link to="/blog/best-keyboards-for-typing" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors">
+                <div className="font-bold text-slate-900 mb-1">Best Keyboards Guide →</div>
+                <div className="text-sm text-slate-500">Find the perfect keyboard for typing practice.</div>
+              </Link>
+              <Link to="/blog/daily-typing-practice-routine" className="p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 transition-colors">
+                <div className="font-bold text-slate-900 mb-1">Daily Practice Routine →</div>
+                <div className="text-sm text-slate-500">15-minute daily structure for continuous improvement.</div>
+              </Link>
             </div>
           </section>
         </div>

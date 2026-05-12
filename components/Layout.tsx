@@ -322,6 +322,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">Popular Articles</h4>
             <ul className="space-y-2 text-sm text-slate-500">
+              <li><Link to="/blog/best-keyboards-for-typing" className="hover:text-blue-600">Best Keyboards</Link></li>
+              <li><Link to="/blog/daily-typing-practice-routine" className="hover:text-blue-600">Daily Practice</Link></li>
               <li><Link to="/blog/how-to-type-numbers-fast" className="hover:text-blue-600">Type Numbers Fast</Link></li>
               <li><Link to="/blog/touch-typing-benefits-for-coders" className="hover:text-blue-600">Touch Typing for Coders</Link></li>
               <li><Link to="/blog/typing-ergonomics-guide" className="hover:text-blue-600">Typing Ergonomics</Link></li>
