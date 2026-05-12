@@ -45,9 +45,20 @@ const SitemapPage: React.FC = () => {
       
       <section className="mt-16 page-description text-slate-600 leading-relaxed bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm text-left">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Sitemap</h2>
-        <p className="mb-4">This sitemap provides a quick overview of all the major pages available on Typing Practice Online. Our website is designed to help you improve your typing speed and accuracy through practice tests and guided lessons.</p>
-        <p className="mb-4">Use the links provided above to navigate directly to our various features, including timed tests, difficulty-based paragraphs, and exam condition simulators. If you're a beginner, start with our step-by-step lessons before moving on to the advanced typing tests.</p>
-        <p>Return to the <Link to="/" className="text-blue-600 hover:underline">homepage</Link> to start typing immediately, or create a free account to track your progress over time.</p>
+        <p className="mb-4">This sitemap provides a comprehensive overview of all the major pages available on <strong>Typing Practice Online</strong>. Our platform is meticulously designed to help individuals of all skill levels drastically improve their typing speed, accuracy, and overall keyboard efficiency through scientifically backed practice tests and guided touch-typing lessons.</p>
+        <p className="mb-4">As the digital world continues to evolve, touch typing has become an indispensable skill for professionals, students, and everyday internet users. Our completely free platform offers a structured pathway to typing mastery. Navigating through our sitemap, you will find a variety of targeted resources tailored to different learning objectives. Use the links provided above to navigate directly to our various features, including timed typing rests, difficulty-based training paragraphs, and professional exam condition simulators.</p>
+        
+        <h3 className="text-xl font-bold text-slate-900 mt-6 mb-2">Our Key Offerings</h3>
+        <ul className="list-group list-disc pl-6 mb-4 space-y-2">
+          <li><strong>Typing Tests:</strong> From 30-second rapid sprints to 120-second endurance tests, our typing assessments let you benchmark your current Gross and Net Words Per Minute (WPM) alongside your accuracy percentage.</li>
+          <li><strong>Structured Lessons:</strong> If you're a typing beginner, our step-by-step lesson plans guide you through the keyboard layout, teaching you the proper hand positioning and finger assignments starting from the home row.</li>
+          <li><strong>Exam Simulators:</strong> We offer specialized practice modes designed to replicate the exact conditions of government typing exams, such as the SSC CHSL, CGL DEST, and various banking assessments, ensuring you are fully prepared for test day.</li>
+          <li><strong>Typing Tools & Calculators:</strong> Access utility pages like our WPM Calculator to manually determine your typing scores and understand the exact mathematics behind professional typing speed calculations.</li>
+          <li><strong>Typing Blog:</strong> Dive deep into our extensive collection of articles, tutorials, and expert tips covering everything from ergonomic desk setups to choosing the perfect mechanical keyboard for data entry.</li>
+        </ul>
+        
+        <p className="mb-4">Whether your goal is to land a data entry job, increase your coding efficiency, or simply chat with your friends faster, consistent practice is the only proven method for improvement. We recommend exploring the various sections listed above and dedicating at least 15 minutes each day to focused typing exercises. Tracking your progress over time will reveal patterns in your errors and help you break through speed plateaus.</p>
+        <p>If you encounter any issues finding the content you need, please reach out to us. Otherwise, return to the <Link to="/" className="text-blue-600 hover:underline">homepage</Link> to start your next typing test immediately, or create a free account to automatically track your WPM history and climb our global leaderboards.</p>
       </section>
     </div>
   );

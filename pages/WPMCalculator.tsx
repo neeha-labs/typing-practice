@@ -171,26 +171,31 @@ const WPMCalculator: React.FC = () => {
         </div>
 
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">How WPM is Calculated</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Understanding Your Typing Metrics: How WPM is Calculated</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            The standard formula for calculating typing speed is quite simple. It involves taking the total number of words typed and dividing it by the total time taken in minutes. Our <strong>typing speed calculator</strong> does this math for you instantly.
+            The standard mathematical formula for calculating typing speed is universally straightforward. It involves taking the total number of words typed and dividing it by the exact total time taken in minutes. Our <strong>typing speed calculator online</strong> automates this process, performing the calculation instantly and accurately so you can focus entirely on your practice schedule.
           </p>
           <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
             <p className="font-mono text-sm text-slate-700">
-              WPM = Total Words / Total Time (in minutes)
+              Gross WPM = Total Characters Typed / 5 / Total Time (in minutes)
             </p>
           </div>
-          <h3 className="text-xl font-bold text-slate-900 mb-4">What counts as a "Word"?</h3>
+          <h3 className="text-xl font-bold text-slate-900 mb-4">What Exactly Counts as a "Word"?</h3>
           <p className="text-slate-600 leading-relaxed mb-4">
-            In professional typing tests, a "word" is standardized as 5 characters, including spaces and punctuation. This ensures that the difficulty of the text doesn't unfairly affect the WPM score.
+            If you've ever felt that a test with complicated vocabulary slowed you down unfairly, you'll be pleased to know that in professional typing tests and government examinations, a "word" is strictly standardized. One word is defined as exactly 5 keystrokes (characters), inclusive of spaces, numbers, and punctuation marks. This standard ensures that the linguistic difficulty or word length of the text doesn't skew your final WPM score.
           </p>
           <p className="text-slate-600 leading-relaxed mb-6">
-            For example, if you type 250 characters in one minute, your speed is 50 WPM (250 / 5 = 50).
+            For example, if you manage to type 250 characters within exactly one minute, your officially registered speed is 50 WPM (250 divided by 5 equals 50). This allows typists to measure themselves against a fixed global standard.
           </p>
           
-          <h3 className="text-xl font-bold text-slate-900 mb-4">Why use a WPM Calculator?</h3>
+          <h3 className="text-xl font-bold text-slate-900 mb-4">Gross WPM vs. Net WPM</h3>
           <p className="text-slate-600 leading-relaxed mb-4">
-            While most modern typing tests calculate your speed automatically, you might need a manual <strong>words per minute calculator</strong> if you are transcribing an audio file, copying text from a physical book, or taking a specialized offline test. Simply count the words you typed, note the time, and plug the numbers into our tool above.
+            It's vital to differentiate between Gross WPM and Net WPM. The formula above represents <strong>Gross WPM</strong>, which is your raw, unadjusted speed. However, professional environments and competitive typing examinations deeply care about accuracy. <strong>Net WPM</strong> takes your Gross WPM and subtracts a penalty for every uncorrected error left in the final text. If you type extremely fast but leave dozens of spelling mistakes, your Net WPM will drop significantly.
+          </p>
+
+          <h3 className="text-xl font-bold text-slate-900 mb-4">Why Use a Manual WPM Calculator?</h3>
+          <p className="text-slate-600 leading-relaxed mb-4">
+            While most modern online typing environments calculate your speed automatically behind the scenes, you might often find yourself needing a manual <strong>words per minute calculator</strong>. For instance, if you are transcribing a raw audio file for freelance work, copying text from a physical paperback book, or taking a specialized offline legacy test, automated tracking isn't possible. In these scenarios, simply count the total words you produced, note your stopwatch time, and plug the variables into our robust tool above to get immediate results.
           </p>
         </div>
       </div>

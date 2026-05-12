@@ -138,16 +138,27 @@ export const Terms: React.FC = () => (
       <p className="text-slate-500 text-sm">Last Updated: March 2026</p>
     </header>
     <div className="prose">
-      <p>By using Typing-Practice.online, you agree to the following terms and conditions:</p>
+      <p>Welcome to Typing-Practice.online. By accessing, browsing, or utilizing any of the typing tests, lessons, tools, or other materials provided on this website, you explicitly agree to comply with and be bound by the following comprehensive terms and conditions of use. If you disagree with any part of these terms and conditions, you must discontinue your use of our platform immediately. These terms apply to all visitors, users, and others who access or use the Service.</p>
       
-      <h2>1. Proper Use</h2>
-      <p>Users must not use automated scripts, bots, or any other artificial means to manipulate typing scores or leaderboard rankings. We reserve the right to remove suspicious entries.</p>
+      <h2>1. Proper Use and Account Integrity</h2>
+      <p>Our platform is designed to provide genuine typing metrics for personal improvement. Users must not use automated scripts, macro programs, browser extensions, bots, or any other artificial means to manipulate typing scores, bypass time constraints, or inflate leaderboard rankings. We maintain sophisticated anti-cheat monitoring systems and reserve the right to instantly and permanently remove any suspicious entries, wipe account histories, or ban IP addresses that violate this core tenet of fairness without prior notice.</p>
       
-      <h2>2. Content Ownership</h2>
-      <p>All typing texts, lessons, and simulations are for practice purposes only. They do not represent the official exam content of any government body or private organization.</p>
+      <h2>2. Intellectual Property and Content Ownership</h2>
+      <p>The site design, architecture, styling, and underlying code infrastructure are the intellectual property of Typing-Practice.online. However, the typing texts, historical quotes, literature snippets, and exam simulations provided are utilized strictly under Fair Use for educational and typing practice purposes only. We do not claim exclusive copyright over public domain texts or simulated exam formats. These materials are provided strictly for your personal, non-commercial practice and skill development.</p>
       
-      <h2>3. Limitation of Liability</h2>
-      <p>While we strive for 100% accuracy in our simulations, we are not responsible for any discrepancies between our platform and actual government examination software.</p>
+      <h2>3. Legal Disclaimer of Official Status</h2>
+      <p>Typing-Practice.online is an entirely independent, private educational project. We are not officially affiliated with, endorsed by, or sponsored by any government organization, examination board (such as the Staff Selection Commission [SSC] or Railway Recruitment Board [RRB]), or commercial testing agency. While we invest significant time ensuring our exam interfaces meticulously simulate real-world conditions, they do not represent the exact or official exam software of any governing body.</p>
+      
+      <h2>4. Limitation of Liability and Warranties</h2>
+      <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. Typing-Practice.online makes no specific guarantees that practicing here will guarantee employment, pass competitive exams, or prevent physical typing injuries. While we strive to maintain 100% mathematical accuracy in our WPM calculations and testing environments, we are not legally or financially responsible for any career outcomes or minor discrepancies between our platform's metrics and actual government examination results on test day.</p>
+
+      <h2>5. User Generated Content and Community Conduct</h2>
+      <p>If the service permits user profiles, forum posts, or custom text submissions, you agree not to submit any content that is illegal, threatening, defamatory, invasive of privacy, infringing of intellectual property rights, or otherwise injurious to third parties. We reserve the ultimate editorial right to remove any content we deem inappropriate or off-topic without providing justification to the author.</p>
+      
+      <h2>6. Modifications to the Service and Terms</h2>
+      <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We may also alter, suspend, or discontinue the Service (including the availability of any feature, database, or content) at any time without prior notice or liability. Your continued use of the platform following the posting of any changes to the Terms constitutes acceptance of those changes.</p>
+
+      <p className="mt-8 text-sm text-slate-500 italic">If you have any questions or concerns regarding these Terms of Service, please reach out to us via our designated Contact page.</p>
     </div>
   </div>
 );

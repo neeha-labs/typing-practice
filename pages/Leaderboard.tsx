@@ -286,6 +286,31 @@ const Leaderboard: React.FC = () => {
           </div>
         )}
       </div>
+
+      <div className="mt-16 prose max-w-none border-t border-slate-200 pt-12">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">About Our Typing Leaderboard</h2>
+        <p className="text-slate-600 mb-4">
+          Welcome to the global ranking system for <strong>TypingPractice.online</strong>. This leaderboard tracks the fastest and most accurate typists from around the world across various test durations. Whether you are aiming for the top spot in the 30-second sprint or testing your endurance in the 120-second marathon, this is where your skills are officially documented.
+        </p>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">How the Rankings Work</h3>
+        <p className="text-slate-600 mb-4">
+          Rankings are primarily determined by your <strong>Net Words Per Minute (WPM)</strong>. Net WPM is a comprehensive metric that evaluates your raw typing speed and subtracts a penalty for any uncorrected errors. This ensures that the leaderboard rewards not just fast fingers, but precise, accurate typing. In the event of a tie in WPM, the typist with the higher overall accuracy percentage secures the higher position.
+        </p>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">Categories and Test Types</h3>
+        <ul className="list-disc pl-6 text-slate-600 mb-4">
+          <li className="mb-2"><strong>30 Seconds:</strong> The ultimate test of burst speed and reflexes. This sprint category pushes you to your absolute WPM limits, demanding intense focus and perfect muscle memory.</li>
+          <li className="mb-2"><strong>60 Seconds:</strong> The standard benchmark for professional typing assessments. This one-minute test balances pure speed with the need to maintain control and rhythm.</li>
+          <li className="mb-2"><strong>120 Seconds:</strong> A true test of endurance. Maintaining high speeds for two full minutes requires excellent ergonomic posture and a deeply ingrained touch typing technique to avoid physical fatigue and mental lapses.</li>
+          <li className="mb-2"><strong>All-Time:</strong> The hall of fame. This category showcases the absolute highest scores ever recorded on the platform, regardless of the test duration. Earning a spot here is the pinnacle of typing achievement.</li>
+        </ul>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">Tips to Climb the Ranks</h3>
+        <p className="text-slate-600 mb-4">
+          Reaching the top 100 on our leaderboard requires dedication. Start every session with a slow accuracy warmup to align your muscle memory. Gradually push your speeds using our structured practice modes rather than just retaking the test repeatedly. Remember that accuracy is the foundation of speed; if your accuracy drops below 96%, slow down and refocus. Consistent, 15-minute daily practice sessions yield far better results than sporadic, hour-long marathons.
+        </p>
+        <p className="text-slate-600">
+          Ready to make your mark? Ensure you are logged into your account so your scores are officially recorded, head over to the typing test page, and give it your best shot!
+        </p>
+      </div>
     </div>
   );
 };

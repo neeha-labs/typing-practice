@@ -92,6 +92,30 @@ const TypingTestsHub: React.FC = () => {
         ))}
       </div>
 
+      <section className="mt-24 px-4 max-w-4xl mx-auto prose prose-slate">
+        <h2 className="text-3xl font-bold text-slate-900 mb-6">Why Take an Online Typing Test?</h2>
+        <p className="text-slate-600 mb-4">
+          In today's digital-first environment, your typing speed directly impacts your productivity, educational success, and career opportunities. An online typing test is the first crucial step in evaluating your current keyboarding abilities. By measuring your <strong>Gross WPM</strong> (raw speed) and <strong>Net WPM</strong> (speed adjusted for uncorrected errors), our tests provide a clear baseline for your skills. This hub contains every specialized typing test you need to identify your weaknesses and build specialized muscle memory.
+        </p>
+        <h3 className="text-2xl font-bold text-slate-900 mb-4">Choosing the Right Typing Test</h3>
+        <p className="text-slate-600 mb-4">
+          Not all typing practice is created equal. Depending on your goals, you should select a test that specifically targets your required skill set:
+        </p>
+        <ul className="list-disc pl-6 text-slate-600 mb-6 space-y-2">
+          <li><strong>Short Tests (30 to 60 seconds):</strong> Ideal for quick warm-ups or practicing burst speed. These tests help train fast reflexes and muscle memory for short n-grams.</li>
+          <li><strong>Endurance Tests (120 seconds):</strong> Designed to build typing stamina. They force you to maintain an ergonomic posture and consistent rhythm over a longer duration, reducing error rates in standard multi-paragraph typing.</li>
+          <li><strong>Specialized Challenges:</strong> If your speed drops when typing passwords or addresses, try the <em>Typing Test with Numbers</em>. If you are a complete novice, our <em>Beginner Test</em> ensures you don't build bad habits immediately.</li>
+          <li><strong>Government Exam Simulators:</strong> SSC CHSL, RRB, and Banking exams strictly evaluate Net WPM using traditional scoring algorithms. Our exam practice modes simulate these exact constraints, including backspace locking and specific word-highlighting algorithms, ensuring you are thoroughly prepared for the real test interface.</li>
+        </ul>
+        <h3 className="text-2xl font-bold text-slate-900 mb-4">Understanding Your Typing Score Metrics</h3>
+        <p className="text-slate-600 mb-4">
+          After completing any test on this hub, you will receive a comprehensive breakdown of your performance. The most important metric is your <strong>Net Words Per Minute (NWPM)</strong>, which subtracts errors to reflect your true productive speed. A score of 40 NWPM is considered average, while 60+ NWPM is highly competitive for most administrative roles. We also log your specific keystroke errors, helping you identify which fingers or keys require dedicated drills in our Lessons portal.
+        </p>
+        <p className="text-slate-600">
+          Make it a habit to cycle through different variations of the typing tests. Focusing entirely on speed without addressing your accuracy percentage will ultimately hinder your progress. Aim for an overall target of 98% accuracy before attempting to push your speed limits higher.
+        </p>
+      </section>
+
       <section className="mt-24 bg-slate-900 rounded-3xl p-12 text-center text-white shadow-xl">
         <h2 className="text-3xl font-bold mb-6">Master Touch Typing Today</h2>
         <p className="text-slate-400 mb-10 max-w-2xl mx-auto">Join thousands of students and professionals who have improved their typing speed and accuracy with our free tools.</p>
