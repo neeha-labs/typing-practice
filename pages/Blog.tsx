@@ -332,7 +332,7 @@ const WPMCalculationPost = () => (
         <h4 className="text-xl font-bold mb-4">Calculate your speed now</h4>
         <p className="text-slate-400 mb-6">Use our professional tool to get your Gross and Net WPM instantly.</p>
         <div className="flex flex-wrap gap-4">
-          <Link to="/tools/words-per-minute-calculator" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">WPM Calculator</Link>
+          <Link to="/wpm-calculator" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">WPM Calculator</Link>
           <Link to="/typing-test" className="bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-all">Take Typing Test</Link>
         </div>
       </div>
@@ -388,7 +388,7 @@ const ExamTipsPost = () => (
       <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200">
         <h4 className="text-xl font-bold mb-4">Practice for your exam</h4>
         <div className="flex flex-wrap gap-4">
-          <Link to="/ssc-typing-test-practice" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">SSC Practice</Link>
+          <Link to="/exam-mode" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">SSC Practice</Link>
           <Link to="/rrb-typing-test-practice" className="bg-white text-blue-600 border border-blue-200 px-6 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all">RRB Practice</Link>
         </div>
       </div>

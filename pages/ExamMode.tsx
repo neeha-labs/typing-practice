@@ -226,7 +226,7 @@ const ExamMode: React.FC = () => {
           Practice by Exam Type
         </h2>
         <div className="grid grid-cols-2 gap-3">
-          <Link to="/ssc-typing-test-practice" className="p-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 font-medium text-slate-700 text-sm">
+          <Link to="/exam-mode" className="p-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 font-medium text-slate-700 text-sm">
             SSC CGL / CHSL Practice →
           </Link>
           <Link to="/rrb-typing-test-practice" className="p-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 font-medium text-slate-700 text-sm">

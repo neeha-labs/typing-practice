@@ -109,7 +109,7 @@ const Home: React.FC = () => {
                 <p className="text-slate-600 leading-relaxed mb-6">
                   Speed is useless without precision. Professional typing tests prioritize "Net WPM," which penalizes errors. A typist at 70 WPM with 95% accuracy is often less productive than one at 60 WPM with 100% accuracy due to the time lost correcting mistakes.
                 </p>
-                <Link to="/learn-touch-typing-free-online" className="inline-block bg-white text-emerald-700 px-6 py-2 rounded-xl font-bold shadow-sm hover:shadow-md transition-all">
+                <Link to="/lessons" className="inline-block bg-white text-emerald-700 px-6 py-2 rounded-xl font-bold shadow-sm hover:shadow-md transition-all">
                   Master Accuracy First
                 </Link>
               </div>
@@ -137,19 +137,19 @@ const Home: React.FC = () => {
               title: "Typing Lessons Online",
               desc: "Step-by-step touch typing courses from beginner to advanced. Master the home row and beyond.",
               icon: "🎹",
-              link: "/learn-touch-typing-free-online"
+              link: "/lessons"
             },
             {
               title: "SSC & Government Mocks",
               desc: "Official simulation interface for SSC CHSL, CGL, and Banking exams with strict accuracy tracking.",
               icon: "🏛️",
-              link: "/ssc-typing-test-practice"
+              link: "/exam-mode"
             },
             {
               title: "Manual Calculations",
               desc: "Professional Words Per Minute Calculator to analyze your external scores with official formulas.",
               icon: "🧮",
-              link: "/tools/words-per-minute-calculator"
+              link: "/wpm-calculator"
             },
             {
               title: "Typing Tips Blog",
@@ -236,7 +236,7 @@ const Home: React.FC = () => {
             <div>
               <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8">Ready for Professional Exams?</h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                If you are preparing for government exams such as <strong>SSC CHSL, CGL, RRB,</strong> or various state-level data entry exams, our <Link to="/ssc-typing-test-practice" className="text-blue-600 font-bold hover:underline">SSC Typing Practice</Link> section is tailor-made for you. It simulates the exact user interface and rules used in official examination centers.
+                If you are preparing for government exams such as <strong>SSC CHSL, CGL, RRB,</strong> or various state-level data entry exams, our <Link to="/exam-mode" className="text-blue-600 font-bold hover:underline">SSC Typing Practice</Link> section is tailor-made for you. It simulates the exact user interface and rules used in official examination centers.
               </p>
               <div className="flex gap-4">
                  <Link to="/exam-mode" className="text-blue-600 font-bold flex items-center gap-2 group">

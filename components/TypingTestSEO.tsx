@@ -191,7 +191,7 @@ const TypingTestSEO: React.FC<TypingTestSEOProps> = ({ duration = 60, mode = 'te
         <div className="bg-slate-900 rounded-[3rem] p-12 text-center not-prose mb-16 shadow-2xl">
            <h2 className="text-3xl font-bold text-white mb-6">Need Structured Improvement?</h2>
            <p className="text-slate-400 mb-8 max-w-2xl mx-auto">If you are stuck at a certain speed, you might need to fix your core technique. Our guided lessons are the perfect next step.</p>
-           <Link to="/learn-touch-typing-free-online" className="inline-block bg-blue-600 text-white px-10 py-4 rounded-2xl font-black text-lg hover:bg-white hover:text-blue-600 transition-all shadow-xl">
+           <Link to="/lessons" className="inline-block bg-blue-600 text-white px-10 py-4 rounded-2xl font-black text-lg hover:bg-white hover:text-blue-600 transition-all shadow-xl">
              START TYPING LESSONS
            </Link>
         </div>

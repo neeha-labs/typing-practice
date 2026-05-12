@@ -152,7 +152,7 @@ const TypingPractice: React.FC = () => {
                   SSC CGL Typing Practice
                 </h4>
                 <p className="text-slate-600 leading-relaxed">
-                   If you are preparing for government exams, focus on our "Advanced" mode. This section provides an <Link to="/ssc-typing-test-practice" className="text-blue-600 font-bold hover:underline">ssc cgl typing test practice</Link> environment with high-density paragraphs and strict accuracy requirements. 
+                   If you are preparing for government exams, focus on our "Advanced" mode. This section provides an <Link to="/exam-mode" className="text-blue-600 font-bold hover:underline">ssc cgl typing test practice</Link> environment with high-density paragraphs and strict accuracy requirements. 
                 </p>
              </div>
              <div className="bg-blue-50 p-10 rounded-[3rem]">
@@ -200,7 +200,7 @@ const TypingPractice: React.FC = () => {
                 </div>
                 <div className="bg-white/5 p-8 rounded-[2rem] border border-white/10">
                    <h4 className="font-bold text-white text-lg mb-3">What is the best way to improve typing speed for SSC CGL?</h4>
-                   <p className="text-slate-400">For SSC CGL, you should practice with administrative-style paragraphs for 15 minutes a day. Our <Link to="/ssc-typing-test-practice" className="text-blue-400 hover:underline">ssc cgl typing test practice</Link> mode uses official word-count logic to help you pass the skill test.</p>
+                   <p className="text-slate-400">For SSC CGL, you should practice with administrative-style paragraphs for 15 minutes a day. Our <Link to="/exam-mode" className="text-blue-400 hover:underline">ssc cgl typing test practice</Link> mode uses official word-count logic to help you pass the skill test.</p>
                 </div>
              </div>
           </div>

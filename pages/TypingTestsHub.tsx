@@ -29,7 +29,7 @@ const TypingTestsHub: React.FC = () => {
     {
       title: "Government Exam Practice",
       items: [
-        { name: "SSC Typing Test Practice", path: "/ssc-typing-test-practice", icon: "📝" },
+        { name: "SSC Typing Test Practice", path: "/exam-mode", icon: "📝" },
         { name: "RRB Typing Test Practice", path: "/rrb-typing-test-practice", icon: "🚆" },
         { name: "IBPS Typing Test Practice", path: "/ibps-typing-test-practice", icon: "🏦" },
         { name: "SBI Typing Test Practice", path: "/sbi-typing-test-practice", icon: "💎" }
@@ -46,8 +46,8 @@ const TypingTestsHub: React.FC = () => {
     {
       title: "Typing Tools",
       items: [
-        { name: "WPM Calculator", path: "/tools/wpm-calculator", icon: "🧮" },
-        { name: "Words Per Minute Calculator", path: "/tools/words-per-minute-calculator", icon: "📏" },
+        { name: "WPM Calculator", path: "/wpm-calculator", icon: "🧮" },
+        { name: "Words Per Minute Calculator", path: "/wpm-calculator", icon: "📏" },
         { name: "Typing Accuracy Calculator", path: "/tools/typing-accuracy-calculator", icon: "🎯" }
       ]
     }

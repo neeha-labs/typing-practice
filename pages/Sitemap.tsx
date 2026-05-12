@@ -18,7 +18,7 @@ const SitemapPage: React.FC = () => {
             <li><Link to="/typing-test">Typing Test</Link></li>
             <li><Link to="/lessons">Lessons</Link></li>
             <li><Link to="/exam-mode">Exam Mode</Link></li>
-            <li><Link to="/ssc-typing-test-practice">SSC Practice</Link></li>
+            <li><Link to="/exam-mode">SSC Practice</Link></li>
             <li><Link to="/about">About</Link></li>
           </ul>
         </div>
@@ -28,7 +28,7 @@ const SitemapPage: React.FC = () => {
             <li><Link to="/lessons/beginner">Beginner Lessons</Link></li>
             <li><Link to="/lessons/intermediate">Intermediate</Link></li>
             <li><Link to="/lessons/advanced">Advanced</Link></li>
-            <li><Link to="/learn-touch-typing-free-online">Learn Touch Typing Free</Link></li>
+            <li><Link to="/lessons">Learn Touch Typing Free</Link></li>
           </ul>
         </div>
         <div>
