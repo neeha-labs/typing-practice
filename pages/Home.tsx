@@ -45,32 +45,32 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Trust & Stats Section */}
+      {/* Features & Modes Section */}
       <section className="bg-white py-12 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-black text-slate-900 mb-1">10M+</div>
-              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">Tests Taken</div>
+              <div className="text-3xl font-black text-slate-900 mb-1">Live</div>
+              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">WPM Tracking</div>
             </div>
             <div>
-              <div className="text-3xl font-black text-slate-900 mb-1">98%</div>
-              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">Accuracy Focus</div>
+              <div className="text-3xl font-black text-slate-900 mb-1">Govt.</div>
+              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">Exam Modes</div>
             </div>
             <div>
-              <div className="text-3xl font-black text-slate-900 mb-1">150+</div>
-              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">WPM Masters</div>
+              <div className="text-3xl font-black text-slate-900 mb-1">Detailed</div>
+              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">Analytics</div>
             </div>
             <div>
-              <div className="text-3xl font-black text-slate-900 mb-1">Free</div>
-              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">Always Online</div>
+              <div className="text-3xl font-black text-slate-900 mb-1">100% Free</div>
+              <div className="text-sm text-slate-500 font-bold uppercase tracking-widest">Practice Always</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Hero Content Section - Deep SEO */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-16 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="prose prose-slate max-w-none">
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 text-center">What is a Typing Test?</h2>
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Feature Grid */}
-      <section className="max-w-7xl mx-auto px-4 py-20 border-t border-slate-100">
+      <section className="max-w-7xl mx-auto px-4 py-12 md:py-16 border-t border-slate-100">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Everything You Need to Master the Keyboard</h2>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium">Complete workspace for beginners, students, and exam aspirants.</p>
@@ -186,7 +186,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Deep Content Section 2 - How It Works */}
-      <section className="bg-slate-50 py-24 px-4 border-y border-slate-200">
+      <section className="bg-slate-50 py-12 md:py-16 px-4 border-y border-slate-200">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white p-12 md:p-20 rounded-[4rem] shadow-xl border border-slate-100">
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8">How It Works</h2>
@@ -230,7 +230,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Internal SEO Linking - Contextual */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-12 md:py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -310,7 +310,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* FAQ Section for SEO */}
-      <section className="bg-slate-50 py-24 px-4 border-t border-slate-200">
+      <section className="bg-slate-50 py-12 md:py-16 px-4 border-t border-slate-200">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">Expert FAQs</h2>
