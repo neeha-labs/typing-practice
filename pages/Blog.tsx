@@ -33,6 +33,9 @@ const Blog: React.FC<BlogProps> = ({ predefinedPostId }) => {
         <Link to="/" className="text-blue-600 hover:underline text-sm font-bold mb-4 block">← Back to Home</Link>
         <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Typing Mastery Blog</h1>
         <p className="text-lg text-slate-500 max-w-2xl mx-auto">Expert advice, guides, and tips to help you become a professional touch typist.</p>
+        <p className="text-md text-slate-500 max-w-3xl mx-auto mt-4 leading-relaxed">
+          Welcome to our comprehensive typing blog. Whether you are a complete beginner aiming to learn touch typing from scratch, a data entry professional securing a new role, or a software engineer trying to optimize your coding speed, we have resources tailored specifically for you. Touch typing is not just about moving your fingers faster; it is about building neurological connections that allow you to type without thinking. Browse our extensive collection of articles below to discover actionable techniques, ergonomic advice, and proven daily training routines carefully structured to dramatically boost your words-per-minute (WPM) and overall accuracy across all types of keyboards.
+        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -374,16 +377,19 @@ const ExamTipsPost = () => (
     </header>
 
     <div className="prose">
-      <p className="text-xl text-slate-600 leading-relaxed mb-8">Government typing tests like the SSC CHSL or CGL DEST are not just about speed; they are about composure and strict adherence to rules.</p>
+      <p className="text-xl text-slate-600 leading-relaxed mb-8">Government typing tests like the SSC CHSL or CGL DEST are not just about raw speed; they are about extreme composure, rhythm, and strict adherence to specific rules under immense pressure.</p>
       
-      <h3>1. Know the Interface</h3>
-      <p>Many exams use a specific interface where the text is displayed in a box above the typing area. Our <Link to="/exam-mode" className="text-blue-600 underline">Exam Mode</Link> is designed to simulate this exactly. Familiarize yourself with the layout to avoid surprises on test day.</p>
+      <h3>1. Know the Interface Inside and Out</h3>
+      <p>Many exams use a specific, often dated, interface where the text is displayed in a box above the typing area, or sometimes as a physical sheet of paper beside the keyboard. Our <Link to="/exam-mode" className="text-blue-600 underline">Exam Mode</Link> is expertly designed to simulate the digital version of this process exactly. Familiarize yourself with the layout, font size, and scrolling mechanics well in advance to avoid devastating surprises on test day. Knowing exactly where your eyes need to track minimizes visual strain and prevents you from skipping lines when your adrenaline spikes.</p>
 
-      <h3>2. The "Backspace" Rule</h3>
-      <p>Some exams allow backspace, while others don't. Always check the latest notification for your specific exam. Practicing without backspace is a great way to force yourself to be more accurate and build confidence.</p>
+      <h3>2. The Highly Contested "Backspace" Rule</h3>
+      <p>Some government exams allow unrestricted use of the backspace key, while others disable it completely or restrict it heavily. You must always check the latest official notification for your specific exam. Over-relying on the backspace key is a critical flaw. Practicing without backspace is a great way to force yourself to prioritize accuracy and build confidence in your muscle memory. When you train without a safety net, you naturally adopt a more consistent, rhythmic pace instead of erratic burst typing.</p>
 
-      <h3>3. Managing Exam Stress</h3>
-      <p>The sound of dozens of other people typing in a room can be distracting. Practice with "keyboard noise" in the background to desensitize yourself to the environment. Stay calm, breathe, and focus only on your screen.</p>
+      <h3>3. Managing Exam Hall Stress and Noise</h3>
+      <p>The sound of dozens of other people franticly typing in a single room can be incredibly distracting and stress-inducing. Practice with "keyboard noise" audio playing in the background at home to deliberately desensitize yourself to this chaotic environment. During the actual test, stay calm, control your breathing, maintain proper ergonomic posture, and focus only on your screen. Do not try to match the rhythm of the person sitting next to you.</p>
+
+      <h3>4. Understand the Evaluation Formula (Net WPM Metrics)</h3>
+      <p>Government typing boards usually have complex, strict formulas for evaluating errors (differentiating between half mistakes and full mistakes). Capitalization errors, missing punctuation, or completely skipping a word will heavily penalize your total Net WPM. Ensure your daily practice targets are at least 5 to 10 WPM higher than the exam requirement. If the exam mandates 35 WPM, ensure your average testing speed at home sits comfortably at 45 WPM to provide a substantial safety buffer for exam-day nerves and stiff testing center keyboards.</p>
 
       <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200">
         <h4 className="text-xl font-bold mb-4">Practice for your exam</h4>
