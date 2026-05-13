@@ -291,7 +291,7 @@ const WPMCalculationPost = () => (
         <span className="text-slate-300">•</span>
         <span>4 Min Read</span>
       </div>
-      <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">How to Measure Your Typing Speed (WPM) Accurately</h1>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">Understanding WPM: How to Measure Your Typing Speed Accurately</h1>
       <div className="flex items-center gap-4 text-slate-500 text-sm">
         <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 font-bold">TP</div>
         <div>
