@@ -82,6 +82,22 @@ export const Contact: React.FC = () => (
       <p>
         Additionally, if there is a specific granular text metric, an advanced visual graph, an ergonomic training lesson structure, or a specialized competitive leaderboard you passionately wish we had, please let us know immediately! Many of our most incredibly popular advanced system features were originally directly inspired by dedicated early typists reaching out to our proactive contact desk with brilliant suggestions. We diligently listen to our community because you are the ones putting in the extreme keyboard hours. Send us a message today!
       </p>
+
+      <h3 className="text-xl font-bold text-slate-900 mt-8 mb-3">Frequently Asked Questions Before Contacting Us</h3>
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-semibold text-slate-800">1. How long does it take for my typing score to update on the leaderboard?</h4>
+          <p className="text-slate-600">Leaderboard scores are typically updated in real-time. However, if you experience a delay or a caching issue, please wait up to 15 minutes. If your high score still hasn't registered, submit a ticket above with your username and the exact time you completed the test.</p>
+        </div>
+        <div>
+          <h4 className="font-semibold text-slate-800">2. Will you be adding more regional languages like Marathi or Bengali?</h4>
+          <p className="text-slate-600">Yes! We are actively expanding our language support matrix. Hindi Typing is already fully operational. We plan to release advanced layouts for Marathi, Bengali, Tamil, and Telugu by the end of the year. If you are a native speaker and would like to volunteer to verify our custom keyboard layouts, we would be incredibly grateful—please mention 'Localization Volunteer' in your contact message.</p>
+        </div>
+        <div>
+          <h4 className="font-semibold text-slate-800">3. My typing test froze right in the middle of a paragraph. What happened?</h4>
+          <p className="text-slate-600">This is highly unusual but can occasionally happen due to brief network connectivity drops or browser extension interference (such as aggressive ad blockers or grammar checkers). We recommend completely disabling all grammar-checking extensions (like Grammarly) while taking our strict exam simulations, as they aggressively inject HTML into the text field and can severely disrupt the timer logic.</p>
+        </div>
+      </div>
     </section>
   </div>
 );

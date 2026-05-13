@@ -50,10 +50,6 @@ export default defineConfig(({ mode }) => {
             '/terms',
             '/sitemap'
           ],
-          exclude: [
-            '/google66d332494c486c98',
-            '/google66d332494c486c98.html'
-          ],
           robots: [
             {
               userAgent: '*',
