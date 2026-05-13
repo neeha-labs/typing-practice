@@ -16,7 +16,9 @@ const SitemapPage: React.FC = () => {
           <ul className="space-y-2 text-blue-600">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/typing-test">Typing Test</Link></li>
+            <li><Link to="/typing-speed-test">Typing Speed Test</Link></li>
             <li><Link to="/lessons">Lessons</Link></li>
+            <li><Link to="/practice">Practice Hub</Link></li>
             <li><Link to="/exam-mode">Exam Mode</Link></li>
             <li><Link to="/exam-mode">SSC Practice</Link></li>
             <li><Link to="/about">About</Link></li>
@@ -39,6 +41,7 @@ const SitemapPage: React.FC = () => {
             <li><Link to="/typing-test/120-second-typing-test">120 Second Typing Test</Link></li>
             <li><Link to="/tools">Tools</Link></li>
             <li><Link to="/tools/wpm-calculator">WPM Calculator</Link></li>
+            <li><Link to="/typing-accuracy-calculator">Accuracy Calculator</Link></li>
           </ul>
         </div>
       </div>

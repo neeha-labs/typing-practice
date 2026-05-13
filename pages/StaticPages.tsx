@@ -70,14 +70,17 @@ export const Contact: React.FC = () => (
     <section className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mt-12 text-left text-slate-700">
       <h2 className="text-2xl font-bold text-slate-900 mb-4">How Can We Assist You?</h2>
       <p className="mb-4">
-        Our support team is primarily dedicated to ensuring that your typing practice experience is flawless. If you encounter any issues regarding WPM calculation discrepancies, exam simulation glitches, or account data problems, please provide detailed context in your message. We aim to resolve all technical support tickets within 48 hours to ensure your study schedule remains uninterrupted.
+        Our support team is primarily dedicated to ensuring that your typing practice experience is utterly flawless. Whether you are a student utilizing our tools for standard daily practice or an exam candidate relying on our extremely precise SSC validation metrics, your success is our fundamental objective. If you encounter any technical issues regarding WPM calculation discrepancies, exam simulation visual glitches, login validation errors, or localized account data synchronization problems, please provide detailed context in your message above. We strongly advise you to include your browser version and operating system. We aim to thoroughly resolve all technical support tickets within 24 to 48 hours to ensure your study schedule remains uninterrupted and highly productive.
       </p>
       <p className="mb-4">
-        For users who are preparing for upcoming government exams and notice a difference between our interface and the official examination software, we highly encourage you to reach out! We actively update our styling, highlighting logic, and error-penalty formulas to precisely match regional specific typing boards. Your feedback helps us maintain the gold standard of free typing utilities.
+        For users who are actively preparing for upcoming strict government exams and somehow notice a subtle functionality difference between our interface and the official offline examination software, we absolutely and highly encourage you to reach out directly to us! We aggressively and continually update our site styling, word highlighting logic, backspace disablement parameters, and error-penalty mathematical formulas to precisely match all emerging regional-specific typing boards. Your invaluable feedback directly helps us continually maintain the absolute gold standard of free, accessible typing utilities for thousands of global users.
       </p>
-      <h3 className="text-xl font-bold text-slate-900 mb-3">Partnerships & Feature Ideas</h3>
+      <h3 className="text-xl font-bold text-slate-900 mb-3">Partnerships, Collaborations & Feature Ideas</h3>
+      <p className="mb-4">
+        If you run a professional coaching center, a highly trafficked educational publication, or a massive online e-learning platform, we are absolutely open to strategic partnerships. We have robustly and successfully customized our specialized typing tools for designated learning hubs in the past to significantly better serve their vast student bodies. We love connecting with educational leaders who share our profound passion for developing critical digital literacy skills globally.
+      </p>
       <p>
-        If you run a coaching center, an educational publication, or an e-learning platform, we are open to partnerships. We have previously customized our tools for specialized learning hubs to better serve their students. Additionally, if there is a specific metric, graph, or lesson structure you wish we had, let us know! Many of our most popular advanced features were directly inspired by typists reaching out to our contact desk.
+        Additionally, if there is a specific granular text metric, an advanced visual graph, an ergonomic training lesson structure, or a specialized competitive leaderboard you passionately wish we had, please let us know immediately! Many of our most incredibly popular advanced system features were originally directly inspired by dedicated early typists reaching out to our proactive contact desk with brilliant suggestions. We diligently listen to our community because you are the ones putting in the extreme keyboard hours. Send us a message today!
       </p>
     </section>
   </div>
