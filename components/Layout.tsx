@@ -312,7 +312,6 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">Tests & Exams</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><Link to="/typing-speed-test" className="hover:text-blue-600">Typing Speed Test</Link></li>
               <li><Link to="/typing-test/30-second-typing-test" className="hover:text-blue-600">30 Second Test</Link></li>
               <li><Link to="/typing-test/60-second-typing-test" className="hover:text-blue-600">60 Second Test</Link></li>
               <li><Link to="/typing-test/120-second-typing-test" className="hover:text-blue-600">120 Second Test</Link></li>
@@ -334,9 +333,8 @@ const Footer: React.FC = () => {
             <h4 className="font-semibold text-slate-900 mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-slate-500">
               <li><Link to="/lessons" className="hover:text-blue-600">Lessons</Link></li>
-              <li><Link to="/practice" className="hover:text-blue-600">Practice Hub</Link></li>
               <li><Link to="/wpm-calculator" className="hover:text-blue-600">WPM Calculator</Link></li>
-              <li><Link to="/typing-accuracy-calculator" className="hover:text-blue-600">Accuracy Calculator</Link></li>
+              <li><Link to="/tools/typing-accuracy-calculator" className="hover:text-blue-600">Accuracy Calculator</Link></li>
               <li><Link to="/blog" className="hover:text-blue-600">Typing Blog</Link></li>
               <li><Link to="/sitemap" className="hover:text-blue-600">Sitemap</Link></li>
             </ul>
