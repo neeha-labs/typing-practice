@@ -15,6 +15,8 @@ const Blog: React.FC<BlogProps> = ({ predefinedPostId }) => {
   if (postId === 'common-typing-mistakes') return <CommonMistakesPost />;
   if (postId === 'how-wpm-is-calculated') return <WPMCalculationPost />;
   if (postId === 'government-exam-typing-tips') return <ExamTipsPost />;
+  if (postId === 'ssc-chsl-typing-test-rules') return <SscChslTypingTestPost />;
+  if (postId === 'rrb-ntpc-typing-test-guide') return <RrbNtpcTypingTestPost />;
   if (postId === 'touch-typing-benefits-for-coders') return <CodersTypingPost />;
   if (postId === 'typing-ergonomics-guide') return <ErgonomicsPost />;
   if (postId === 'best-keyboards-for-typing') return <KeyboardsPost />;
@@ -63,6 +65,18 @@ const Blog: React.FC<BlogProps> = ({ predefinedPostId }) => {
             title: 'SSC CGL Typing Test Practice: Government Exams Guide',
             desc: 'Start your ssc cgl typing test practice today. Learn how to reach a 45 wpm typing speed consistently.',
             icon: '🏆'
+          },
+          {
+            id: 'ssc-chsl-typing-test-rules',
+            title: 'SSC CHSL Typing Test Rules & Penalty Formula',
+            desc: 'Understand half mistakes vs full mistakes, KDPH calculations, and exact success strategies for SSC CHSL.',
+            icon: '⚖️'
+          },
+          {
+            id: 'rrb-ntpc-typing-test-guide',
+            title: 'RRB NTPC Typing Test: Rules & Speed Requirements',
+            desc: 'Learn about the RRB NTPC typing skill test exact fonts, backspace rules, and KDPH logic to ensure you pass.',
+            icon: '🚆'
           },
           {
             id: 'touch-typing-benefits-for-coders',
@@ -636,6 +650,144 @@ const NumberPadPost = () => (
 );
 
 
+const SscChslTypingTestPost = () => (
+  <article className="py-12 px-4 max-w-3xl mx-auto">
+    <SEO 
+      title="SSC CHSL Typing Test Rules & Penalty Formula Explained" 
+      description="Prepare for the SSC CHSL typing test with exact rules on half vs full mistakes, KDPH speed calculations, and backspace usage to avoid penalties."
+      canonicalPath="/blog/ssc-chsl-typing-test-rules" 
+      ogType="article"
+    />
+    <div className="flex justify-between items-center mb-8">
+      <Link to="/blog" className="text-blue-600 hover:underline text-sm font-bold flex items-center gap-1">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        Back to Blog
+      </Link>
+      <Link to="/" className="text-slate-500 hover:text-blue-600 hover:underline text-sm font-bold">Home</Link>
+    </div>
+
+    <div className="mb-12">
+      <div className="flex items-center gap-2 mb-6">
+        <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-bold">Government Exams</span>
+        <span className="text-slate-300">•</span>
+        <span>6 Min Read</span>
+      </div>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">SSC CHSL Typing Test Rules & Penalty Formula</h1>
+      <div className="flex items-center gap-4 text-slate-500 text-sm">
+        <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold">TP</div>
+        <div>
+          <div className="font-bold text-slate-900">Typing Practice Editorial</div>
+          <div>Updated for 2026 Guidelines</div>
+        </div>
+      </div>
+    </div>
+
+    <div className="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-blue-600">
+      <p>Passing the <strong>SSC CHSL typing test</strong> requires more than just raw speed. It demands absolute precision, a deep understanding of the evaluation rules, and knowledge of how exact <strong>typing mistakes</strong> correspond to heavy penalties. Because the Staff Selection Commission (SSC) uses strict formulas (often referred to as full mistake and half mistake rules), even candidates with high WPM can fail if they lack accuracy.</p>
+
+      <h2>The Speed Requirement: KDPH Explained</h2>
+      <p>For SSC CHSL Data Entry Operator (DEO) roles, the speed requirement is often measured in <strong>Key Depressions Per Hour (KDPH)</strong>. A standard 8,000 KDPH translates roughly to 27 Words Per Minute (WPM), assuming an average of 5 characters per word (8000 / 60 mins / 5 chars = 26.6 WPM). Some advanced posts demand 15,000 KDPH (about 50 WPM). English typing tests generally require hitting a steady 35 WPM (10,500 KDPH).</p>
+
+      <h2>Full Mistakes vs. Half Mistakes</h2>
+      <p>The commission explicitly separates errors into two distinct categories. Knowing the difference between a full and half mistake can entirely change your practice focus.</p>
+      
+      <h3>Full Mistakes (100% Error Penalty)</h3>
+      <ul>
+        <li><strong>Omission:</strong> Failing to type a word from the passage entirely.</li>
+        <li><strong>Substitution:</strong> Typing a different word in place of the original text.</li>
+        <li><strong>Addition:</strong> Typing extra words that do not exist in the source text.</li>
+      </ul>
+
+      <h3>Half Mistakes (50% Error Penalty)</h3>
+      <ul>
+        <li><strong>Spacing Errors:</strong> Missing spaces between words or adding unnecessary spaces inside a word.</li>
+        <li><strong>Capitalization:</strong> Using lower case instead of upper case, or vice versa.</li>
+        <li><strong>Spelling Errors:</strong> Missing a single character within an otherwise correctly placed word.</li>
+      </ul>
+
+      <h2>The Backspace Rule</h2>
+      <p>One of the most frequent questions regarding the <strong>SSC CHSL typing skill test</strong> relates to the backspace key. Yes, the backspace key is universally <strong>enabled</strong> during the actual examination. However, constantly pressing backspace completely destroys your Net WPM. While you can delete errors, over-relying on it builds severe anxiety.</p>
+
+      <h2>Practical Strategy for Practice</h2>
+      <p>When preparing, set your target speed at least 15 WPM higher than the exam requirement. If the requirement is 35 WPM, ensure your home practice regularly hits 50 WPM with at least 95% accuracy. The sheer pressure of the exam hall—the loud clacking of hundreds of generic membrane keyboards—will easily drop your speed by 10 to 15 WPM. Stick to high-accuracy practice sessions, focusing entirely on avoiding <em>full mistakes</em>.</p>
+
+      <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200">
+        <h4 className="text-xl font-bold mb-4">Start your strict practice today</h4>
+        <p className="text-slate-600 mb-6">Use our exam-mode simulator to track exact KDPH and accuracy limits without distractions.</p>
+        <Link to="/typing-test" className="inline-block bg-red-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-red-700 transition-all">Launch Exam Practice</Link>
+      </div>
+    </div>
+    <RelatedPosts currentSlug="ssc-chsl-typing-test-rules" />
+  </article>
+);
+
+const RrbNtpcTypingTestPost = () => (
+  <article className="py-12 px-4 max-w-3xl mx-auto">
+    <SEO 
+      title="RRB NTPC Typing Test: Rules, Speed, and Font Requirements" 
+      description="Ensure your success in the RRB NTPC typing skill test. Learn exactly which fonts are used, backspace restrictions, and how KDPH is accurately measured."
+      canonicalPath="/blog/rrb-ntpc-typing-test-guide" 
+      ogType="article"
+    />
+    <div className="flex justify-between items-center mb-8">
+      <Link to="/blog" className="text-blue-600 hover:underline text-sm font-bold flex items-center gap-1">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        Back to Blog
+      </Link>
+      <Link to="/" className="text-slate-500 hover:text-blue-600 hover:underline text-sm font-bold">Home</Link>
+    </div>
+
+    <div className="mb-12">
+      <div className="flex items-center gap-2 mb-6">
+        <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-bold">Government Exams</span>
+        <span className="text-slate-300">•</span>
+        <span>5 Min Read</span>
+      </div>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">RRB NTPC Typing Skill Test: Comprehensive Rules</h1>
+      <div className="flex items-center gap-4 text-slate-500 text-sm">
+        <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold">TP</div>
+        <div>
+          <div className="font-bold text-slate-900">Typing Practice Editorial</div>
+          <div>Updated for 2026 Guidelines</div>
+        </div>
+      </div>
+    </div>
+
+    <div className="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-blue-600">
+      <p>The <strong>RRB NTPC Typing Skill Test</strong> (TST) stands as a critical checkpoint for positions like Senior Clerk Cum Typist, Junior Clerk Cum Typist, and Accounts Clerk. Unlike casual online typing apps, the Railway Recruitment Board implements a highly rigid testing environment. Knowing exactly what to expect ensures you won't panic when the timer starts.</p>
+
+      <h2>Minimum Speed Requirements</h2>
+      <p>The Railway Recruitment Board maintains very clear baseline metrics to qualify:</p>
+      <ul>
+        <li><strong>English Typing:</strong> A minimum of 30 Words Per Minute (WPM).</li>
+        <li><strong>Hindi Typing:</strong> A minimum of 25 Words Per Minute (WPM).</li>
+      </ul>
+      <p>All typing duration is strictly limited to 10 minutes without any extensions. You must hit these minimum limits cleanly, factoring in accuracy penalties.</p>
+
+      <h2>The "No Backspace" Rule</h2>
+      <p>Unlike banking exams or the SSC CGL typing test layout, the most daunting aspect of the RRB NTPC test is that <strong>the backspace key is frequently disabled</strong>. Editing tools, spell-check, and auto-correct are completely prohibited. Every keystroke is final. This fundamentally alters how you must practice—you can no longer rush typing and fix errors instantly. You must type deliberately.</p>
+
+      <h2>Formula for Calculating Final Speed</h2>
+      <p>The Railway formula factors mistakes heavily against your gross typing speed. It follows an industry-standard penalty mechanism:</p>
+      <div className="bg-slate-100 p-6 rounded-2xl my-6 border border-slate-200">
+        <code>Net Typing Speed = (Total Words Typed - (Mistakes * 10)) / Time Duration</code>
+      </div>
+      <p>Wait, multiplying mistakes by 10? Yes. Every single error literally subtracts 10 words from your total completed word count before the average is calculated. A highly accurate 35 WPM is immensely better than a sloppy 45 WPM.</p>
+
+      <h2>Hindi Typing Fonts</h2>
+      <p>For candidates selecting Hindi as their typing medium, taking the exam requires familiarity with specific font layouts. The exam usually explicitly supports either the <strong>Kruti Dev</strong> or <strong>Mangal</strong> font. Mangal font uses the Inscript keyboard layout. If you choose Hindi, your pre-exam setup MUST strictly mirror this layout precisely.</p>
+
+      <div className="mt-12 p-8 bg-slate-900 text-white rounded-3xl border border-slate-700">
+        <h4 className="text-xl font-bold mb-4">Master Accuracy Before Speed</h4>
+        <p className="text-slate-400 mb-6">Because RRB heavily punishes mistakes, use our platform to focus exclusively on 100% accuracy runs. Slow down, breathe, and hit every key perfectly.</p>
+        <Link to="/typing-test" className="inline-block bg-white text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-slate-200 transition-all">Begin Accuracy Training</Link>
+      </div>
+    </div>
+    <RelatedPosts currentSlug="rrb-ntpc-typing-test-guide" />
+  </article>
+);
+
+
 const allBlogPosts = [
   {
     slug: "how-to-improve-typing-speed",
@@ -656,6 +808,16 @@ const allBlogPosts = [
     slug: "government-exam-typing-tips",
     title: "SSC CGL Typing Test Practice: Government Exams Guide",
     description: "Start your ssc cgl typing test practice today. Learn how to consistently hit a 45 wpm typing speed."
+  },
+  {
+    slug: "ssc-chsl-typing-test-rules",
+    title: "SSC CHSL Typing Test Rules & Penalty Formula",
+    description: "Understand half mistakes vs full mistakes, KDPH calculations, and exact success strategies for SSC CHSL."
+  },
+  {
+    slug: "rrb-ntpc-typing-test-guide",
+    title: "RRB NTPC Typing Test: Rules & Speed Requirements",
+    description: "Learn about the RRB NTPC typing skill test exact fonts, backspace rules, and KDPH logic to ensure you pass."
   },
   {
     slug: "daily-typing-practice-routine",

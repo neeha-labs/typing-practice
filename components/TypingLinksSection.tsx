@@ -37,7 +37,7 @@ const TypingLinksSection: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredLinks.map((link) => (
           <Link
-            key={link.path}
+            key={link.text}
             to={link.path}
             className="flex items-center p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-500 hover:text-blue-600 hover:shadow-md transition-all group"
           >

@@ -277,9 +277,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-slate-200 mt-auto py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 gap-8">
+          <div className="max-w-md">
+            <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-md flex items-center justify-center bg-transparent">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="1" y="8" width="30" height="18" rx="5" fill="#1e293b" />
@@ -305,10 +305,16 @@ const Footer: React.FC = () => {
                 </span>
               </div>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+            <p className="text-slate-500 text-sm leading-relaxed">
               Empowering learners to master the art of touch typing with precision and speed for exams and productivity.
             </p>
           </div>
+          <div className="shrink-0 flex items-center justify-end">
+            <a href="https://www.producthunt.com/products/typing-practice-online?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-typing-practice-online" target="_blank" rel="noopener noreferrer"><img alt="Typing Practice Online - Free typing speed test and typing practice platform | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1143209&amp;theme=dark&amp;t=1778783755567" /></a>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">Tests & Exams</h4>
             <ul className="space-y-2 text-sm text-slate-500">
