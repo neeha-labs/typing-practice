@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
         react(),
         sitemap({
           hostname: 'https://typing-practice.online',
+          exclude: ['/google66d332494c486c98', '/google66d332494c486c98.html', '/index.html'],
           dynamicRoutes: [
-            '/',
             '/typing-test',
             '/typing-speed-test',
             '/lessons',
